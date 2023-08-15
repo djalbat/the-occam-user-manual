@@ -105,8 +105,8 @@ Both variants are available from the Occam website:
 Click on the 'I am not a robot' checkbox and download your preference.
 
 Installing the browser variant will be covered first.
-Simply unzip the downloaded zip file and move the directory a location of your choice.
-Your home directory is advised but it does not really matter as long as you have access to it from a terminal or command prompt.
+Simply unzip the downloaded zip file and move the unzipped 'Occam' directory to a location of your choice.
+Your home directory is advised but it does not really matter as long as you have access to the directory from a terminal or command prompt.
 Now open a terminal or command prompt, `cd` into the Occam directory and execute the following command:
 
 ```
@@ -121,12 +121,10 @@ You will be presented with the Occam IDE.
 Beyond bookmarking the URL there is nothing else to do.
 
 To install the desktop variant, again unzip the downloaded zip file and this time drag it into the Applications directory, which should be accessible from the finder.
-Now, most importantly, do not double click on the icon.
-Instead, right click on the icon and choose 'open'.
-Taking this route ensures that you have a chance to configure MacOS to open the iDE even though it is not from a trusted source.
-If you simply go ahead and double click on it, you will have to configure MacOS manually from the security preferences and this process is fiddlesome to say the least.
-One open, right click on the icon in the dock and choose the option to keep it there.
-The next time you open it you will not have to set the security preferences.
-
+Now, most importantly, do not double click on Occam the icon.
+Instead, right click on it and choose 'Open'.
+Doing this ensures that you have a chance to configure MacOS to execute the iDE even though it is not from a trusted source.
+If you simply go ahead and double click on the icon then you will have to configure MacOS manually and this process can be fiddlesome to say the least.
+Once the IDE is running, right click on the icon in the dock and choose the option to keep it there.
 
 
