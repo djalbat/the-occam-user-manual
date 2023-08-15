@@ -79,10 +79,24 @@ Installation should be straightforward and no further guidance is given here.
 Occam has its own IDE, or integrated development environment.
 In fact Occam's CLI tools are not integrated with it as of wrirting, and therefore it is really what could be described as just a glorified collaborative text editor.
 It has it uses as-is, however.
-It supports Occam's vernacular, called Florence, for example, and its aforementioned collaborative features are second to none.
-They are based on a algorithm that is partly formalised with Occam, in fact.
+It supports Occam's vernacular, called Florence, for example, and its collaborative features are second to none.
+They are based on an algorithm that is partly formalised in Occam, in fact.
 It will also expand Occam's packages in its projects pane so that you can effectively browse them as projects, and it has a useful index.
 All told it is worth the effort of downloading and installing it and will only improve with time.
+
+There are two variants available, for desktop and browser.
+The desktop variant currently only runs on MacOS and the browser variant is therefore provided for everyone else.
+It will also run on MacOS, of course.
+You must use Google Chrome or Chromium to run the browser version.
+Other browsers may work but they are not supported.
+If you really have an issue with Chrome then download and install Chromium which although still Google's, at least has the virtue of being open source:
+
+[https://www.chromium.org/Home/](https://www.chromium.org/Home/)
+
+It is worth pointing out right away that there is effectively no difference between the two variants and you are not therefore missing out if you cannot install the desktop version.
+They genuinely are the exact same application, albeit packaged in two different ways.
+The desktop verion is in fact simply a browser, namely the aforementioned Chromium browser, configured in such as way as to hide the usual browser functionality and show only the embedded application.
+If you get the chance then you can run the two side by side and will be able to see that they are identical
 
 
 
