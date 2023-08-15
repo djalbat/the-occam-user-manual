@@ -127,4 +127,12 @@ Doing this ensures that you have a chance to configure MacOS to execute the iDE 
 If you simply go ahead and double click on the icon then you will have to configure MacOS manually and this process can be fiddlesome to say the least.
 Once the IDE is running, right click on the icon in the dock and choose the option to keep it there.
 
+# Installing the CLI tools
 
+CLI stands for command line interface and CLI tools are ones that do not have a GUI, instead running directly from a terminal or command prompt.
+Occam has two, namely a package manager, modelled largely on NOde's `npm` and called `open`; and a verifier.
+Installing them both is simple although there are caveats with the `open` tool.
+
+One thing to bear in mind is that if you are using a unixy operating system, and this includes MacOS, then you may need to prepend `sudo` to the commands that follow.
+The reasons for this are that the tools are installed globally and the default directory for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
+Prepending `sudo` to the install commands therefore ensures that the installation can go ahead desptie this.
