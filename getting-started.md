@@ -17,7 +17,9 @@ Allied with continued improvements to JavaScript itself, most notably the ES6 an
 This was especially evidient in, but by no means restricted to, Internet appcliations.
 Both JavaScript and Node continue to evolve and although both have their detractors, it is safe to say that they will be with us, and in a healthy state, for the foreseeable future.
 
-It goes without saying then that in order to use Occam you will need to have Node installed on your local machine.
+## Prerequisite
+
+It almost goes without saying then that in order to use Occam you will need to have Node installed on your local machine.
 In fact, the chances are that it is already installed.
 To check this, run the following command in a terminal or command prompt:
 
@@ -49,23 +51,29 @@ npm --version
 
 If you have a relatively recent version of Node installed then the version of `npm` will also be recent enough.
 
-The only other software that needs to be installed in order to use Occam is Git.
+The only other prerequisite is Git.
 Git is version control software and was invented by Linus Torvalds, of Linux fame.
-It revolutionised version control and indeed developer and team workflows and thereby productivity immediately upon release and has become ubiquitious since.
-Alongside Git came the GitHub website that enabled developers to share their code with the wider community and, as an aside, along with Markdown could be said to have reinvgurated readme files.
+It revolutionised version control almost instantly upon its release and, as a consequence, revolutiionised developer and team workflows and thereby productivity, too.
+Alongside Git came the GitHub website.
+GitHub enabled developers to share their code with the wider community and, as an aside, along with Markdown it reinvgurated readme files, too.
 If they were ever vigorous in the first place, that is.
 You can at a pinch get away without installing Git, at least initially, but if you are going to do any serious work with Occam then you will need it.
-Occams own package manager leverages Git, for example, and the Open Mathematics site allows for GitHub integration.
+Occam's own package manager leverages Git, for example, and the Open Mathematics site allows for GitHub integration.
 
+Git may well already be installed on your system.
+In order to check, run the following command:
 
+```
+git --version
+```
 
+Any version will do since Git has been remarkably stable since its initial release.
+If you do not have Git installed or want the latest version, go to the Git website:
 
+[https://git-scm.com/](https://git-scm.com/)
 
+Installation should be straightforward and no further guidance is given here.
 
-
-
-
-
-
+## Installing the IDE
 
 
