@@ -93,7 +93,7 @@ If you really have an issue with Chrome then download and install Chromium which
 
 [https://www.chromium.org/Home/](https://www.chromium.org/Home/)
 
-It is worth pointing out right away that there is effectively no difference between the two variants and you are not missing out if you cannot install the desktop version.
+It is worth pointing out that there is effectively no difference between the two variants and you are not missing out if you cannot install the desktop version.
 They genuinely are the exact same application, albeit packaged in two different ways.
 The desktop verion is in fact simply the aforementioned Chromium browser configured so as to hide the usual browser functionality and present only the embedded application.
 If you get the chance then you can run the two side by side and will be able to see for yourself that they are identical.
@@ -102,5 +102,33 @@ Both variants are available from the Occam website:
 
 [https://occam.science](https://occam.science)
 
-Just click on the 'I am not a robot checkbox' and download your preference.
+Click on the 'I am not a robot' checkbox and download your preference.
+
+Installing the browser variant will be covered first.
+Simply unzip the downloaded zip file and move the directory a location of your choice.
+Your home directory is advised but it does not really matter as long as you have access to it from a terminal or command prompt.
+Now open a terminal or command prompt, `cd` into the Occam directory and execute the following command:
+
+```
+npm start
+```
+
+Lastly, open a browser with the following URL:
+
+```
+[http://localhost:8888](http://localhost:8888)
+```
+
+You will be presented with the Occam IDE.
+Beyond bookmarking the URL there is nothing else to do.
+
+To install the desktop variant, again unzip the downloaded zip file and this time drag it into the Applications directory, which should be accessible from the finder.
+Now, most importantly, do not double click on the icon.
+Instead, right click on the icon and choose 'open'.
+Taking this route ensures that you have a chance to configure MacOS to open the iDE even though it is not from a trusted source.
+If you simply go ahead and double click on it, you will have to configure MacOS manually from the security preferences and this process is fiddlesome to say the least.
+One open, right click on the icon in the dock and choose the option to keep it there.
+The next time you open it you will not have to set the security preferences.
+
+
 
