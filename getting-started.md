@@ -127,20 +127,20 @@ Doing this ensures that you have a chance to configure MacOS to execute the iDE 
 If you simply go ahead and double click on the icon then you will have to configure MacOS manually and this process can be fiddlesome to say the least.
 Once the IDE is running, right click on the icon in the dock and choose the option to keep it there.
 
-# Installing the CLI tools
+## Installing the CLI tools
 
 CLI stands for command line interface and CLI tools are the ones that do not have a GUI, instead running directly from in terminal or command prompt.
 Occam has two, namely a package manager modelled largely on Node's `npm` package manager and called `open`; and a verifier called simply `verify`.
 Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
 The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
-The reason for this are that the tools are installed globally and the default directory for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
-Prepending `sudo` to the install commands therefore ensures that the installation can go ahead desptie this.
-There is an argument that says that you should not use such a location and instructions can be found on the Internet to configure `npm` to use another.
-But, in all honest, if you trust the package then it is not worth the bother.
+The reason for this are that the tools are installed globally and the locally for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
+Prepending `sudo` to the install commands therefore ensures that the installation can go ahead.
+There is an argument that says that you should not use such a location and instructions can be found on the Internet to configure `npm` to use others.
+However, in all honesty, if you trust the package in question then it is not worth the bother.
 It is far easier to just prepend `sudo` and have done with it.
 
-Moving on, to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as you see fit:
+Moving on, to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as necessary:
 
 ```
 sudo npm install --global occam-open-cli@latest
@@ -152,6 +152,31 @@ Similarly for the verifier:
 sudo npm install --global occam-verify-cli@latest
 ```
 
+You can immediately check that the verifier is installed by running the following command:
 
+```
+verify --version
+```
+
+You should see something like this:
+
+```
+Occam Verify CLI version 0.0.645
+```
+
+You can also try the `open` package manager with the following command:
+
+```
+open --version
+```
+
+And you may, if you are fortunate, see something like this:
+
+```
+Occam Open CLI version 6.0.9
+```
+
+If you do then you can safely skip to the next section.
+Otherwise the second caveat applies to you and you will have to read on.
 
 
