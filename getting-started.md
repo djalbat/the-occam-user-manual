@@ -129,10 +129,29 @@ Once the IDE is running, right click on the icon in the dock and choose the opti
 
 # Installing the CLI tools
 
-CLI stands for command line interface and CLI tools are ones that do not have a GUI, instead running directly from a terminal or command prompt.
-Occam has two, namely a package manager, modelled largely on NOde's `npm` and called `open`; and a verifier.
-Installing them both is simple although there are caveats with the `open` tool.
+CLI stands for command line interface and CLI tools are the ones that do not have a GUI, instead running directly from in terminal or command prompt.
+Occam has two, namely a package manager modelled largely on Node's `npm` package manager and called `open`; and a verifier called simply `verify`.
+Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
-One thing to bear in mind is that if you are using a unixy operating system, and this includes MacOS, then you may need to prepend `sudo` to the commands that follow.
-The reasons for this are that the tools are installed globally and the default directory for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
+The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
+The reason for this are that the tools are installed globally and the default directory for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
 Prepending `sudo` to the install commands therefore ensures that the installation can go ahead desptie this.
+There is an argument that says that you should not use such a location and instructions can be found on the Internet to configure `npm` to use another.
+But, in all honest, if you trust the package then it is not worth the bother.
+It is far easier to just prepend `sudo` and have done with it.
+
+Moving on, to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as you see fit:
+
+```
+sudo npm install --global occam-open-cli@latest
+```
+
+Similarly for the verifier:
+
+```
+sudo npm install --global occam-verify-cli@latest
+```
+
+
+
+
