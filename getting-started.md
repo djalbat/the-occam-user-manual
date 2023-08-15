@@ -35,10 +35,27 @@ v18.16.1
 Any major version of Node will do to run Occam, down to major version 12.
 If the version that you have installed is older than this, or if you just want to install the latest version, to to the Node site here:
 
-[Node.js](https://nodejs.org/)
+[https://nodejs.org/](https://nodejs.org/)
 
 Follow the instructions for your operating system.
 Node should be easy to install and no futher guideance is given here.
+
+Installing Node will also install Node's package manager, called `npm`.
+Again you can easily check that it is installed with the following command:
+
+```
+npm --version
+```
+
+If you have a relatively recent version of Node installed then the version of `npm` will also be recent enough.
+
+The only other software that needs to be installed in order to use Occam is Git.
+Git is version control software and was invented by Linus Torvalds, of Linux fame.
+It revolutionised version control and indeed developer and team workflows and thereby productivity immediately upon release and has become ubiquitious since.
+Alongside Git came the GitHub website that enabled developers to share their code with the wider community and, as an aside, along with Markdown could be said to have reinvgurated readme files.
+If they were ever vigorous in the first place, that is.
+You can at a pinch get away without installing Git, at least initially, but if you are going to do any serious work with Occam then you will need it.
+Occams own package manager leverages Git, for example, and the Open Mathematics site allows for GitHub integration.
 
 
 
