@@ -115,9 +115,7 @@ npm start
 
 Lastly, open a browser with the following URL:
 
-```
 [http://localhost:8888](http://localhost:8888)
-```
 
 You will be presented with the Occam IDE.
 Beyond bookmarking the URL there is nothing else to do.
