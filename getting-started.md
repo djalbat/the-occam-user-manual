@@ -17,7 +17,7 @@ Allied with continued improvements to JavaScript itself, most notably the ES6 an
 This was especially evidient in, but by no means restricted to, Internet appcliations.
 Both JavaScript and Node continue to evolve and although both have their detractors, it is safe to say that they will be with us, and in a healthy state, for the foreseeable future.
 
-## Prerequisite
+## Prerequisites
 
 It almost goes without saying then that in order to use Occam you will need to have Node installed on your local machine.
 In fact, the chances are that it is already installed.
@@ -75,5 +75,14 @@ If you do not have Git installed or want the latest version, go to the Git websi
 Installation should be straightforward and no further guidance is given here.
 
 ## Installing the IDE
+
+Occam has its own IDE, or integrated development environment.
+In fact Occam's CLI tools are not integrated with it as of wrirting, and therefore it is really what could be described as just a glorified collaborative text editor.
+It has it uses as-is, however.
+It supports Occam's vernacular, called Florence, for example, and its aforementioned collaborative features are second to none.
+They are based on a algorithm that is partly formalised with Occam, in fact.
+It will also expand Occam's packages in its projects pane so that you can effectively browse them as projects, and it has a useful index.
+All told it is worth the effort of downloading and installing it and will only improve with time.
+
 
 
