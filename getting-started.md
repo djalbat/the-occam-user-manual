@@ -89,14 +89,18 @@ The desktop variant currently only runs on MacOS and the browser variant is ther
 It will also run on MacOS, of course.
 You must use Google Chrome or Chromium to run the browser version.
 Other browsers may work but they are not supported.
-If you really have an issue with Chrome then download and install Chromium which although still Google's, at least has the virtue of being open source:
+If you really have an issue with Chrome then download and install Chromium which, although still Google's, does at least has the virtue of being open source:
 
 [https://www.chromium.org/Home/](https://www.chromium.org/Home/)
 
-It is worth pointing out right away that there is effectively no difference between the two variants and you are not therefore missing out if you cannot install the desktop version.
+It is worth pointing out right away that there is effectively no difference between the two variants and you are not missing out if you cannot install the desktop version.
 They genuinely are the exact same application, albeit packaged in two different ways.
-The desktop verion is in fact simply a browser, namely the aforementioned Chromium browser, configured in such as way as to hide the usual browser functionality and show only the embedded application.
-If you get the chance then you can run the two side by side and will be able to see that they are identical
+The desktop verion is in fact simply the aforementioned Chromium browser configured so as to hide the usual browser functionality and present only the embedded application.
+If you get the chance then you can run the two side by side and will be able to see for yourself that they are identical.
 
+Both variants are available from the Occam website:
 
+[https://occam.science](https://occam.science)
+
+Just click on the 'I am not a robot checkbox' and download your preference.
 
