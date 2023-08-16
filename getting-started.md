@@ -254,3 +254,6 @@ pwd
 Make a note of this path and run the IDE.
 Near to the top left you will see a projects input field.
 Type the path in here and hit return or click on the refresh button immediately to the right.
+
+<img src="https://github.com/djalbat/the-occam-user-manual/blob/master/assets/tiling_example.png" width="480" height="auto">
+
