@@ -129,18 +129,18 @@ Once the IDE is running, right click on the icon in the dock and choose the opti
 
 ## Installing the CLI tools
 
-CLI stands for command line interface and CLI tools are the ones that do not have a GUI, instead running directly from in terminal or command prompt.
+CLI stands for command line interface and CLI tools are the ones that do not have a GUI, instead running directly inside a terminal or command prompt.
 Occam has two, namely a package manager modelled largely on Node's `npm` package manager and called `open`; and a verifier called simply `verify`.
 Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
 The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
-The reason for this are that the tools are installed globally and the locally for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
+The reason for this is that the tools are installed globally and the directory for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
 Prepending `sudo` to the install commands therefore ensures that the installation can go ahead.
-There is an argument that says that you should not use such a location and instructions can be found on the Internet to configure `npm` to use others.
+There is an argument that says that you should not use such a directory and instructions can be found on the Internet to configure `npm` to use others.
 However, in all honesty, if you trust the package in question then it is not worth the bother.
 It is far easier to just prepend `sudo` and have done with it.
 
-Moving on, to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as necessary:
+Moving on, in order to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as necessary:
 
 ```
 sudo npm install --global occam-open-cli@latest
@@ -178,5 +178,12 @@ Occam Open CLI version 6.0.9
 
 If you do then you can safely skip to the next section.
 Otherwise the second caveat applies to you and you will have to read on.
+
+An error occurs when there is, to put it simply, another application called `open` on the system that takes precedence.
+A way around the problem, therefore, is to create a symbolic link to the `open` package manager that ensures it takes precedence instead.
+This effectively renders the other application useless, however in practice this is not an issue.
+It is, however, worthwhile to just mention what kinds of applications are likely to be pushed into the background, so to speak, by such a measure.
+
+
 
 
