@@ -188,7 +188,7 @@ For example, you could open a PDF file with the system's default PUF viewer.
 On other unixy systems the `open` application is likely to be a legacy graphics utility.
 In either case pushing it aside will do no lasting harm.
 
-To continue, in order to create a symbolic link you first need to know the path to the npm global installation directory.
+To continue, in order to create a symbolic link you first need to know the fully qualified path to the npm global installation directory.
 This is easily recovered as the first line of the output from the following command:
 
 ```
@@ -199,7 +199,7 @@ Once you have the directory to hand, you need to add an alias to your terminal o
 Exactly what this file is dependes on your system.
 On MacOS it will be either the `.bashrc` or `.bash_profile` file in your home directory.
 If you are not using MacOS then hopefully you will have enough knowledge of your system to know which file to edit.
-Moving swiftly on, assuming that the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal or command prompt configuration file:
+Moving swiftly on, assuming that the fully qualified path of the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal or command prompt configuration file:
 
 ```
 alias open='/usr/local/lib/node_modules/occam-open-cli/open.js'
@@ -210,3 +210,47 @@ Save the file and if you open a new terminal or command prompt then the `open` p
 
 With hindsight perhaps `open` was not the best name to choose for Occam's package manager.
 Hopefully the above workaround has not caused too many difficulties.
+
+## Opening and viewing packages and projects
+
+With the IDE and `open` package manager to hand you are ready to start looking at some Occam packages and projects.
+To begin with, create a dedeicated directory.
+You can call it what you will but for the sake of an example it will be called 'Projects' here.
+By the way, projects and packages tend to sit side by side in the same diretory with Occam.
+When you have created the directory, open a terminal or command prompt and `cd` into it:
+
+```
+cd Projects
+```
+
+Then initialise the `open` package manager with the following command:
+
+```
+open initialise
+```
+
+This creates a hidden configuration file which under normal circumstances you should not need to touch.
+
+Next, download some packages with the following command:
+
+```
+open material-conditional
+```
+
+Several packages will be opened, in fact, the last of which will be the `material-conditional` package.
+Next, you need to find out the fully qualified path of the projects directory.
+On Winodws systems the following command will return it:
+
+```
+cd
+```
+
+On unixy systems, includimg MacOS, the following command, which stnads for present working dfirectory, will do:
+
+```
+pwd
+```
+
+Make a note of this path and run the IDE.
+Near to the top left you will see a projects input field.
+Type the path in here and hit return or click on the refresh button immediately to the right.
