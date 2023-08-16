@@ -314,7 +314,7 @@ INFO: Verified the 'peano-axioms/theorems.fls' file.
 INFO: Verified  'peano-axioms'.
 ```
 
-If you would like to see the last one hundred lines, run the following command:
+If you would like to see the last one hundred lines of output, run the following command:
 
 ```
 verify --tail=100 peano-axioms
@@ -326,8 +326,8 @@ Lastly, if you would like to follow the output as the verifier does its work, ru
 verify --follow peano-axioms
 ```
 
-There will be quite a lot of lines in this case because the verifier has to verify not just the `peano-axioms` project but all the projects it depends on.
-To bring this chapter to a close, therefore, remove all but the `peano-axioms` project and open the dependencies as packages rather than projects.
+There will be several hundred lines of output in this case because the verifier has to verify not just the `peano-axioms` project but all the projects it depends on.
+To bring this chapter to a close, therefore, remove all but the `peano-axioms` project and open its dependencies as packages rather than projects.
 Afterwards, when you verify the `peano-axioms` project the verifier will work much more quickly.
 
 
