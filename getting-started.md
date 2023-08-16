@@ -245,7 +245,7 @@ On Winodws use the following command:
 cd
 ```
 
-On unixy systems includimg MacOS the following command, which stnads for present working dfirectory, will do:
+On unixy systems includimg MacOS the following command, which stands for present working dfirectory, will do:
 
 ```
 pwd
@@ -258,13 +258,13 @@ You will see the packages appear in the projects pane on the left, thus:
 
 <img src="https://github.com/djalbat/the-occam-user-manual/blob/main/assets/packages.png" width="720" height="auto">
 
-Note the small padlocks in the folder icons, which tell you that these are packages and not project directories.
+Note the small padlocks on the folder icons, which tell you that these are packages and not project directories.
 It is perhaps not worth going into too much detail in this chapter about what the various files and directories mean, but do at least take a few moments to click around, so to speak.
 One thing you will notice is that all of the files are read only.
-This is to be expected given that these are packages, not projects.
+This is to be expected given that these are packages and not projects.
 
 Before opening any projects, delete the existing packages.
-From within the projects directory run the following command if you are on Windows...
+In order to do so, from within the projects directory run the following command if you are on Windows...
 
 ```
 del /S *
@@ -276,5 +276,45 @@ del /S *
 rm -rf *
 ```
 
-You can double check that all of the packages have been removed by returning to the IDE and clicking the refresh button to the right of the projects path input, by the way.
+Double check that all of the packages have been removed by returning to the IDE and clicking the refresh button to the right of the projects path input, by the way.
+
+Now run the following command in the projects directory:
+
+```
+open clone peano-axioms
+```
+
+This time you will be prompted to clone all of the depdencies.
+Type 'y' and hit return.
+This time `open` has cloned the underlying projects for the packages rather than just downloading the packages themselves, leveraging Git to do this.
+Return to the IDE and click the refresh button again.
+You will see the newly created project directories, without padlocks this time.
+You will also note that all of the files are editable.
+
+Lastly, have a go at verifying the `peano-axioms` project.
+Because it has already been published and because you have downloaded all of the dependencies as well as the project itself, it should verify without a hitch.
+To check this, run the following command:
+
+```
+verify peano-axioms
+```
+
+If all goes well then you should see the last ten lines of the output, something like this:
+
+```
+INFO: peano-axioms/theorems.fls (91) - Verified the 'successor(n) = zero' supposition.
+INFO: peano-axioms/theorems.fls (93) - Verified the 'zero = successor(n)' statement as an equality.
+INFO: peano-axioms/theorems.fls (93) - Verified the 'zero = successor(n)' unqualified statement.
+INFO: peano-axioms/theorems.fls (95) - Verified the 'zero:NonZeroNaturalNumber' qualified statement.
+INFO: peano-axioms/theorems.fls (96) - Verified the '(successor(n) = zero) ⇒ zero:NonZeroNaturalNumber' qualified statement.
+INFO: peano-axioms/theorems.fls (97) - Verified the '¬(zero:NonZeroNaturalNumber)' qualified statement.
+INFO: peano-axioms/theorems.fls (99) - Verified the '¬(successor(n) = zero)' qualified statement.
+INFO: peano-axioms/theorems.fls (82-99) - Verified the 'P8' theorem.
+INFO: Verified the 'peano-axioms/theorems.fls' file.
+INFO: Verified  'peano-axioms'.
+```
+
+
+
+
 
