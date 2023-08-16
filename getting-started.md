@@ -177,7 +177,7 @@ Occam Open CLI version 6.0.9
 ```
 
 If you do then you can safely skip to the next section.
-Otherwise the second caveat applies to you and you will have to read on.
+Otherwise if you see and error then the second caveat applies to you and you will have to read on.
 
 An error occurs when there is, to put it simply, another application called `open` on the system that takes precedence.
 A way around the problem, therefore, is to create a symbolic link to the `open` package manager that ensures it takes precedence instead.
