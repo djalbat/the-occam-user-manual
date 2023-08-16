@@ -134,7 +134,7 @@ Occam has two, namely a package manager modelled largely on Node's `npm` package
 Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
 The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
-The reason for this is that the tools are installed globally and the directory for globally installed `npm` packages, whcih is what both of these tools are, is restricted.
+The reason for this is that the tools are installed globally and the directory for globally installed npm packages, whcih is what both of these tools are, is restricted.
 Prepending `sudo` to the install commands therefore ensures that the installation can go ahead.
 There is an argument that says that you should not use such a directory and instructions can be found on the Internet to configure `npm` to use others.
 However, in all honesty, if you trust the package in question then it is not worth the bother.
@@ -179,11 +179,31 @@ Occam Open CLI version 6.0.9
 If you do then you can safely skip to the next section.
 Otherwise if you see and error then the second caveat applies to you and you will have to read on.
 
-An error occurs when there is, to put it simply, another application called `open` on the system that takes precedence.
-A way around the problem, therefore, is to create a symbolic link to the `open` package manager that ensures it takes precedence instead.
-This effectively renders the other application useless, however in practice this is not an issue.
-It is, however, worthwhile to just mention what kinds of applications are likely to be pushed into the background, so to speak, by such a measure.
+Put simply, an error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just globally installed.
+A way around the problem, therefore, is to create a symbolic link to the `open` npm package that ensures it takes precedence instead.
+This effectively renders the other application useless, however in practice this is rarely an issue.
+It is, however, worth just mentioning what kinds of applications are likely to be pushed aside, so to speak, by such a measure.
+In the case of MacOS the `open` program can be used to open files with their registered applications.
+For example, you could open a PDF file with the system's PUF viewer.
+In other unixy systems the `open` application is likely to be a legacy graphics utility.
+In either case, rendering it useless will do no real harm.
 
+To continue, in order to create a symbolic link you first need to know the path to the npm global installation directory.
+This is easily recovered as the first line of the output from the following command:
 
+```
+npm list --global
+```
 
+Once you have the directory to hand, you need to add an alias to your terminal or command promopt's configuration file.
+Quite what this file is dependes on your setup.
+On MacOS it will be either the `.bashrc` or `.bash_profile` file in your home directory.
+If you are not using MacOS then hopefully you will have enough knowledge of your system to know which file to edit.
+Moving swiftly on, assuming that the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal or command prompt configuration file:
 
+```
+alias open='/usr/local/lib/node_modules/occam-open-cli/open.js'
+```
+
+Obviously adjust this to match your own npm global installation directory.
+Save the file and if you open a new terminal or command prompt then the `open` package manager should now be ready to use.
