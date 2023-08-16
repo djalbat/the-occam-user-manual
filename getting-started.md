@@ -179,14 +179,14 @@ Occam Open CLI version 6.0.9
 If you do then you can safely skip to the next section.
 Otherwise if you see and error then the second caveat applies to you and you will have to read on.
 
-Put simply, an error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just globally installed.
-A way around the problem, therefore, is to create a symbolic link to the `open` npm package that ensures it takes precedence instead.
+Put simply, an error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just installed globally.
+One workaround, therefore, is to create a symbolic link to the `open` npm package that ensures it takes precedence instead.
 This effectively renders the other application useless, however in practice this is rarely an issue.
-It is, however, worth just mentioning what kinds of applications are likely to be pushed aside, so to speak, by such a measure.
+It is, however, worth just mentioning what kinds of applications are likely to be pushed aside, so to speak, by this workaround.
 In the case of MacOS the `open` program can be used to open files with their registered applications.
 For example, you could open a PDF file with the system's PUF viewer.
-In other unixy systems the `open` application is likely to be a legacy graphics utility.
-In either case, rendering it useless will do no real harm.
+On other unixy systems the `open` application is likely to be a legacy graphics utility.
+In either case, rendering it useless will do no lasting harm.
 
 To continue, in order to create a symbolic link you first need to know the path to the npm global installation directory.
 This is easily recovered as the first line of the output from the following command:
@@ -207,3 +207,6 @@ alias open='/usr/local/lib/node_modules/occam-open-cli/open.js'
 
 Obviously adjust this to match your own npm global installation directory.
 Save the file and if you open a new terminal or command prompt then the `open` package manager should now be ready to use.
+
+With hindsight perhaps `open` was not the best name to choose for Occam's package manager.
+Hopefully the above workaround has not caused too many difficulties.
