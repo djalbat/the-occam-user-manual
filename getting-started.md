@@ -211,7 +211,7 @@ Save the file and if you open a new terminal or command prompt then the `open` p
 With hindsight perhaps `open` was not the best name to choose for Occam's package manager.
 Hopefully the above workaround has not caused too many difficulties.
 
-## Opening and viewing packages and projects
+## Opening, viewing and verifying packages and projects
 
 With the IDE and `open` package manager to hand you are ready to start looking at some Occam packages and projects.
 To begin with, create a projects directory.
@@ -314,7 +314,21 @@ INFO: Verified the 'peano-axioms/theorems.fls' file.
 INFO: Verified  'peano-axioms'.
 ```
 
+If you would like to see the last one hundred lines, run the following command:
 
+```
+verify --tail=100 peano-axioms
+```
+
+Lastly, if you would like to follow the output as the verifier does its work, run the following command:
+
+```
+verify --follow peano-axioms
+```
+
+There will be quite a lot of lines in this case because the verifier has to verify not just the `peano-axioms` project but all the projects it depends on.
+To bring this chapter to a close, therefore, remove all but the `peano-axioms` project and open the dependencies as packages rather than projects.
+Afterwards, when you verify the `peano-axioms` project the verifier will work much more quickly.
 
 
 
