@@ -184,9 +184,9 @@ One workaround, therefore, is to create a symbolic link to the `open` npm packag
 This effectively renders the other application useless, however in practice this is rarely an issue.
 It is, however, worth just mentioning what kinds of applications are likely to be pushed aside, so to speak, by this workaround.
 In the case of MacOS the `open` program can be used to open files with their registered applications.
-For example, you could open a PDF file with the system's PUF viewer.
+For example, you could open a PDF file with the system's default PUF viewer.
 On other unixy systems the `open` application is likely to be a legacy graphics utility.
-In either case, rendering it useless will do no lasting harm.
+In either case pushing it aside will do no lasting harm.
 
 To continue, in order to create a symbolic link you first need to know the path to the npm global installation directory.
 This is easily recovered as the first line of the output from the following command:
@@ -196,7 +196,7 @@ npm list --global
 ```
 
 Once you have the directory to hand, you need to add an alias to your terminal or command promopt's configuration file.
-Quite what this file is dependes on your setup.
+Exactly what this file is dependes on your system.
 On MacOS it will be either the `.bashrc` or `.bash_profile` file in your home directory.
 If you are not using MacOS then hopefully you will have enough knowledge of your system to know which file to edit.
 Moving swiftly on, assuming that the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal or command prompt configuration file:
