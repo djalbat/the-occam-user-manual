@@ -214,10 +214,10 @@ Hopefully the above workaround has not caused too many difficulties.
 ## Opening and viewing packages and projects
 
 With the IDE and `open` package manager to hand you are ready to start looking at some Occam packages and projects.
-To begin with, create a dedeicated directory.
-You can call it what you will but for the sake of an example it will be called 'Projects' here.
+To begin with, create a projects directory.
+You can call it what you will but here it will be called 'Projects'.
 By the way, projects and packages tend to sit side by side in the same diretory with Occam.
-When you have created the directory, open a terminal or command prompt and `cd` into it:
+To continue, when you have created the projects directory, open a terminal or command prompt and `cd` into it:
 
 ```
 cd Projects
@@ -231,7 +231,7 @@ open initialise
 
 This creates a hidden configuration file which under normal circumstances you should not need to touch.
 
-Next, download some packages with the following command:
+Next, open some packages with the following command:
 
 ```
 open material-conditional
@@ -239,21 +239,22 @@ open material-conditional
 
 Several packages will be opened, in fact, the last of which will be the `material-conditional` package.
 Next, you need to find out the fully qualified path of the projects directory.
-On Winodws systems the following command will return it:
+On Winodws use the following command:
 
 ```
 cd
 ```
 
-On unixy systems, includimg MacOS, the following command, which stnads for present working dfirectory, will do:
+On unixy systems includimg MacOS the following command, which stnads for present working dfirectory, will do:
 
 ```
 pwd
 ```
 
-Make a note of this path and run the IDE.
+Make a note of the fully qualified path and launch the IDE.
 Near to the top left you will see a projects input field.
-Type the path in here and hit return or click on the refresh button immediately to the right.
+Type in the fully qualified path of the projects directory and hit return or click on the refresh button immediately to the right.
+You will see the packages appear in the projects pane on the left, thus:
 
 <img src="https://github.com/djalbat/the-occam-user-manual/blob/main/assets/packages.png" width="720" height="auto">
 
