@@ -238,14 +238,7 @@ open material-conditional
 ```
 
 Several packages will be opened, in fact, the last of which will be the `material-conditional` package.
-Next, you need to find out the fully qualified path of the projects directory.
-On Winodws use the following command:
-
-```
-cd
-```
-
-On unixy systems includimg MacOS the following command, which stands for present working dfirectory, will do:
+Next, in order to find out the fully qualified path of the projects directory use the following command, which stands for present working dfirectory:
 
 ```
 pwd
