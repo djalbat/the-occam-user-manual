@@ -1,7 +1,7 @@
 # Getting started
 
-Occam comprises several applications, sites and services, the installation instructions and further documentation for which are spread across several sites, readme files, etc.
-This chapter aims to bring all this information into one place, therefore.
+Occam comprises divers sites, services and applications, the documentation for which is somewhat disparate.
+This chapter aims to bring it all into one place, therefore.
 It is a one stop shop for getting started with Occam, so to speak.
 It also provices some background on the tools and technologies behind Occam, for the curious.
 
