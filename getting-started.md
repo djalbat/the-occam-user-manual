@@ -34,7 +34,7 @@ v18.16.1
 
 ...then you are in good shape and need do nothing more.
 Any major version of Node will do to run Occam, down to major version 12.
-If the version that you have installed is older than this or if you just want to install the latest version then go to the Node site here...
+If the version that you have installed is older than that or if you just want to install the latest version then go to the Node site here...
 
 [https://nodejs.org/](https://nodejs.org/)
 
@@ -74,11 +74,11 @@ Installation should be straightforward and no further guidance is given here.
 ## Installing the IDE
 
 Occam has its own IDE, or integrated development environment.
-In fact Occam's CLI tools are not integrated with it as of wrirting, and therefore it is really what could be described as just a glorified collaborative text editor.
+In fact Occam's CLI tools are not integrated with it as of yet, and therefore it is really what could be described as just a glorified collaborative text editor.
 It has it uses as-is, however.
-It supports Occam's vernacular, called Florence, for example, and its collaborative features are second to none.
-They are based on an algorithm that is partly formalised in Occam, in fact.
-It will also expand Occam's packages in its projects pane so that you can effectively browse them as projects, and it has a useful index.
+It supports Occam's own vernacular, for example, which is called Florence.
+It will also expand Occam's packages in its projects pane so that you can effectively browse them as projects. 
+And it has useful indexing and code navigation features.
 All told it is worth the effort of downloading and installing it and will only improve with time.
 
 There are two variants available, for desktop and browser.
