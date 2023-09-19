@@ -78,13 +78,12 @@ In fact Occam's CLI tools are not integrated with it as of yet, and therefore it
 It has it uses as-is, however.
 It supports Occam's own vernacular, for example, which is called Florence.
 It will also expand Occam's packages in its projects pane so that you can effectively browse them as projects. 
-And it has useful indexing and code navigation features.
+And it has useful indexing and navigation features.
 All told it is worth the effort of downloading and installing it and will only improve with time.
 
 There are two variants available, for desktop and browser.
 The desktop variant currently only runs on MacOS and the browser variant is therefore provided for everyone else.
-It will also run on MacOS, of course.
-You must use Google Chrome or Chromium to run the browser version.
+You must use Google Chrome in order to run it, however.
 Other browsers may work but they are not supported.
 If you really have an issue with Chrome then download and install Chromium which, although still Google's, does at least has the virtue of being open source:
 
@@ -115,13 +114,13 @@ Lastly, open a browser with the following URL:
 [http://localhost:8888](http://localhost:8888)
 
 You will be presented with the Occam IDE.
-Beyond bookmarking the URL there is nothing else to do.
+Beyond bookmarking the URL there is nothing more to do.
 
 To install the desktop variant, again unzip the downloaded zip file and this time drag it into the Applications directory, which should be accessible from the finder.
-Now, most importantly, do not double click on Occam the icon.
+Now, most importantly, do not double click on the icon.
 Instead, right click on it and choose 'Open'.
-Doing this ensures that you have a chance to configure MacOS to execute the iDE even though it is not from a trusted source.
-If you simply go ahead and double click on the icon then you will have to configure MacOS manually and this process can be fiddlesome to say the least.
+Doing this ensures that you have the opportunity to configure MacOS to execute the iDE even though it is not from a trusted source.
+If you simply go ahead and double click on the icon then you will have to configure the security settings after the event and this can be fiddlesome to say the least.
 Once the IDE is running, right click on the icon in the dock and choose the option to keep it there.
 
 ## Installing the CLI tools
