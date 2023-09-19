@@ -10,16 +10,16 @@ Node brought several innovations to JavaScript:
 
 * It enabled developers to write web application servers almost trivially.
 * As well server side code, developers could write code on Node to run in the broswer, by way of a process called bundling.
-* It provided an easy to use package manager and a site where packages could be puclibhed for free and for all of the community to use.
+* It provided an easy to use package manager and a site where packages could be published for free and for all of the community to use.
 
-Allied with continued improvements to the JavaScript language itself, most notably the ES6 and ES7 releases, Node resulted in an explosion in its use.
+Allied with continued improvements to JavaScript itself, most notably the ES6 and ES7 releases, Node resulted in an explosion in its use.
 This was especially evidient in, but by no means restricted to, Internet appcliations.
 Both JavaScript and Node continue to evolve and although both have their detractors, it is safe to say that they will be with us and in a healthy state for the foreseeable future.
 
 ## Prerequisites
 
-It almost goes without saying then that in order to use Occam you will need to have Node installed on your local machine.
-In fact, the chances are that it is already installed.
+It almost goes without saying then that in order to use Occam you will need to have Node installed.
+In fact the chances are that it already is.
 To check this, run the following command in a terminal or command prompt:
 
 ```
@@ -34,12 +34,11 @@ v18.16.1
 
 ...then you are in good shape and need do nothing more.
 Any major version of Node will do to run Occam, down to major version 12.
-If the version that you have installed is older than this, or if you just want to install the latest version, to to the Node site here:
+If the version that you have installed is older than this or if you just want to install the latest version then go to the Node site here...
 
 [https://nodejs.org/](https://nodejs.org/)
 
-Follow the instructions for your operating system.
-Node should be easy to install and no futher guideance is given here.
+...and follow the instructions for your operating system.
 
 Installing Node will also install Node's package manager, called `npm`.
 Again you can easily check that it is installed with the following command:
@@ -48,14 +47,13 @@ Again you can easily check that it is installed with the following command:
 npm --version
 ```
 
-If you have a relatively recent version of Node installed then the version of `npm` will also be recent enough.
+If you have a relatively recent version of Node installed then the version of `npm` will also be recent enough, too.
 
 The only other prerequisite is Git.
-Git is version control software and was invented by Linus Torvalds, of Linux fame.
-It revolutionised version control almost instantly upon its release and, as a consequence, revolutiionised developer and team workflows and thereby productivity, too.
+Git is version control software invented by Linus Torvalds, of Linux fame.
+It revolutionised version control almost instantly upon its release and, as a consequence, revolutiionised developer and team workflows.
 Alongside Git came the GitHub website.
-GitHub enabled developers to share their code with the wider community and, as an aside, along with Markdown it reinvgurated readme files, too.
-If they were ever vigorous in the first place, that is.
+GitHub enabled developers to share their code with the wider community and, as an aside, along with Markdown it brought readme files to the fore.
 You can at a pinch get away without installing Git, at least initially, but if you are going to do any serious work with Occam then you will need it.
 Occam's own package manager leverages Git, for example, and the Open Mathematics site allows for GitHub integration.
 
@@ -66,8 +64,8 @@ In order to check, run the following command:
 git --version
 ```
 
-Any version will do since Git has been remarkably stable since its initial release.
-If you do not have Git installed or want the latest version, go to the Git website:
+Any version will do since Git has been more than adequate since its initial release.
+If you do not have Git installed or want the latest version then go to the Git website:
 
 [https://git-scm.com/](https://git-scm.com/)
 
