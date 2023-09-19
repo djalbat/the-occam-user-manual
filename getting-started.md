@@ -5,12 +5,12 @@ This chapter aims to bring it all together.
 It also provices some background on the tools and technologies behind Occam, for the curious.
 
 All of Occam is written in JavaScript, which was invented in the mid-nineties. 
-JavaScript could be said to have languished until the advent of Node.js, hereafter called just Node, in the late naughties.
-Node brought several innovations to JavaScript:
+It could be said to have languished until the advent of Node.js, hereafter called just Node, in the late naughties.
+Node brought several innovations:
 
-* It enabled developers to write web application servers almost trivially.
-* As well server side code, developers could write code on Node to run in the broswer, by way of a process called bundling.
-* It provided an easy to use package manager and a site where packages could be published for free and for all of the community to use.
+* It enabled developers to write web application servers almost almost trivially.
+* It provided a straightforward package manager and a site where packages could be published for free and for all of the community to use.
+* As well as server side code, developers could write client side code on Node which could be made to run in the broswer by way of a process called bundling.
 
 Allied with continued improvements to JavaScript itself, most notably the ES6 and ES7 releases, Node resulted in an explosion in its use.
 This was especially evidient in, but by no means restricted to, Internet appcliations.
