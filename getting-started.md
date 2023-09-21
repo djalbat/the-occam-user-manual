@@ -10,7 +10,7 @@ Node brought several innovations:
 
 * It enabled developers to write web application servers almost almost trivially.
 * It provided a straightforward package manager and a site where packages could be published for free and for all of the community to use.
-* As well as server side code, developers could write client side code on Node which could be made to run in the broswer by way of a process called bundling.
+* As well as server side code, developers could write client side code on Node which could be made to run on broswers by way of a process called bundling.
 
 Allied with continued improvements to JavaScript itself, most notably the ES6 and ES7 releases, Node resulted in an explosion in its use.
 This was especially evidient in, but by no means restricted to, Internet appcliations.
@@ -157,7 +157,7 @@ verify --version
 You should see something like this:
 
 ```
-Occam Verify CLI version 0.0.645
+Occam Verify-CLI version 0.0.645
 ```
 
 You can also try the `open` package manager with the following command:
@@ -169,14 +169,14 @@ open --version
 And you may, if you are fortunate, see something like this:
 
 ```
-Occam Open CLI version 6.0.9
+Occam Open-CLI version 6.0.9
 ```
 
 If you do then you can safely skip to the next section.
-Otherwise if you see and error then the second caveat applies to you and you will have to read on.
+Otherwise if you see an error then the second caveat applies to you and you will have to read on.
 
-Put simply, an error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just installed globally.
-One workaround, therefore, is to create a symbolic link to the `open` npm package that ensures it takes precedence instead.
+Put simply, an error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just installed.
+One workaround, therefore, is to create a symbolic link to the package that ensures it takes precedence.
 This effectively renders the other application useless, however in practice this is rarely an issue.
 It is, however, worth just mentioning what kinds of applications are likely to be pushed aside, so to speak, by this workaround.
 In the case of MacOS the `open` program can be used to open files with their registered applications.
@@ -192,7 +192,7 @@ npm list --global
 ```
 
 Once you have the directory to hand, you need to add an alias to your terminal or command promopt's configuration file.
-Exactly what this file is dependes on your system.
+Exactly what this file is depends on your system.
 On MacOS it will be either the `.bashrc` or `.bash_profile` file in your home directory.
 If you are not using MacOS then hopefully you will have enough knowledge of your system to know which file to edit.
 Moving swiftly on, assuming that the fully qualified path of the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal or command prompt configuration file:
