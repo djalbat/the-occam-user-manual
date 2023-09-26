@@ -82,10 +82,9 @@ If you really have an issue with Chrome then download and install Chromium which
 
 [https://www.chromium.org/Home/](https://www.chromium.org/Home/)
 
-It is worth pointing out that there is effectively no difference between the two variants and you are not missing out if you cannot install the desktop version.
-They genuinely are the exact same application, albeit packaged in two different ways.
-The desktop verion is in fact simply the aforementioned Chromium browser configured so as to hide the usual browser functionality and present only the embedded application.
-If you get the chance then you can run the two side by side and will be able to see for yourself that they are identical.
+It is worth pointing out that there is effectively no difference between the two variants and you are not missing out if you can only install the browser variant.
+The desktop variant is in fact simply the aforementioned Chromium browser configured so as to hide the usual browser functionality and present only the embedded application.
+If you get the chance then you can run the two variants side by side and will be able to see for yourself that they are identical.
 
 Both variants are available from the Occam website:
 
