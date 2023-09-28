@@ -78,13 +78,13 @@ There are two variants available, for desktop and browser.
 The desktop variant currently only runs on MacOS and the browser variant is therefore provided for everyone else.
 You must use Google Chrome in order to run it, however.
 Other browsers may work but they are not supported.
-If you really have an issue with Chrome then download and install Chromium which, although still Google's, does at least has the virtue of being open source:
+If you really have an issue with Chrome then use Chromium which, although still Google's, is at least open source:
 
 [https://www.chromium.org/Home/](https://www.chromium.org/Home/)
 
-It is worth pointing out that there is effectively no difference between the two variants and you are not missing out if you can only install the browser variant.
-The desktop variant is in fact simply the aforementioned Chromium browser configured so as to hide the usual browser functionality and present only the embedded application.
-If you get the chance then you can run the two variants side by side and will be able to see for yourself that they are identical.
+It is worth mentioning that there is effectively no difference between the two variants and you are not missing out if you can only install the browser variant.
+The desktop variant is in fact simply the aforementioned Chromium configured so as to hide the usual browser functionality and present only the embedded application.
+If you get the chance to run the two variants side by side then will be able to see for yourself that they are identical.
 
 Both variants are available from the Occam website:
 
@@ -118,7 +118,7 @@ Once the IDE is running, right click on the icon in the dock and choose the opti
 ## Installing the CLI tools
 
 CLI stands for command line interface and CLI tools are the ones that do not have a GUI, instead running directly inside a terminal or command prompt.
-Occam has two, namely a package manager modelled largely on Node's `npm` package manager and called `open`; and a verifier called simply `verify`.
+Occam has two, namely a package manager and called `open`; and a verifier called simply `verify`.
 Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
 The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
