@@ -122,7 +122,7 @@ Occam has two, namely a package manager and called `open`; and a verifier called
 Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
 The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
-The reason for this is that the tools are installed globally and the directory for globally installed npm packages, whcih is what both of these tools are, is restricted.
+The reason for this is that the tools are installed globally and the directory for globally installed npm packages, is restricted.
 Prepending `sudo` to the install commands therefore ensures that the installation can go ahead.
 There is an argument that says that you should not use such a directory and instructions can be found on the Internet to configure `npm` to use others.
 However, in all honesty, if you trust the package in question then it is not worth the bother.
@@ -167,11 +167,11 @@ Occam Open-CLI version 6.0.9
 If you do then you can safely skip to the next section.
 Otherwise if you see an error then the second caveat applies to you and you will have to read on.
 
-Put simply, an error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just installed.
+An error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just installed.
 One workaround, therefore, is to create a symbolic link to the package that ensures it takes precedence.
-This effectively renders the other application useless, however in practice this is rarely an issue.
+This may render the other application useless, however in practice this is rarely an issue.
 It is, however, worth just mentioning what kinds of applications are likely to be pushed aside, so to speak, by this workaround.
-In the case of MacOS the `open` program can be used to open files with their registered applications.
+In the case of MacOS the `open` CLI tool can be used to open files with their registered applications.
 For example, you could open a PDF file with the system's default PUF viewer.
 On other unixy systems the `open` application is likely to be a legacy graphics utility.
 In either case pushing it aside will do no lasting harm.
