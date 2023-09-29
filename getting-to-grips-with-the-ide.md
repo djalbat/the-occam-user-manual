@@ -12,7 +12,7 @@ It has been made as useable as possible and most of its functionaoity should be 
 However, some functionality is more hidden and so all of it is covered in what follows.
 To begin then, note that there are severral toolbars along the top as well as the several panes.
 All of the toolbars with input fields are sizeable.
-We will cover them from left to right with the editor pane last of all.
+Most of hte panes can be minimixed in the obvious way, moreover the vertical splitter bars can be double clicked to minimise the left and right areas.
 
 The first toolbar goes hand in hand with the projects pane and has a recylce bin for its files and directories.
 The next button will synchronise the document currently being edited with the projects pane, that is select it.
