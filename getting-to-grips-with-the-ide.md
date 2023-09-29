@@ -22,6 +22,17 @@ Either will be created in the currently selected directory, if there is one, oth
 
 As for the projects pane itself, you can drag filea and directories around freely but bear in mind that packages are immutable.
 Remember that the topmost directories of packages are shown with a padlock.
-One other thing to bear in mind is that by defualt only what are known as recognised files are show in the proejcts pane.
-Thus you may see a file appear to disappear if you drag it into a child directory.
+One other thing to bear in mind is that by defualt only recognised files are shown in the proejcts pane.
+Thus a file may seem to disappear if you drag it into a child directory, for example.
+In fact here is a list of recognised files:
+
+* *.fls
+* meta.json
+* type.ptn
+* symbol.ptn
+* operator.ptn
+* term.bnf
+* statement.bnf
+* metastatement.bnf
+
 You can correct this easily enough in the settings, which we will come to in a while.
