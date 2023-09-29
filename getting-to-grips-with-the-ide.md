@@ -12,13 +12,14 @@ It has been made as useable as possible and most of its functionaoity should be 
 However, some functionality is more hidden and so all of it is covered in what follows.
 To begin then, note that there are severral toolbars along the top as well as the several panes.
 All of the toolbars with input fields are sizeable.
-Most of hte panes can be minimixed in the obvious way, moreover the vertical splitter bars can be double clicked to minimise the left and right areas.
+Most of hte panes can be minimised in the obvious way, moreover the vertical splitter bars can be double clicked to minimise the left and right areas.
 
 The first toolbar goes hand in hand with the projects pane and has a recylce bin for its files and directories.
-The next button will synchronise the document currently being edited with the projects pane, that is select it.
+The button with the two arrows will synchronise the active document with the projects pane, in other words select its corresponding file therein.
 The pencil button allows you to edit the name of the currently selected file or directory.
 The next two buttons allow you to create files and directories, respectively.
-Both are created in the currently selected directory, if there is one, otherwise in the root projects directory.
+Either will be created in the currently selected directory, if there is one, otherwise in the root projects directory.
+
 As for the projects pane itself, you can drag filea and directories around freely but bear in mind that packages are immutable.
 Remember that the topmost directories of packages are shown with a padlock.
 One other thing to bear in mind is that by defualt only what are known as recognised files are show in the proejcts pane.
