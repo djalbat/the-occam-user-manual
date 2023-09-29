@@ -1,17 +1,18 @@
 # Getting to grips with the IDE
 
 As mentioned in the getting started section, Occam has its own IDE. 
-Actually Occam's CLI tools are not integrated with it as of yet, and therefore it is really just a glorified collaborative text editor.
+Actually Occam's CLI tools are not integrated with it as of yet and therefore it is really just a glorified collaborative text editor.
 Nonetheless it has it uses. 
-It supports Occam's own vernacular, for example, which is called Florence. 
-It will also expand Occam's pac=kages in its projects pane so that you can effectively browse them as projects. 
+It supports Occam's own vernacular, for example, called Florence. 
+It will also unpack Occam's pac=kages in its projects pane so that you can effectively browse them as projects. 
 And it has useful indexing and navigation features.
 All told it is worth the effort of downloading and installing it and will only improve with time.
 
-I have tried to make it useable and most of its functionaoity should be discoverable.
-However, some functionality is more hidden and so I cover all of it in what follows.
-To begin then, there are severral toolbars along the top as well as several panes. 
-We will cover them from left to right with the editor's functionality last of all.
+It has been made as useable as possible and most of its functionaoity should be discoverable.
+However, some functionality is more hidden and so all of it is covered in what follows.
+To begin then, note that there are severral toolbars along the top as well as the several panes.
+All of the toolbars with input fields are sizeable.
+We will cover them from left to right with the editor pane last of all.
 
 The first toolbar goes hand in hand with the projects pane and has a recylce bin for its files and directories.
 The next button will synchronise the document currently being edited with the projects pane, that is select it.
