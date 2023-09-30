@@ -115,6 +115,11 @@ Doing this ensures that you have the opportunity to configure MacOS to execute t
 If you simply go ahead and double click on the icon then you will have to configure the security settings after the event and this can be fiddlesome to say the least.
 Once the IDE is running, right click on the icon in the dock and choose the option to keep it there.
 
+One last thing to bear in mind is that opening more than one instance of either the browser or indeed the desktop variant of the IDE will almost certainly lead to problems and possibly even lost work.
+This is because the IDE stores its settings in the browser's local storage, remember that the desktop version is really just a browser in disguise, and this storage is shared across instances.
+If you have two instances and change the projects directory in one of them, for example, you will effectivley be changing it in the other.
+Perhaps the settings can be sandboxed to particular instances in some later release but this is not the case presently so beware.
+
 ## Installing the CLI tools
 
 CLI stands for command line interface and CLI tools are the ones that do not have a GUI, instead running directly inside a terminal or command prompt.
