@@ -14,11 +14,13 @@ To begin then, note that there are severral toolbars along the top as well as th
 All of the toolbars with input fields are sizable.
 Also most of hte panes can be minimised in the obvious way, moreover the vertical splitter bars can be double clicked in order to minimise the left and right areas.
 
+## Projects and packages, file and directories
+
 The first toolbar goes hand in hand with the projects pane and has a recylce bin for the pane's files and directories.
 The button with the two arrows will synchronise the active document, in other words select its corresponding file in the pane.
 The pencil button allows you to edit the name of the currently selected file or directory.
 The next two buttons allow you to create files and directories, respectively.
-They will be created in the currently selected directory, if there is one, otherwise in the projects directory.
+They will be created in the currently selected directory, if there is one, otherwise in the root projects directory.
 
 As for the projects pane itself, you can drag filea and directories around freely.
 Bear in mind however that packages are immutable in the sense that their file and directory names cannot be chnaged and the contents of their files can be viewed in the editor but not altered.
@@ -37,7 +39,7 @@ Here is the list:
 * `statement.bnf`
 * `metastatement.bnf`
 
-All but `*.fls` files belong strictly in the directories of projects and packages.
+All but `*.fls` files belong strictly in the topmost directories of projects and packages.
 As already mentioned, by default they will not show in the projects pane if placed elsewhere.
 There is no such restriction on `.fls` files and you are encouraged to cretae sub-directories for them.
 
