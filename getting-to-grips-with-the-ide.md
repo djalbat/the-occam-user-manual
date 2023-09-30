@@ -22,22 +22,22 @@ They will be created in the currently selected directory, if there is one, other
 
 As for the projects pane itself, you can drag filea and directories around freely.
 Bear in mind however that packages are immutable in the sense that their file and directory names cannot be chnaged and the contents of their files can be viewed in the editor but not altered.
-Remember that the topmost directories of packages are shown with a padlock.
+Remember also that the topmost directories of packages are shown with a padlock.
 One other thing to bear in mind is that only what are known as recognised files are shown in the proejcts pane by default.
 Thus a file may seem to disappear if you drag it into a child directory, for example.
 Recognised files are those that go into packages, with other files being ignored.
 Here is the list:
 
-* /*/*.fls
-* meta.json
-* type.ptn
-* symbol.ptn
-* operator.ptn
-* term.bnf
-* statement.bnf
-* metastatement.bnf
+* `*.fls `
+* `meta.json`
+* `type.ptn`
+* `symbol.ptn`
+* `operator.ptn`
+* `term`
+* `statement.bnf`
+* `metastatement.bnf`
 
-All but `.fls` files belong strictly in the directories of projects and packages.
+All but `*.fls` files belong strictly in the directories of projects and packages.
 As already mentioned, by default they will not show in the projects pane if placed elsewhere.
 There is no such restriction on `.fls` files and you are encouraged to cretae sub-directories for them.
 
