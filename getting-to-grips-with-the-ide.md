@@ -42,5 +42,3 @@ Here is the list:
 All but `*.fls` files belong strictly in the topmost directories of projects and packages.
 As already mentioned, by default they will not show in the projects pane if placed elsewhere.
 There is no such restriction on `.fls` files and you are encouraged to cretae sub-directories for them.
-
-Returning to the 
