@@ -23,10 +23,10 @@ Note that all open documents will be closed when you do this.
 They will also all be closed if you hit the refresh button even without changing the projects directory.
 In effect the IDE does not differentiate between the two cases.
 
-Aside from the projects directory input field the project toolbar has several buttons and a recylce bin for the project pane's files and directories.
-Next to the recycle bin, The button with the two arrows will synchronise the active document, that is select its corresponding file in the pane.
+Aside from the projects directory input field the projects toolbar has several buttons and a recylce bin for the project pane's files and directories.
+The button next to the recycle bin with the two arrows synchronises the active document, that is selects its corresponding file in the pane.
 The pencil button allows you to edit the name of the currently selected file or directory.
-Lastly, the next two buttons allow you to create files and directories, respectively.
+Lastly, the rightmost two buttons allow you to create files and directories, respectively.
 They will be created in the currently selected directory, if there is one, otherwise in the root projects directory.
 
 As for the projects pane itself, you can drag filea and directories around freely.
