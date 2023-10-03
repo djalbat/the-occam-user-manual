@@ -18,16 +18,15 @@ Also most of hte panes can be minimised in the obvious way, moreover the vertica
 
 The first toolbar goes hand in hand with the projects pane.
 It has an input field for the projects directory that was mentioned in the getting started chapter.
-You can change the projects directory at any time by typing a fully qualified path into this field and hitting return or clicking the refresh button.
+Just to recap, you can change the projects directory at any time by typing a fully qualified path into this field and hitting return or clicking the refresh button.
 Note that all open documents will be closed when you do this.
 They will also all be closed if you hit the refresh button even without changing the projects directory.
 In effect the IDE does not differentiate between the two cases.
 
-
- and has a recylce bin for the pane's files and directories.
-The button with the two arrows will synchronise the active document, in other words select its corresponding file in the pane.
+Aside from the projects directory input field the project toolbar has several buttons and a recylce bin for the project pane's files and directories.
+Next to the recycle bin, The button with the two arrows will synchronise the active document, that is select its corresponding file in the pane.
 The pencil button allows you to edit the name of the currently selected file or directory.
-The next two buttons allow you to create files and directories, respectively.
+Lastly, the next two buttons allow you to create files and directories, respectively.
 They will be created in the currently selected directory, if there is one, otherwise in the root projects directory.
 
 As for the projects pane itself, you can drag filea and directories around freely.
