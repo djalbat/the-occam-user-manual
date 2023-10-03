@@ -14,9 +14,17 @@ To begin then, note that there are severral toolbars along the top as well as th
 All of the toolbars with input fields are sizable.
 Also most of hte panes can be minimised in the obvious way, moreover the vertical splitter bars can be double clicked in order to minimise the left and right areas.
 
-## Projects and packages, file and directories
+## Projects and packages, files and directories
 
-The first toolbar goes hand in hand with the projects pane and has a recylce bin for the pane's files and directories.
+The first toolbar goes hand in hand with the projects pane.
+It has an input field for the projects directory that was mentioned in the getting started chapter.
+You can change the projects directory at any time by typing a fully qualified path into this field and hitting return or clicking the refresh button.
+Note that all open documents will be closed when you do this.
+They will also all be closed if you hit the refresh button even without changing the projects directory.
+In effect the IDE does not differentiate between the two cases.
+
+
+ and has a recylce bin for the pane's files and directories.
 The button with the two arrows will synchronise the active document, in other words select its corresponding file in the pane.
 The pencil button allows you to edit the name of the currently selected file or directory.
 The next two buttons allow you to create files and directories, respectively.
