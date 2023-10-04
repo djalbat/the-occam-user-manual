@@ -12,7 +12,9 @@ However, some functionality is subtle or hidden and so all of it is covered in w
 
 To begin then, note that there are severral toolbars along the top as well as the several panes.
 All of the toolbars with input fields are sizable.
-Also most of hte panes can be minimised in the obvious way, moreover the vertical splitter bars can be double clicked in order to minimise the left and right areas.
+Note that if you hover over the buttons then tooltips will appear.
+You can turn this feature off in the settings.
+Also note that most of the panes can be minimised in the obvious way, moreover the vertical splitter bars can be double-clicked in order to minimise the left and right areas.
 
 ## Projects and packages, files and directories
 
