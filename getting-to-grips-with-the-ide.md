@@ -1,6 +1,6 @@
 # Getting to grips with the IDE
 
-As mentioned in the getting started section, Occam has its own IDE. 
+As mentioned in the getting started chapter, Occam has its own IDE. 
 Actually Occam's CLI tools are not integrated with it as of yet and therefore it is really just a glorified collaborative text editor.
 Nonetheless it has it uses. 
 It supports Occam's own vernacular, for example, called Florence. 
@@ -16,38 +16,52 @@ Note that if you hover over the buttons then tooltips will appear.
 You can turn this feature off in the settings.
 Also note that most of the panes can be minimised in the obvious way, moreover the vertical splitter bars can be double-clicked in order to minimise the left and right areas.
 
-## Projects and packages, files and directories
+## Projects and packages,
 
 The first toolbar goes hand in hand with the projects pane.
-It has an input field for the projects directory that was mentioned in the getting started chapter.
+It has an input field for the projects directory that was mentioned earlier.
 Just to recap, you can change the projects directory at any time by typing a fully qualified path into this field and hitting return or clicking the refresh button.
 Note that all open documents will be closed when you do this.
 They will also all be closed if you hit the refresh button even without changing the projects directory.
 In effect the IDE does not differentiate between the two cases.
 
-Aside from the projects directory input field the projects toolbar has several buttons and a recylce bin for the project pane's files and directories.
+Aside from the projects directory input field the projects toolbar has several buttons and a recycle bin for the project pane's files and directories.
 The button next to the recycle bin with the two arrows synchronises the active document, that is selects its corresponding file in the pane.
 The pencil button allows you to edit the name of the currently selected file or directory.
 Lastly, the rightmost two buttons allow you to create files and directories, respectively.
 They will be created in the currently selected directory, if there is one, otherwise in the root projects directory.
 
-As for the projects pane itself, you can drag filea and directories around freely.
-Bear in mind however that packages are immutable in the sense that their file and directory names cannot be chnaged and the contents of their files can be viewed in the editor but not altered.
+As for the projects pane itself, you can mostly drag filea and directories around freely.
+Bear in mind however that packages are immutable in the sense that their file and directory names cannot be changed.
+Also you cannot drag files in the projects directory, because only projbects and packages are loaded.
 Remember also that the topmost directories of packages are shown with a padlock.
 One other thing to bear in mind is that only what are known as recognised files are shown in the proejcts pane by default.
 Thus a file may seem to disappear if you drag it into a child directory, for example.
 Recognised files are those that go into packages, with other files being ignored.
+The one exception are `*.md` files of which only `README.md` files in the topmost directories of projects make it into packages.
 Here is the list:
 
 * `*.fls `
+* `*.md `
 * `meta.json`
 * `type.ptn`
 * `symbol.ptn`
 * `operator.ptn`
-* `term`
+* `term.bnf`
 * `statement.bnf`
 * `metastatement.bnf`
 
-All but `*.fls` files belong strictly in the topmost directories of projects and packages.
+All but `*.fls` and `*.md` files belong strictly in the topmost directories of projects and packages.
 As already mentioned, by default they will not show in the projects pane if placed elsewhere.
 There is no such restriction on `.fls` files and you are encouraged to cretae sub-directories for them.
+
+## Sessions
+
+
+
+
+
+
+
+
+
