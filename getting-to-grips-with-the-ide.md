@@ -69,9 +69,7 @@ In fact the session will persist on the server for half a minute or so even when
 
 Once a session is created you can drag files and folders into it from the projects pane.
 These can then be removed from the session by dragging them into the rubbish bin to the left of the session key input.
-If you want to share package files then simply delete the package and clone it as a project instead.
 Anyone can add and remove files to and from a session, by the way, the session creator has no special privileges.
-Also bear in mind that if someone drags a file into a session that already exists in a project on your own file system then this file will be altered concurrently.
-This is because both project files and session files are held in the same underlying concurrent document model and no distintion is made between them.
+Also bear in mind that if someone drags a file into a session that already exists in one of your projects then this file will be altered concurrently regardless of whether you have it open in the editor or not.
 Finally, bear in mind that adding package files to sessions can cause problems, because if another session user has the file as a project file then they will be able to alter it.
-Consequently your local package file will be appear to be edited even though it is read-only on your system and this is unlikely to be the desired behaviour.
+Consequently your local package file will be altered concurrently and this is unlikely to be the desired behaviour.
