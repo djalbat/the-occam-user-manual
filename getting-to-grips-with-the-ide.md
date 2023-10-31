@@ -73,3 +73,7 @@ Anyone can add and remove files to and from a session, by the way, the session c
 Also bear in mind that if someone drags a file into a session that already exists in one of your projects then this file will be altered concurrently regardless of whether you have it open in the editor or not.
 Finally, bear in mind that adding package files to sessions can cause problems, because if another session user has the file as a project file then they will be able to alter it.
 Consequently your package file will be altered concurrently and this is unlikely to be the desired behaviour.
+
+## The console and settings
+
+
