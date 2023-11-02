@@ -76,4 +76,15 @@ Consequently your package file will be altered concurrently and this is unlikely
 
 ## The console and settings
 
+At present the console is not interactive and only logs error, warning, info, debug and trace messages.
+The log level can be adjusted in the settings pane on the right.
+The recommended level is 'info', which will ensure that you see all pertinent messages.
+All messages are sent to the console but may not be shown if the log level is set too high.
+This means that if something appears to have gone wrong then the debug and trace messages will be avaialble on setting the log level to 'trace'.
+The IDE has been designed so that in normal operation you will not see any messages if you keep the log level at 'info'.
 
+Of the other settings, hopefully all bar the ones relating to hidden files and the like are self explanatory.
+Of the other two, showing only recognised files has already been touched upon in the projects and packages section above.
+Lastly, if you enable hidden files and directories to be loaded then you should be aware that Git creates a hidden directory in cloned projects and that it can potentially contain thousands of entries.
+In fact this setting was added precisely to stop the hidden Git directory from being loaded.
+Disable it at your peril, therefore.
