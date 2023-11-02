@@ -79,9 +79,9 @@ Consequently your package file will be altered concurrently and this is unlikely
 At present the console is not interactive and only logs error, warning, info, debug and trace messages.
 The log level can be adjusted in the settings pane on the right.
 The recommended level is 'info', which will ensure that you see all pertinent messages.
-All messages are sent to the console but may not be shown if the log level is set too high.
+All messages are sent to the console but may not be shown if the log level is set in order to preclude them.
 This means that if something appears to have gone wrong then the debug and trace messages will be avaialble on setting the log level to 'trace'.
-The IDE has been designed so that in normal operation you will not see any messages if you keep the log level at 'info'.
+The IDE has been designed so that if you keep the log level at 'info' then in normal operation you will not see any messages at all.
 
 Of the other settings, hopefully all bar the ones relating to hidden files and the like are self explanatory.
 Of the other two, showing only recognised files has already been touched upon in the projects and packages section above.
