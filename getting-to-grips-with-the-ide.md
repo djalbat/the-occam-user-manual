@@ -100,11 +100,11 @@ The curresponding keyboard shortcuts are the command or control key together wit
 Holding down the shift key at the same time will expand or collapse all the folds.
 
 There are two kinds of find functionality, namely what might be calling finding and grouping.
-For finding, both in the file being edited and all the files in the loaded projects and packages, the keyboard shortcut is the command or control key together with the 'F' key.
-The moves the input focus to the content input field of the find toolbar from where you can type in the content you wish to find.
-Clicking the first of buttons to the right of the content input field will find the content in the file currently being edited, or you can hit the enter key.
-In either case the focus will return to the edited file.
-If you click hte second button, a list links to of occurences of the content to be found in the loaded projects and packages will be given in the console.
+For finding, both in the file being currently edited and in all the files in the loaded projects and packages, the keyboard shortcut is the command or control key together with the 'F' key.
+This moves the input focus to the content input field of the find toolbar from where you can type in the content you wish to find.
+Clicking the first of buttons to the right of this field will find the content in the file currently being edited, or you can hit the enter key.
+In either case the focus will return to the editor.
+If you click hte second button then a list links to of occurences of the content to be found in all of the loaded projects and packages will be given in the console.
 Bear in mind that these are shown as 'info' level messages and therefore if you have the log level set at a higher level then you will miss them.
 
 
