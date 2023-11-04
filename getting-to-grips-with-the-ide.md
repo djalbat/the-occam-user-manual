@@ -119,8 +119,8 @@ Lastly, a word or two about undo and redo functionality.
 The keyboard shortcut to undo the last group of openations is the usual command or control key together with the 'Z' key.
 For redoing, hold the shift key down.
 Unlike other text editors if you partically traverse the redo buffer and then make a fresh operation then the partial remains of the redo buffer are not obliterated.
-Instead they will be transformed using the same operational trnasformations that are employed in sessions.
-Thus the redo before will degrade over time rather than disappearing altogether and this can be disconcerting.
-If this explanation does not entirely make sense or if you encounter this mechanism unexpectedly then the best advice is probably to pick a toy exapmle file and familiarise yourseif with the mechasnim with a few operations either way.
-Finally, on the subject sessions, bear in mind that concurrent user's operations are not added to your own undo and redo buffers because they cause a blow up in the size of undo and redo buffers.
+Instead they are transformed using the same operational trnasformations that are employed in sessions.
+Thus the redo buffer will appear to degrade over time rather than immediately disappearing altogether and this can be disconcerting.
+If this explanation does not entirely make sense or if you encounter this mechanism unexpectedly then the best advice is probably to pick a toy example file and familiarise yourseif with the mechasnim by way a few operations either way.
+Finally, on the subject sessions, bear in mind that concurrent user's operations are not added to your own undo and redo buffers because they cause a blow up in their size.
 
