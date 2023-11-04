@@ -93,14 +93,22 @@ Disable it at your peril, therefore.
 
 It feels as if little explanation of the editor's functionality is needed and it will hopefully feel familiar to anyone who has used such tools before.
 There are two toolbars that go along with it, namely the find and Unicode toolbars.
-These are tied up with the keyboard shortucts, which is perhaps the only functionality that needs further explanation. 
+These are tied up with the keyboard shortucts, which is perhaps the only things that require further explanation. 
 
-Starting with the fold functionality, folds can of course be expanded and collapsed by clicking on their buttons with the mouse.
-The curresponding keyboard shortcuts are the commmand or control key together with the plus and minus keys in order to expand or collapse the folds enclsing any selection respectively.
+Starting with the fold functionality, folds can of course be expanded or collapsed by clicking on their buttons with the mouse.
+The curresponding keyboard shortcuts are the command or control key together with the plus and minus keys which will expand or collapse any folds enclosing the selections, respectively.
 Holding down the shift key at the same time will expand or collapse all the folds.
 
+There are two kinds of find functionality, namely what might be calling finding and grouping.
+For finding, both in the file being edited and all the files in the loaded projects and packages, the keyboard shortcut is the command or control key together with the 'F' key.
+The moves the input focus to the content input field of the find toolbar from where you can type in the content you wish to find.
+Clicking the first of buttons to the right of the content input field will find the content in the file currently being edited, or you can hit the enter key.
+In either case the focus will return to the edited file.
+If you click hte second button, a list links to of occurences of the content to be found in the loaded projects and packages will be given in the console.
+Bear in mind that these are shown as 'info' level messages and therefore if you have the log level set at a higher level then you will miss them.
 
 
+MENTION THE UNDO/REDO FUNCTIONALITY...
 
 
 
