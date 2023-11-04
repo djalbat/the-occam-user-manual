@@ -113,7 +113,12 @@ If nothing is selected, that is only carets are showing, then the token undernea
 If there is already a selection then its next occurence of the selected content will be selected.
 This process can be repeated until all occruences have been found, or hold down the shift key to group all occurences at once.
 
-UNICODE FUNCTIONALITY
+The editor fully supports Unicode but of course no keyboard can.
+In order to get around this the Unicode toolbar has been provided.
+The keyboard shortcut is the command or control key together with the 'U' key, which moves the input focus to the Unicode character input field.
+Typing into this field will reveal a drop down list of filtered Unicode characters, one of which will always be selected.
+Hitting the enter key will paste this character into and return the focus to the edited document.
+Or you can click on any character in the dropdown list to give the same result.
 
 Lastly, a word or two about undo and redo functionality.
 The keyboard shortcut to undo the last group of openations is the usual command or control key together with the 'Z' key.
@@ -123,4 +128,7 @@ Instead they are transformed using the same operational trnasformations that are
 Thus the redo buffer will appear to degrade over time rather than immediately disappearing altogether and this can be disconcerting.
 If this explanation does not entirely make sense or if you encounter this mechanism unexpectedly then the best advice is probably to pick a toy example file and familiarise yourseif with the mechasnim by way a few operations either way.
 Finally, on the subject sessions, bear in mind that concurrent user's operations are not added to your own undo and redo buffers because they cause a blow up in their size.
+
+MENTION EXPORTING CUSTOM GRAMMARS
+
 
