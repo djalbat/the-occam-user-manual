@@ -129,6 +129,11 @@ Thus the redo buffer will appear to degrade over time rather than immediately di
 If this explanation does not entirely make sense or if you encounter this mechanism unexpectedly then the best advice is probably to pick a toy example file and familiarise yourseif with the mechasnim by way a few operations either way.
 Finally, on the subject sessions, bear in mind that concurrent user's operations are not added to your own undo and redo buffers because they cause a blow up in their size.
 
-MENTION EXPORTING CUSTOM GRAMMARS
+## Exporting custom grammars
+
+The very last toolbar to mention is the grammars toolbar, which only has one button to export the custom grammars.
+If a project or package is selected at the time then clicking this button will export the corresponding custom grammar together with custom grammars on which it depends.
+Otherwise the custom grammars for all of the loaded projects and packages will be exported.
+
 
 
