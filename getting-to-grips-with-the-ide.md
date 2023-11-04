@@ -88,3 +88,19 @@ Of the other two, showing only recognised files has already been touched upon in
 Lastly, if you enable the loading of hidden files and directories then be aware that Git creates a hidden directory in cloned projects and that it can potentially contain thousands of entries.
 In fact this setting was added precisely to stop the hidden Git directory from being loaded.
 Disable it at your peril, therefore.
+
+## Editing
+
+It feels as if little explanation of the editor's functionality is needed and it will hopefully feel familiar to anyone who has used such tools before.
+There are two toolbars that go along with it, namely the find and Unicode toolbars.
+These are tied up with the keyboard shortucts, which is perhaps the only functionality that needs further explanation. 
+
+Starting with the fold functionality, folds can of course be expanded and collapsed by clicking on their buttons with the mouse.
+The curresponding keyboard shortcuts are the commmand or control key together with the plus and minus keys in order to expand or collapse the folds enclsing any selection respectively.
+Holding down the shift key at the same time will expand or collapse all the folds.
+
+
+
+
+
+
