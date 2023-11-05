@@ -86,7 +86,8 @@ Note that the IDE has been designed so that if you keep the log level at 'info' 
 Of the other settings, hopefully most will be self explanatory.
 Optional single click functionality is available on both the explorers and what are called the splitters.
 These are the draggable elements bettween the various panes that allow them to be resized.
-Clicking or double clicking them, whatever is your preference, will completely expand or collapse their associated panes and in fact it only makes sense for the vertical splitters on either side of the editor to have this functionality.
+Clicking or double clicking on the splitters, whatever is your preference, will completely expand or collapse their associated panes. 
+In fact it only makes sense for the vertical splitters on either side of the editor to have this functionality.
 Moving on, showing only recognised files has already been touched upon in the projects and packages section above.
 Lastly, if you enable the loading of hidden files and directories then be aware that Git creates a hidden directory in cloned projects and that it can potentially contain thousands of entries.
 In fact this setting was added precisely to stop the hidden Git directory from being loaded.
