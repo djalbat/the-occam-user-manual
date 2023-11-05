@@ -16,7 +16,7 @@ Note that if you hover over the buttons then tooltips will appear.
 You can turn this feature off in the settings.
 Also note that most of the panes can be minimised in the obvious way, moreover the vertical splitter bars can be double-clicked in order to minimise the left and right areas.
 
-## Projects and packages,
+## Projects and packages
 
 The first toolbar goes hand in hand with the projects pane.
 It has an input field for the projects directory that was mentioned earlier.
@@ -80,11 +80,14 @@ At present the console is not interactive and only logs error, warning, info, de
 The log level can be adjusted in the settings pane on the right.
 The recommended level is 'info', which will ensure that you see all pertinent messages.
 All messages are sent to the console but may not be shown if the log level has been set to preclude them.
-This means that if something appears to have gone wrong then the debug and trace messages will be avaialble on setting the log level to 'trace'.
-The IDE has been designed so that if you keep the log level at 'info' then in normal operation you will not see any messages at all.
+So if something appears to have gone wrong then the relevant debug and trace messages will still be avaialble if the log level is subsequently set appropriately.
+Note that the IDE has been designed so that if you keep the log level at 'info' then during normal operation you will not see any messages at all.
 
-Of the other settings, hopefully all bar the ones relating to hidden files and the like will be self explanatory.
-Of the other two, showing only recognised files has already been touched upon in the projects and packages section above.
+Of the other settings, hopefully most will be self explanatory.
+Optional single click functionality is available on both the explorers and what are called the splitters.
+These are the draggable elements bettween the various panes that allow them to be resized.
+Clicking or double clicking them, whatever is your preference, will completely expand or collapse their associated panes and in fact it only makes sense for the vertical splitters on either side of the editor to have this functionality.
+Moving on, showing only recognised files has already been touched upon in the projects and packages section above.
 Lastly, if you enable the loading of hidden files and directories then be aware that Git creates a hidden directory in cloned projects and that it can potentially contain thousands of entries.
 In fact this setting was added precisely to stop the hidden Git directory from being loaded.
 Disable it at your peril, therefore.
