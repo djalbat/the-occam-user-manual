@@ -14,7 +14,8 @@ To begin then, note that there are severral toolbars along the top as well as th
 All of the toolbars with input fields are sizable.
 Note that if you hover over the buttons then tooltips will appear.
 You can turn this feature off in the settings.
-Also note that most of the panes can be minimised in the obvious way, moreover the vertical splitter bars can be double-clicked in order to minimise the left and right areas.
+Also note that most of the panes can be minimised in the obvious way.
+Moreover the vertical splitters, that is the draggable elements between the panes, can be double-clicked in order to minimise the left and right panes.
 
 ## Projects and packages
 
