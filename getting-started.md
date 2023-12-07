@@ -240,10 +240,7 @@ pwd
 Make a note of the fully qualified path and launch the IDE.
 Near to the top left you will see a projects path input field.
 Type in the fully qualified path of the projects directory and hit return or click on the refresh button immediately to the right of the input field.
-You will see the packages appear in the projects pane on the left, thus:
-
-<img src="https://github.com/djalbat/the-occam-user-manual/blob/main/assets/packages.png" width="720" height="auto">
-
+You will see the packages appear in the projects pane on the left.
 Note the small padlocks on the folder icons, which tell you that these are packages and not project directories.
 It is perhaps not worth going into too much detail in this chapter about what the various files and directories contain, but do at least take a few moments to click around, so to speak.
 One thing you will notice is that all of the files are read only.
