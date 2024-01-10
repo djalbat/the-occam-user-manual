@@ -94,10 +94,10 @@ Disable it at your peril, therefore.
 
 It feels as if little explanation of the editor's functionality is needed and it will hopefully feel familiar to anyone who has used such tools before.
 There are two toolbars that go along with it, namely the find and Unicode toolbars.
-These are tied up with the keyboard shortucts, which is perhaps the only things that require further explanation. 
+These are tied up with the keyboard shortcuts, which is perhaps the only things that require further explanation. 
 
 Starting with the fold functionality, folds can of course be expanded or collapsed by clicking on their buttons with the mouse.
-The curresponding keyboard shortcuts are the command or control key together with the plus and minus keys which will expand or collapse any folds enclosing the selections, respectively.
+The corresponding keyboard shortcuts are the command or control key together with the plus and minus keys which will expand or collapse any folds enclosing the selections, respectively.
 Holding down the shift key at the same time will expand or collapse all the folds.
    
 There are two kinds of find functionality, namely what might be calling finding and grouping.
@@ -109,10 +109,10 @@ On the other hand if you click the second button then a list of links of occuren
 Bear in mind that these link are shown as 'info' level messages and therefore if you have the log level set at a higher level then you will miss them.
 
 The second kind of find functionality is grouping and this happens in the editor without its focus being taken away.
-The requisite keyobard shortcut is the command or control key together with the 'G' key.
+The requisite keyboard shortcut is the command or control key together with the 'G' key.
 If nothing is selected, that is only carets are showing, then the token underneath the first caret will be selected.
-If there is already a selection then its next occurence of the selected content will be selected.
-This process can be repeated until all occruences have been found, or hold down the shift key to group all occurences at once.
+If there is already a selection then its next occurrence of the selected content will be selected.
+This process can be repeated until all occurrences have been found, or hold down the shift key to group all occurences at once.
 
 The editor fully supports Unicode but of course no keyboard can.
 In order to get around this the Unicode toolbar has been provided.
@@ -122,7 +122,7 @@ Hitting the enter key will paste this character into and return the focus to the
 Or you can click on any character in the dropdown list to give the same result.
 
 Lastly, a word or two about undo and redo functionality.
-The keyboard shortcut to undo the last group of openations is the usual command or control key together with the 'Z' key.
+The keyboard shortcut to undo the last group of operations is the usual command or control key together with the 'Z' key.
 For redoing, hold the shift key down.
 Unlike other text editors if you partically traverse the redo buffer and then make a fresh operation then the partial remains of the redo buffer are not obliterated.
 Instead they are transformed using the same operational trnasformations that are employed in sessions.

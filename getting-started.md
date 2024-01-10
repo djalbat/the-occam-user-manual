@@ -10,7 +10,7 @@ Node brought several innovations:
 
 * It enabled developers to write web application servers almost almost trivially.
 * It provided a straightforward package manager and a site where packages could be published for free and for all of the community to use.
-* As well as server side code, developers could write client side code on Node which could be made to run on broswers by way of a process called bundling.
+* As well as server side code, developers could write client side code on Node which could be made to run on browsers by way of a process called bundling.
 
 Allied with continued improvements to JavaScript itself, most notably the ES6 and ES7 releases, Node resulted in an explosion in its use.
 This was especially evidient in, but by no means restricted to, Internet appcliations.
@@ -51,7 +51,7 @@ If you have a relatively recent version of Node installed then the version of `n
 
 The only other prerequisite is Git.
 Git is version control software invented by Linus Torvalds, of Linux fame.
-It revolutionised version control almost instantly upon its release and, as a consequence, revolutiionised developer and team workflows.
+It revolutionised version control almost instantly upon its release and, as a consequence, revolutionised developer and team workflows.
 Alongside Git came the GitHub website.
 GitHub enabled developers to share their code with the wider community and, as an aside, along with Markdown it brought readme files to the fore.
 You can at a pinch get away without installing Git, at least initially, but if you are going to do any serious work with Occam then you will need it.
