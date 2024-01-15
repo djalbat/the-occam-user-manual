@@ -29,6 +29,9 @@ In effect the IDE does not differentiate between the two cases.
 Aside from the projects directory input field the projects toolbar has several buttons and a recycle bin for the project pane's files and directories.
 The button next to the recycle bin with the two arrows synchronises the active document, that is selects its corresponding file in the pane.
 The pencil button allows you to edit the name of the currently selected file or directory.
+The next botton allows you to show and hide packages.
+This is useful because packages do not live in their own directory but alongside projects.
+Hiding them temporarily is therefore often desirable.
 Lastly, the rightmost two buttons allow you to create files and directories, respectively.
 They will be created in the currently selected directory, if there is one, otherwise in the root projects directory.
 
