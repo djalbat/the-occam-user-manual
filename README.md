@@ -1,4 +1,4 @@
-# The Occam User Man
+# The Occam User Manual
 
 * [Half title](half-title.md)
 * [Dedication](dedication.md)
