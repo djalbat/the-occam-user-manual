@@ -51,7 +51,7 @@ We imagine that the verifier can extract this information from the parse tree by
 
 Now consider the same variable declaration but written in a different language, called controlled natural language, or CNL for short.
 Occam does not natively support this language as yet but will do so in the future.
-It can be created using the grammars sandbox that is the subject of the next chapter, however:
+It can be created using the grammar sandbox that is the subject of the next chapter, however:
 
 ```
 Let x be a variable of type ℕ.
@@ -69,7 +69,7 @@ Now look at the parse tree:
                 "x"[name] [0]                                                                                   "ℕ"[type] [0]                    
 ```
 
-Exactly the same information can be extracted from this parse tree, even though the language is completely different.
+Exactly the same information can be extracted from this parse tree even though the language is completely different.
 The verifier could, for example, ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node.
 It could also extract that fact that the variable is called `n` and that the type is `ℕ`.
 
