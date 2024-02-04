@@ -23,7 +23,8 @@ Lastly, not part of this list but equally important is the way in which the pars
 We cover this practice in this chapter, too.
 
 This chapter is somewhat long and involved but nonetheless it must be mastered because understanding grammars is crucial to using Occam.
-Why is this, and why are grammars such an integral part of Occam?
+Why is this? 
+Why are grammars such an integral part of Occam?
 Consider the following variable declaration, written in Occam's default language, called Florence:
 
 ```
@@ -43,9 +44,37 @@ Now look at the parse tree:
                                 "x"[name] [0]                  "ℕ"[type] [0]              
 ```
 
-This is what Occam sees or, more importantly, what the verifier will see.
-We can see from this parse tree that we have a variable declaration, and that this declares the aforementioned `n` varaible with type `ℕ`.
+This is what Occam sees or, more importantly, what the verifier would see.
+
+It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `ℕ` type.
 We imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
+
+Now consider the same variable declaration but written in a different language, called controlled natural language, or CNL for short.
+Occam does not natively support this language as yet but will do so in the future.
+It can be created using the grammars sandbox that is the subject of the next chapter, however:
+
+```
+Let x be a variable of type ℕ.
+```
+
+Now look at the parse tree:
+
+```
+                                                            variableDeclaration [0]                                                              
+                                                                       |                                                                         
+       ---------------------------------------------------------------------------------------------------------------------------------         
+       |              |              |             |                 |                 |               |              |                |         
+"Let"[name] [0] variable [0]  "be"[name] [0] "a"[name] [0] "variable"[name] [0] "of"[name] [0] "type"[name] [0]   type [0]    "."[unassigned] [0]
+                      |                                                                                               |                          
+                "x"[name] [0]                                                                                   "ℕ"[type] [0]                    
+```
+
+Exactly the same information can be extracted from this parse tree, even though the language is completely different.
+The verifier could, for example, ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node.
+It could also extract that fact that the variable is called `n` and that the type is `ℕ`.
+
+But this is not all.
+
 
 
 
