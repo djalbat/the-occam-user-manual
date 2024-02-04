@@ -32,7 +32,8 @@ Variable n:ℕ
 ```
 
 It should be clear that we are declaring a variable named `n` to be of natrual number type, represented by the double-struck `ℕ` character.
-Now look at the parse tree:
+Now look at the parse tree.
+This is what Occam sees or, more importantly, what the verifier would see.
 
 ```
                                       variableDeclaration [0]                             
@@ -44,12 +45,10 @@ Now look at the parse tree:
                                 "x"[name] [0]                  "ℕ"[type] [0]              
 ```
 
-This is what Occam sees or, more importantly, what the verifier would see.
-
 It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `ℕ` type.
 We imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
 
-Now consider the same variable declaration but written in a different language, called controlled natural language, or CNL for short.
+Now consider the same variable declaration but written in a different kind of language, called controlled natural language, or CNL for short.
 Occam does not natively support this language as yet but will do so in the future.
 It can be created using the grammar sandbox that is the subject of the next chapter, however:
 
@@ -57,7 +56,7 @@ It can be created using the grammar sandbox that is the subject of the next chap
 Let x be a variable of type ℕ.
 ```
 
-Now look at the parse tree:
+Here is the resultant parse tree:
 
 ```
                                                             variableDeclaration [0]                                                              
@@ -69,11 +68,20 @@ Now look at the parse tree:
                 "x"[name] [0]                                                                                   "ℕ"[type] [0]                    
 ```
 
-Exactly the same information can be extracted from this parse tree even though the language is completely different.
-The verifier could, for example, ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node.
-It could also extract that fact that the variable is called `n` and that the type is `ℕ`.
+Note that exactly the same information can be extracted from this parse tree as the previous one, even though the language is completely different.
+The verifier would be able to ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node, for example.
+Similarly it could also ascertain that the variable is called `n` and that its type is `ℕ`.
 
 But this is not all.
+Aside from the horizontal positions of the pertinent elements, the parse trees are essentially the same.
+Both contain elements that are not ;ertinent and are thus ignored by the verifier.
+The `Variable` keyword in the Florence parse tree, for example, or the `Let`, `be` and `a` keywordds in the CNL parse tree.
+In fact the means by which the verifier extracts pertinent information do not change from one language to the next at all.
+In summary, for all intents and purposes the Flroence and CNL languages appear to be identical to the verifier and not just for varaible declarations but for all elements of the language.
+Furthermore, it should be clear that the CNL language could have been written in French, or Chinese.
+This agnosticism to language is one of the things that sets Occam apart.
+
+
 
 
 
