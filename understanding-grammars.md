@@ -84,5 +84,3 @@ This agnosticism to language is one of the things that sets Occam apart.
 
 
 
-
-
