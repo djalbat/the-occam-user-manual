@@ -22,3 +22,30 @@ We cell it a parse tree, however.
 Lastly, not part of this list but equally important is the way in which the parse tree and sometimes the tokens themselves are interpreted and sometimes maninpulated.
 We cover this practice in this chapter, too.
 
+This chapter is somewhat long and involved but nonetheless understanding grammars it is crucial when using Occam.
+Why is this, and why are grammars such an integral part of Occam?
+To demonstrate this, consider the following variable declaration written in Occam's default language, called Florence:
+
+```
+Variable n:ℕ
+```
+
+It should be clear that we are declaring a variable named `n` that has a natrual number type, represented by the double-struck `ℕ` character.
+Now look at the parse tree:
+
+```
+                                      variableDeclaration [0]                             
+                                                 |                                        
+               ---------------------------------------------------------------------      
+               |                      |               |              |             |      
+"Variable"[primary-keyword] [0] variable [0]  ":"[special] [0]   type [0]    <END_OF_LINE>
+                                      |                              |                    
+                                "x"[name] [0]                  "ℕ"[type] [0]              
+```
+
+This is what Occam sees or, more specifically, what the verifier will see.
+We can see from this parse tree that we have a variable declaration, and that this declares the aforementioned `n` varaible with type `ℕ`.
+We imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
+
+
+
