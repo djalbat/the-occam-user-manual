@@ -165,10 +165,11 @@ metavariable [0] "⇒"[operator] [0] metavariable [0]
   "A"[name] [0]                      "B"[name] [0]               
 ```
 
-What this means in practice is not just less nonsensical parse trees.
+What this means in practice is not just more sensical parse trees.
 With this rule now working, so to speak, its premises and conclusions can be matched to other metastatements and statements in derivations by the verifier, with suitable substitutions.
 This means that whereas before augmenting the grammar the verifier would have fallen over when encountering this rule, now it would be able to continue.
-This extensibiliy means that not just new inference rules can be defined, but new terms, statements and so on.
+
+This extensibility means that not just new inference rules can be defined, but new terms, statements and so on.
 Indeed it could be said that about half the job of verifying is getting the content to parse in the first place by way of extening Occam's default grammars.
 
 
