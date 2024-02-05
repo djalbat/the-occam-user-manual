@@ -81,25 +81,82 @@ Furthermore, it should be clear that the CNL language could have been written in
 This flexibility with language is one of the things that sets Occam apart.
 
 Occam also allows languages to be extended.
-Consider the following unqualified statement.
-Quite what an unqualified statement is or what this one is useful for are not important, although you might recognise the impliciation symbol:
+Consider the following inference rule.
+Quite what an inference rule is or what this one is useful for are not important at this stage.
+It is enough to know that inference rules are the building blocks of reasoning in Occam's case and that they are always user defined, never in-built:
 
 ```
-A => B
+Rule (ModusPonens)
+  Premises
+    A ⇒ B
+    A
+  Conclusion
+    B
 ```
 
-Now consider the parse tree:
+Now consider the parse tree of the first of the premises:
 
 ```
-                                        unqualifiedStatement [0]              
-                                                    |                         
-                                ----------------------------------------      
-                                |                                      |      
-                          nonsense [0]                           <END_OF_LINE>
-                                |                                             
-      ----------------------------------------------------                    
-      |               |                 |                |                    
-"A"[name] [0] "="[special] [0] ">"[unassigned] [0] "B"[name] [0]              
+                         unqualifiedMetastatement [0]        
+                                       |                     
+                       --------------------------------      
+                       |                              |      
+                 nonsense [0]                   <END_OF_LINE>
+                       |                                     
+      -----------------------------------                    
+      |                |                |                    
+"A"[name] [0] "⇒"[unassigned] [0] "B"[name] [0]              
 ```
 
 Note that it does indeed parse, but that it is being parsed as `nonsense`.
+This is the fallback or last resort of the grammar, so to speak, if the statement cannot be parsed in a more meaningful way.
+
+To make sense of this statement, we first augment the grammar with a regular exprssion to pick out the `⇒` implication symbol as an operator token.
+The following parse tree shows that the statement is still parses as nonsense but that the `⇒` implication symbol is at least being recognised as an operator:
+
+```
+                       unqualifiedMetastatement [0]        
+                                     |                     
+                      -------------------------------      
+                      |                             |      
+                nonsense [0]                  <END_OF_LINE>
+                      |                                    
+      ---------------------------------                    
+      |               |               |                    
+"A"[name] [0] "⇒"[operator] [0] "B"[name] [0]              
+```
+
+Now we augment to the `metastatement` rule in the grammar to include metastatements of this form.
+Again, precisely what metastatements are does not matter at this point:
+
+```
+metastatement ::= metavariable "⇒" metavariable ;
+```
+
+Now the parse tree is more what we might expect:
+
+```
+                            unqualifiedMetastatement [0]         
+                                          |                      
+                          ---------------------------------      
+                          |                               |      
+                  metastatement [0]                 <END_OF_LINE>
+                          |                                      
+        ------------------------------------                     
+        |                |                 |                     
+metavariable [0] "⇒"[operator] [0] metavariable [0]              
+        |                                  |                     
+  "A"[name] [0]                      "B"[name] [0]               
+```
+
+We get a `metastatement` node now, not just nonsense.
+
+What this means in practice is not just less nonsensical parse trees.
+The 
+
+
+
+
+
+
+
