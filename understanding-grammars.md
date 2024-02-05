@@ -21,10 +21,8 @@ We call it a parse tree, however.
 Lastly, not part of this list but equally important is the way in which the parse tree and the tokens themselves are utilised and sometimes maninpulated.
 We cover this practice in this chapter, too.
 
-This chapter is somewhat long and involved but nonetheless the material must be covered, because understanding grammars is crucial to using Occam.
-Why is this? 
-Why are grammars such an integral part of Occam?
-Firstly therefore, in order to try to answer this question, we give some examples of the use of grammars in Occam.
+This chapter is somewhat long and involved but nonetheless the material must be covered, because understanding grammars is essential when using Occam.
+In order to justify this statement we give some examples of their utility.
 
 ## Language flexibility and extensibility
 
@@ -34,7 +32,7 @@ Consider the following variable declaration, written in Occam's default language
 Variable n:ℕ
 ```
 
-It should be clear that we are declaring a variable named `n` to be of natrual number type, represented by the double-struck `ℕ` character.
+Here we are declaring a variable named `n` to be of natrual number type, represented by the double-struck `ℕ` character.
 Now look at the parse tree.
 This is what Occam sees or, more importantly, what the verifier would see.
 
@@ -75,15 +73,33 @@ Note that exactly the same information can be extracted from this parse tree as 
 The verifier would be able to ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node, for example.
 Similarly it could also ascertain that the variable is called `n` and that its type is `ℕ`.
 
-But this is not all.
-Aside from the horizontal positions of the pertinent elements, the parse trees are essentially the same.
-Both contain elements that are not ;ertinent and are thus ignored by the verifier.
+In fact, the parse trees would appear to be the same to the verifier, with the latter simply ignoring elements that were not pertinent.
 The `Variable` keyword in the Florence parse tree, for example, or the `Let`, `be` and `a` keywordds in the CNL parse tree.
-In fact the means by which the verifier extracts pertinent information do not change from one language to the next at all.
-In summary, for all intents and purposes the Flroence and CNL languages appear to be identical to the verifier and not just for varaible declarations but for all elements of the language.
+
+In summary, for all intents and purposes the Flroence and CNL languages are the same to the verifier and not just for varaible declarations but for all elements of the languages.
 Furthermore, it should be clear that the CNL language could have been written in French, or Chinese.
-This agnosticism to language is one of the things that sets Occam apart.
+This flexibility with language is one of the things that sets Occam apart.
 
+Occam also allows languages to be extended.
+Consider the following unqualified statement.
+Quite what an unqualified statement is or what this one is useful for are not important, although you might recognise the impliciation symbol:
 
+```
+A => B
+```
 
+Now consider the parse tree:
 
+```
+                                        unqualifiedStatement [0]              
+                                                    |                         
+                                ----------------------------------------      
+                                |                                      |      
+                          nonsense [0]                           <END_OF_LINE>
+                                |                                             
+      ----------------------------------------------------                    
+      |               |                 |                |                    
+"A"[name] [0] "="[special] [0] ">"[unassigned] [0] "B"[name] [0]              
+```
+
+Note that it does indeed parse, but that it is being parsed as `nonsense`.
