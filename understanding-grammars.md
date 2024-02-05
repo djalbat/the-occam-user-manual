@@ -6,25 +6,28 @@ More specifically, it can be comprised of three parts:
 
 1. A collection of symbols or characters that are the smallest elements of the language. 
 These symbols or characters are more often than not considered synonymous with the glyphs that represent them.
-In our case a seuquence of such characters is what comprises the content of a document or file.
+In our case a sequence of such characters is what comprises the content of a document or file.
 
 2. A set of rules, usually based on regular expressions, to collect these characters into larger elements, called tokens or lexemes.
-We instinctively view a sequence of characters as continuous rather than discrete and therefore tend to think of these rules as chopping up the content, so to speak.
-This process is called lexing or tokenising the content.
-We stick to the latter.
+We tend to envisage a sequence of characters as continuous rather than discrete and therefore tend to think of these rules as chopping up the content, so to speak.
+This process is called lexing or tokenising and we stick to the latter.
 
 3. Another set of rules, more high level, that are responsible for organising these tokens into larger elements.
 In the case of natural language these would be phrases, sentences, paragraphs and so on.
 This process is called parsing the tokens or, by extension, the content
 The resulting structure is usually called an abstract syntax tree or AST for short.
-We cell it a parse tree, however.
+We call it a parse tree, however.
 
-Lastly, not part of this list but equally important is the way in which the parse tree and sometimes the tokens themselves are interpreted and sometimes maninpulated.
+Lastly, not part of this list but equally important is the way in which the parse tree and the tokens themselves are utilised and sometimes maninpulated.
 We cover this practice in this chapter, too.
 
-This chapter is somewhat long and involved but nonetheless it must be mastered because understanding grammars is crucial to using Occam.
+This chapter is somewhat long and involved but nonetheless the material must be covered, because understanding grammars is crucial to using Occam.
 Why is this? 
 Why are grammars such an integral part of Occam?
+Firstly therefore, in order to try to answer this question, we give some examples of the use of grammars in Occam.
+
+## Language flexibility and extensibility in Occam
+
 Consider the following variable declaration, written in Occam's default language, called Florence:
 
 ```
