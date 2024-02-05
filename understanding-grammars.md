@@ -69,16 +69,16 @@ Here is the resultant parse tree:
                 "x"[name] [0]                                                                                   "ℕ"[type] [0]                    
 ```
 
-Note that exactly the same information can be extracted from this parse tree as the previous one, even though the language is completely different.
+Note that exactly the same information can be extracted from this parse tree as from the previous one, even though the language is completely different.
 The verifier would be able to ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node, for example.
 Similarly it could also ascertain that the variable is called `n` and that its type is `ℕ`.
 
-In fact, the parse trees would appear to be the same to the verifier, with the latter simply ignoring elements that were not pertinent.
+In fact, the parse trees would appear to be identical to the verifier, since it simply ignores elements that were not pertinent.
 The `Variable` keyword in the Florence parse tree, for example, or the `Let`, `be` and `a` keywordds in the CNL parse tree.
 
-In summary, for all intents and purposes the Flroence and CNL languages are the same to the verifier and not just for varaible declarations but for all elements of the languages.
-Furthermore, it should be clear that the CNL language could have been written in French, or Chinese.
-This flexibility with language is one of the things that sets Occam apart.
+In summary, for all intents and purposes the Flroence and CNL languages appear to be identical to the verifier and not just for varaible declarations but for all elements of the languages.
+Furthermore, it should be clear that the natural language parts of CNL can be akin to any natural language, it does not have to be English.
+This flexibility with languages is one of the things that sets Occam apart.
 
 Occam also allows languages to be extended.
 Consider the following inference rule.
@@ -110,9 +110,10 @@ Now consider the parse tree of the first of the premises:
 
 Note that it does indeed parse, but that it is being parsed as `nonsense`.
 This is the fallback or last resort of the grammar, so to speak, if the statement cannot be parsed in a more meaningful way.
+More details on this mechanism will follow.
 
-To make sense of this statement, we first augment the grammar with a regular exprssion to pick out the `⇒` implication symbol as an operator token.
-The following parse tree shows that the statement is still parses as nonsense but that the `⇒` implication symbol is at least being recognised as an operator:
+To make sense of this metastatement, we first augment the grammar with a regular exprssion to pick out the `⇒` implication symbol as an operator token.
+The following parse tree shows that the statement is still parses as nonsense but that this symbol is at least being recognised as an operator:
 
 ```
                        unqualifiedMetastatement [0]        
@@ -126,8 +127,7 @@ The following parse tree shows that the statement is still parses as nonsense bu
 "A"[name] [0] "⇒"[operator] [0] "B"[name] [0]              
 ```
 
-Now we augment to the `metastatement` rule in the grammar to include metastatements of this form.
-Again, precisely what metastatements are does not matter at this point:
+Now we augment the `metastatement` rule in the grammar to include metastatements of the requisite form:
 
 ```
 metastatement ::= metavariable "⇒" metavariable ;
@@ -149,10 +149,30 @@ metavariable [0] "⇒"[operator] [0] metavariable [0]
   "A"[name] [0]                      "B"[name] [0]               
 ```
 
-We get a `metastatement` node now, not just nonsense.
+As a result of these changes we get a `metastatement` node, not just nonsense:
+
+```
+                            unqualifiedMetastatement [0]         
+                                          |                      
+                          ---------------------------------      
+                          |                               |      
+                  metastatement [0]                 <END_OF_LINE>
+                          |                                      
+        ------------------------------------                     
+        |                |                 |                     
+metavariable [0] "⇒"[operator] [0] metavariable [0]              
+        |                                  |                     
+  "A"[name] [0]                      "B"[name] [0]               
+```
 
 What this means in practice is not just less nonsensical parse trees.
-The 
+With this rule now working, so to speak, its premises and conclusions can be matched to other metastatements and statements in derivations by the verifier, with suitable substitutions.
+This means that whereas before augmenting the grammar the verifier would have fallen over when encountering this rule, now it would be able to continue.
+This extensibiliy means that not just new inference rules can be defined, but new terms, statements and so on.
+Indeed it could be said that about half the job of verifying is getting the content to parse in the first place by way of extening Occam's default grammars.
+
+
+
 
 
 
