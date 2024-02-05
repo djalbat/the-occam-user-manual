@@ -26,7 +26,7 @@ Why is this?
 Why are grammars such an integral part of Occam?
 Firstly therefore, in order to try to answer this question, we give some examples of the use of grammars in Occam.
 
-## Language flexibility and extensibility in Occam
+## Language flexibility and extensibility
 
 Consider the following variable declaration, written in Occam's default language, called Florence:
 
