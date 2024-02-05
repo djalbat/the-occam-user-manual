@@ -51,7 +51,7 @@ We imagine that the verifier can extract this information from the parse tree by
 
 Now consider the same variable declaration but written in a different kind of language, called controlled natural language, or CNL for short.
 Occam does not natively support this language as yet but will do so in the future.
-It can be created using the grammar sandbox that is the subject of the next chapter, however:
+It can be created using the grammars sandbox that is the subject of the next chapter, however:
 
 ```
 Let x be a variable of type ℕ.
@@ -166,11 +166,13 @@ metavariable [0] "⇒"[operator] [0] metavariable [0]
 ```
 
 What this means in practice is not just more sensical parse trees.
-With this rule now working, so to speak, its premises and conclusions can be matched to other metastatements and statements in derivations by the verifier, with suitable substitutions.
+With this rule now working, so to speak, its premises and conclusion can be matched to other metastatements and statements in derivations by the verifier, with suitable substitutions.
 This means that whereas before augmenting the grammar the verifier would have fallen over when encountering this rule, now it would be able to continue.
 
-This extensibility means that not just new inference rules can be defined, but new terms, statements and so on.
-Indeed it could be said that about half the job of verifying is getting the content to parse in the first place by way of extening Occam's default grammars.
+Indeed it could be said that about half the job of verification is getting content to parse by way of extening Occam's in-built grammars.
+As mentioned earlier, there is a grammars sandbox to help you with this work.
+
+
 
 
 
