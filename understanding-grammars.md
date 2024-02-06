@@ -161,10 +161,6 @@ For example, the aforementioned double-struck `ℕ` character, being regularly u
 On the other hand the `𝔸`, `𝔹` and `𝕊` characters being far less common, are relegated to an astral plane.
 In practice the position of a Unicode character, called its code point, is immaterial.
 As mentioned in the previous chapter, the Occam IDE has a Unicode picker to enable you to pick from a large selection of Unicode characters without knowing their code points.
-Finally mention should go the JuliaMono font, used in the editor, which has support for thousands of Unicode characters.
+Finally mention should go the JuliaMono[^1] typeface, used in the editor, which has support for thousands of Unicode characters.
 
-
-
-
-
-
+[^1]: https://juliamono.netlify.app/
