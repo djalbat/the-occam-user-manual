@@ -152,20 +152,35 @@ Indeed it could be said that about half the job of verification is getting conte
 As mentioned earlier, there is a grammars sandbox to help you with this work.
 Therefore like Occam's flexibility with languages, extensibility is also an important feature.
 
-# Unicode
+## Unicode
 
 The first of the points at the beginning of this chapter suggested that any grammar needs a collection of characters or symbols.
 In Occam's case this is Unicode, a near ubiliquitous standard that encompasses close to 150,000 characters to date and has the potential to support over a million.
-These characters are organised across various planes, namely the basic multilingual plane, or BNP for short, and sixteen what are called astral planes.
-For example, the aforementioned double-struck `ℕ` character, being regularly used in mathematical texts, can be found in the BNP along with the `ℝ`, `ℚ` and `ℂ` characters, also commonly used.
-On the other hand the `𝔸`, `𝔹` and `𝕊` characters being far less common, are relegated to an astral plane.
+These characters are organised across various planes, namely the basic multilingual plane, or BNP for short, and sixteen so-called astral planes.
+For example, the aforementioned double-struck `ℕ` character, being regularly used in mathematical texts, can be found in the basic multilingual plane.
+On the other hand the `𝔸` character, being far less common, is relegated to an astral plane.
 In practice the position of a Unicode character, called its code point, is immaterial.
 As mentioned in the previous chapter, the Occam IDE has a Unicode picker to enable you to pick from a large selection of Unicode characters without knowing their code points.
-Finally mention should go the JuliaMono[^1] typeface, used in the editor, which has support for thousands of Unicode characters.
+Finally mention should go the JuliaMono typeface,[^1] which is used in the editor and which has support for thousands of Unicode characters.
+
+## Tokenising content with lexers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [^1]: https://juliamono.netlify.app/
-
-# Tokenising content with lexers
-
-
-
