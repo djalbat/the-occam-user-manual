@@ -166,25 +166,25 @@ Finally mention should go the JuliaMono typeface,[^1] which is used in the edito
 ## Tokenising content with lexers
 
 There are several lexers to be found in the Occam grammars package.[^2]
-In reality these are all the same lexer but configured differently.
-The answer to the question of why a single lexer cannot simply be configured at a user level casts some light on how the lexer works under the hood and therefore we pursue this question a little.
+In reality these are all the same lexer but configured slightly differently.
 
 In essence the lexer is a state machine having two states, namely 'in comment' and 'not in comment'.
 Depending on these states it uses a different sequence of both in-built and optionally user defined rules in order to tokenise content.
-Precedence matters, so it is more accurate to talk of a sequence of rules rather than just a collection, say.
+The order in which the rules are executed matters.
 Comments must be picked out before string literals, for example.
 
 In fact, it is more apt to say that there really is only one lexer, it is just that it is more handily configured at a low level when compared to the parser.
-To be precise, a `CommonLexer` class is extended with divers static properties being set which essentially dictate its behaviour.
-For example, it might pick out C-style comments as opposed to Perl-style ones, or it might not pick out comments at all.
+To be precise, a `CommonLexer` class is extended with divers static properties which essentially dictate its behaviour.
+For example, a particular lexer might pick out C-style comments as opposed to Perl-style ones, or it might not pick out comments at all.
 Simiarly it might pick out string literals or, again, it might not.
 
-As well as picking out certain types of token, some types of tokens, such as end of line tokens, can be flagged as being significant or non-significant.
+As well as picking out verious types of token, the lexer distinguishes between two kinds of token, namely significant and non-significant.
 Significant tokens will be picked up by the parser further down the line whereas non-significant tokens are largely ignored.
 There are subtleties in this, however, which we will come to later on.
+One worth mentioning now however is that end of line tokens can be either significant or non-significant depending on the particular lexer's configuration.
 
-Thus the configuration of any lexer comprises a number of in-built properties to do with comments, literals and the like together with a optional sequence of user defined rules.
-These rules are configured by what are called lexical entries, where are mappings of token kinds to the regular expressions that pick them out.
+Thus the configuration of any lexer comprises a number of in-built properties to do with comments, literals and the like together with an optional sequence of user defined rules.
+These rules are defined by so-called lexical entries in JSON form, where are mappings of token types to the regular expression patterns that pick them out.
 For example, here are the entries for the plain text lexer:
 
 ```
@@ -202,11 +202,15 @@ For example, here are the entries for the plain text lexer:
 ```
 
 The rules that result are used to attempt to tokenise the content should all the plain text lexer's in-built rules fail to do so and they are tried in order from top to bottom.
-Notet that all of hte regular expression patterns start with the `^` caret which matches the start of the content.
+Note that all of hte regular expression patterns start with the `^` caret symbol which matches the start of the content.
 Thus we envisage the lexer as eating up the content from left to right, so to speak.
 This is always the case.
 
-Perhaps this is too much detail but what is important to stress is that there are in-built rules which come first and that the configuration of any lexer can be augmented with user-defined rules stipulated by these lexical entries.
+One other thing to note is that the last user-defined rule will match anything but whitespace.
+Given that a prior in-built rule will have already matched any whitespace this all but guarantees that the plain text lexer will cope with just about anything.
+We call this robustness and come back to this important property of both lexers and pareers in a later section.
+
+Perhaps this is too much detail but what is important to stress is that there are in-built rules which come first and that the configuration of any lexer can be augmented with user-defined rules defined by what we call lexical entries.
 To make this all a bit more concrete, recall that we augmented Occam's Florence grammar in order to pick out the `⇒` implication symbol as an operator token.
 This would have meant an addtional lexical entry along the lines of the following:
 
