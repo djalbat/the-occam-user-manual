@@ -8,7 +8,7 @@ More specifically, it can be comprised of three parts:
 These symbols or characters are more often than not considered synonymous with the glyphs that represent them.
 In our case a sequence of such characters is what comprises the content of a document or file.
 
-2. A set of rules, usually based on regular expressions, to collect these characters into larger elements, called tokens or lexemes.
+2. A set of rules, usually based on regular expressions,[^3] to collect these characters into larger elements, called tokens or lexemes.
 We tend to envisage a sequence of characters as continuous rather than discrete and therefore tend to think of these rules as chopping up the content, so to speak.
 This process is called lexing or tokenising and we stick to the latter.
 
@@ -222,18 +222,12 @@ This would have meant an addtional lexical entry along the lines of the followin
 
 This is in fact exactly what happens under the hood.
 
+## Parsing tokens with parsers
 
-
-
-
-
-
-
-
-
-
-
-
+Like the lexers, there are several parsers to be found in the Occam grammars package.[^2]
+And again like the lexers, these are all in fact the same common parser but configured differently in each case.
+To be precise again, a `CommonParser` class is extended for each grammar.
+There are no specific properties or in buil
 
 
 
@@ -244,3 +238,5 @@ This is in fact exactly what happens under the hood.
 
 [^1]: https://juliamono.netlify.app/
 [^2]: https://github.com/djalbat/occam-grammars
+[^3]: https://en.wikipedia.org/wiki/Regular_expression
+[^4]: https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form

@@ -98,9 +98,11 @@ And vice versa if you click on a reference.
 
 ## Editing
 
-It feels as if little explanation of the editor's functionality is needed and it will hopefully feel familiar to anyone who has used such tools before.
+Little explanation of the editor's functionality is needed and it will hopefully feel familiar to anyone who has used such tools before.
 There are two toolbars that go along with it, namely the find and Unicode toolbars.
-These are tied up with the keyboard shortcuts, which is perhaps the only thing that require further explanation aside from the buttons to change the font size, which you will find if you move the cursor towards the bottom right of the editor window. 
+These are tied up with the keyboard shortcuts, which is perhaps the only thing that requires further explanation aside from the menu in the bottom-right corner of the editor itself.
+This remains hidden until you mouse over it.
+It has buttons to increase and decrease the editor's font size as well as buttons to toggle the presentation mode.
 
 Starting with the fold functionality, folds can of course be expanded or collapsed by clicking on their buttons with the mouse.
 The corresponding keyboard shortcuts are the command or control key together with the plus and minus keys which will expand or collapse any folds enclosing the selections, respectively.
