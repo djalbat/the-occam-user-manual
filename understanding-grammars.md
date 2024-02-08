@@ -271,6 +271,31 @@ Firstly, the `number` rule makes use of a regular expression in its definition.
 Secondly, two of the definitions in the `expression` rule are recursive, in fact the second is what is called left recursive.
 We shall come back to this later.
 
+The astute may ask, since BNF is itself a language, can it be specified with BNF?
+The answer to this is yes, and Occam has its own variant of BNF in fact.[^5]
+There is a BNF parser for parsing BNF and this cannot bootstrap itself somehow, instead its rules, definitions and the like are in-built.
+
+We end this section with a brief description of how Occam's parser works.
+There is no need for a deep understanding but having at least a passing familiarity with the process may avoid frustration when you come to actually using it.
+So then, the parser is what is known as a top-down parser.
+Its goal is to evaluate the starting rule, which by default is usually the first rule, parse all of the tokens it is given and then terminate.
+It evaluates a rule by evaluating each of its definitions in order.
+If one of a rule's definitions evaluates then rule evaluates and we are done.
+In order to evaludate a definition all of its parts must evaluate.
+Parts are generally either non-terminal, that is they simply point to a rule; terminal, in which case they match a token.
+There is a third category of parts called complex parts which are best described as in-ine rules.
+
+It is worth a moment to imagine a top down parser, configured with the BNF above, parsing an arithmetic expression such as `(1+2)÷3`.
+It should become clear why second definition of the `expression` rule is going to create problems.
+When the parser encounters this definition it will try to evaluate the `expression` rule again and if the first definition cannot be evaluated then the parser will loop indefinitely.
+This problem can be alleviated by rewriting the BNF under the hood, so to speak, but it is reasonable to ask why another parser achtiteture cannot be adopted, one that is not susceptible to left recursion.
+The answer is that all parser architectures are susceptible to one form of recursion or another and top down parsers are generally by far the simplest and fastest architecture.
+
+
+## The Florence grammar
+
+
+
 
 
 
@@ -279,3 +304,4 @@ We shall come back to this later.
 [^2]: https://github.com/djalbat/occam-grammars
 [^3]: https://en.wikipedia.org/wiki/Regular_expression
 [^4]: https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
+[^5]: https://github.com/djalbat/occam-parsers/blob/master/src/bnf/bnf.js
