@@ -225,12 +225,50 @@ This is in fact exactly what happens under the hood.
 ## Parsing tokens with parsers
 
 Like the lexers, there are several parsers to be found in the Occam grammars package.[^2]
-And again like the lexers, these are all in fact the same common parser but configured differently in each case.
-To be precise again, a `CommonParser` class is extended for each grammar.
-There are no specific properties or in buil
+And again like the lexers, these are all in fact the same common parser but configured differently in each case, specifically a `CommonParser` class that extended for each grammar.
+There are no specific properties or in-built rules, however.
+Aside from the occassional static factory method that need not concern us, the only thing that differentiates these parsers is the BNF[^4] that configures them.
 
+It is worth a moment to look at BNF in more detail.
+Image you want to parse an arithmetic expression.\
+You would require something like the following rules at least.
 
+An arithemetic expression can be:
 
+1. A number,
+2. two arirthemetic expressions separated by a binary operator,
+3. an arithmetic expression enclosed in brackets.
+
+Furthermore we would have to define two other rules:
+
+4. An operator is a plus, minus, divides or multilplication symbol.
+5. A number is a series of one or more decimal digits.
+
+Such natural language specifications of language structure are cumbersome and ambiguous. 
+All BNF does is make this precise:
+
+```
+
+  expression :: "(" expression ")"
+
+              | expression operator expression
+
+              | number
+
+              ;
+
+   operator ::= "+" | "-" | "÷" | "×" ;
+
+     number ::= /\d+/ ;
+
+```
+
+It is not going to far to claim that not only is this specification clearer than the natural language one that preceded it, but that it could have been given with no explanation at all.
+This is BNFs great utility, if employed with common sense.
+
+There are a couple of further things to note.
+Firstly, the `number` rule makes use of a regular expression; and secondly, the `expression` rule is recursive, in fact left recursive.
+We shall come back to this later.
 
 
 
