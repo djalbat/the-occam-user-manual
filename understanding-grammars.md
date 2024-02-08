@@ -169,7 +169,7 @@ There are several lexers to be found in the Occam grammars package.[^2]
 In reality these are all the same lexer but configured slightly differently.
 
 In essence the lexer is a state machine having two states, namely 'in comment' and 'not in comment'.
-Depending on these states it uses a different sequence of both in-built and optionally user defined rules in order to tokenise content.
+Depending on these states it uses a different sequence of both in-b⨶and optionally user defined rules in order to tokenise content.
 The order in which the rules are executed matters.
 Comments must be picked out before string literals, for example.
 
@@ -225,26 +225,26 @@ This is in fact exactly what happens under the hood.
 ## Parsing tokens with parsers
 
 Like the lexers, there are several parsers to be found in the Occam grammars package.[^2]
-And again like the lexers, these are all in fact the same common parser but configured differently in each case, specifically a `CommonParser` class that extended for each grammar.
-There are no specific properties or in-built rules, however.
-Aside from the occassional static factory method that need not concern us, the only thing that differentiates these parsers is the BNF[^4] that configures them.
+And again like the lexers, these are all in fact the same common parser but configured differently in each case. 
+Specifically, a `CommonParser` class that extended for each grammar although, unlike the lexers, there are no other specific properties or in-built rules.
+Aside from the occassional static factory method that need not concern us, in fact, the only thing that differentiates these parsers is the BNF[^4] that configures them.
 
 It is worth a moment to look at BNF in more detail.
-Image you want to parse an arithmetic expression.\
+Image you want to parse an arithmetic expression.
 You would require something like the following rules at least.
 
-An arithemetic expression can be:
+An arithmetic expression can be...
 
-1. A number,
-2. two arirthemetic expressions separated by a binary operator,
-3. an arithmetic expression enclosed in brackets.
+1. a number,
+2. two other arithmetic expressions separated by a binary operator,
+3. another arithmetic expression enclosed in brackets.
 
 Furthermore we would have to define two other rules:
 
-4. An operator is a plus, minus, divides or multilplication symbol.
+4. An operator is an addition, subtraction, division or multiplication symbol.
 5. A number is a series of one or more decimal digits.
 
-Such natural language specifications of language structure are cumbersome and ambiguous. 
+Such natural language specifications are cumbersome and ambiguous. 
 All BNF does is make this precise:
 
 ```
@@ -263,11 +263,12 @@ All BNF does is make this precise:
 
 ```
 
-It is not going to far to claim that not only is this specification clearer than the natural language one that preceded it, but that it could have been given with no explanation at all.
-This is BNFs great utility, if employed with common sense.
+It is not going too far to claim that not only is this specification clearer than the natural language one but that it could have been given with no explanation at all.
+Such is BNF's great utility, if employed with common sense.
 
 There are a couple of further things to note.
-Firstly, the `number` rule makes use of a regular expression; and secondly, the `expression` rule is recursive, in fact left recursive.
+Firstly, the `number` rule makes use of a regular expression in its definition.
+Secondly, two of the definitions in the `expression` rule are recursive, in fact the second is what is called left recursive.
 We shall come back to this later.
 
 
