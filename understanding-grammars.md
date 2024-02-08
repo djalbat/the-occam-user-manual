@@ -105,7 +105,7 @@ Now consider the parse tree of the first of the premises:
 ```
 
 Note that it does indeed parse, but that it is being parsed as `nonsense`.
-This is the fallback or last resort of the grammar, so to speak, if the metastatement cannot be parsed in a more meaningful way.
+This is the fallback of the grammar, so to speak, if the metastatement cannot be parsed in a more meaningful way.
 
 To make sense of this metastatement, we first augment the grammar with a regular exprssion to pick out the `⇒` implication symbol as an operator token.
 The following parse tree shows that the statement is still parses as nonsense but that this symbol is at least being recognised as an operator:
@@ -211,16 +211,6 @@ Given that a prior in-built rule will have already matched any whitespace this a
 We call this robustness and come back to this important property of both lexers and pareers in a later section.
 
 Perhaps this is too much detail but what is important to stress is that there are in-built rules which come first and that the configuration of any lexer can be augmented with user-defined rules defined by what we call lexical entries.
-To make this all a bit more concrete, recall that we augmented Occam's Florence grammar in order to pick out the `⇒` implication symbol as an operator token.
-This would have meant an addtional lexical entry along the lines of the following:
-
-```
-{
-  "operator": "^⇒"
-}
-```
-
-This is in fact exactly what happens under the hood.
 
 ## Parsing tokens with parsers
 
@@ -248,19 +238,17 @@ Such natural language specifications are both cumbersome and ambiguous.
 All BNF does is make this all precise:
 
 ```
+expression :: "(" expression ")"
 
-  expression :: "(" expression ")"
+            | expression operator expression
 
-              | expression operator expression
+            | number
 
-              | number
+            ;
 
-              ;
+ operator ::= "+" | "-" | "÷" | "×" ;
 
-   operator ::= "+" | "-" | "÷" | "×" ;
-
-     number ::= /\d+/ ;
-
+   number ::= /\d+/ ;
 ```
 
 There are a couple of further to note.
@@ -289,9 +277,202 @@ The answer is that all parser architectures are susceptible to one form of recur
 
 ## The Florence grammar
 
+Some familiarity with the Florence grammar is helpful and so we look it is constituent parts now. To begin with, here is the definition of the `FlorenceLexer` class:
+
+```
+class FlorenceLexer extends CommonLexer {
+  ...
+
+  static EndOfLineToken = EndOfLineSignificantToken;
+
+  static WhitespaceToken = WhitespaceToken;
+
+  static RegularExpressionToken = null;
+
+  static EndOfLineCommentToken = EndOfLineCommentSignificantToken;
+
+  static SingleLineCommentToken = PythonStyleSingleLineCommentToken;
+
+  static EndOfMultiLineCommentToken = PythonStyleEndOfMultiLineCommentToken; 
+
+  static StartOfMultiLineCommentToken = PythonStyleStartOfMultiLineCommentToken; 
+
+  static MiddleOfMultiLineCommentToken = PythonStyleMiddleOfMultiLineCommentToken; 
+
+  static SinglyQuotedStringLiteralToken = null;
+
+  static DoublyQuotedStringLiteralToken = DoublyQuotedStringLiteralToken;
+}
+```
+
+Note that end of line tokens are significant, like YAML or Python but unlike JSON or Java, say. 
+Note also that both single and multiple line Python style comments are supported. 
+And lastly note that doubly quoted string literals are preferred to singly quoted ones and that regular expression string literals are not supported.
+These preferences define the in-built rules and in addition to these we have the following lexical entries.
+Here the regular expression pattern for the `primary-keyword` entry has been abridged:
+
+```
+[
+  {
+    "special": "^(?:,|::|:|=|\\(|\\)|\\[|\\]|\\.\\.\\.)"
+  },
+  {
+    "primary-keyword": "^(?:Rule|Axiom|Theorem|Lemma|Conjecture|Metalemma|Metatheorem|Premises|Premise|Conclusion|Proof...)\\b"
+  },
+  {
+    "secondary-keyword": "^(?:from|by)\\b"
+  },
+  {
+    "meta-type": "^(?:Statement|Context)\\b"
+  },
+  {
+    "name": "^[A-Za-zΑ-Ωα-ω][A-Za-zΑ-Ωα-ω_0-9]*"
+  },
+  {
+    "unassigned": "^[^\\s]+"
+  }
+]
+```
+
+Note that the regular expression literal for the last `unassigned` token type will match anything but whitespace.
+In fact again we make the point, as we did with the plain text lexer, that since a prior in-built rule will have already matched any whitespace this all but guarantees that the Florence lexer will cope with just about anything.
+
+Here is the abridged top-level part of the BNF for the parser:
+
+```
+document                             ::=   ( topLevelDeclaration | verticalSpace | error )+ ;
+
+topLevelDeclaration                  ::=   typeDeclaration 
+                                           
+                                       |   variableDeclaration 
+
+                                       ...                                           
+                                           
+                                       |   rule 
+
+                                       |   axiom 
+
+                                       |   lemma 
+
+                                       |   theorem 
+
+                                       |   conjecture 
+
+                                       |   metalemma 
+
+                                       |   metatheorem 
+
+                                       ;
+
+verticalSpace                        ::=   <END_OF_LINE>+ ;
+
+error                                ::=   . ;
+```
+
+There are some points to note here.
+Firstly, the `verticalSpace` rule matches one or more end of line tokens.
+Recall that the Florence lexer is configured to treat such tokens as significant, hence they can be referenced in the correspodning BNF.
+Also, the `document` rule's definition has a complex part which stipulates one or more of a choice of three parts.
+These will be evaluated in sequence and therefore the `error` rule provides the required fallback functionality.
+Its single definition has only one wildcard part `'` that will match any significant token, as its name suggests.
+Thus the BNF can be said to be robust, in the sense that the parser will always terminate.
+The theme of robuestness is picked up again in the later section on ambiguity.
+
+Moving on, here is part of the mid-level BNF:
+
+```
+unqualifiedMetastatement!            ::=   metastatement... <END_OF_LINE> 
+
+                                       |   nonsense... <END_OF_LINE> 
+                                       
+                                       ;
+
+qualifiedMetastatement!              ::=   metastatement... qualification <END_OF_LINE> 
+
+                                       |   nonsense... qualification <END_OF_LINE> 
+                                        
+                                       ;
+
+...                                       
+
+qualification                        ::=   ( "by" | "from" ) reference ;
+
+nonsense                             ::=   ( [type] | [symbol] | [operator] | [special] | [secondary-keyword] | [meta-type] | [name] | [unassigned] )+ ;
+```
+
+Since ambiguity is being treated later we will pass over the fact that each of the first two rules have two definitions and the use of the exclamation mark after these rules' names.
+Instead we focus on the ellipsis `...` modifier attached to each of the rule name parts.
+This switches the parser into what is called a look-ahead state, where it takes note the part that follows the look-ahead part, so to speak, when evaluating the look-ahead part itself.
+This is useful because the `nonsense` rule if left to its own devices would parse a qualification, since it parses one or more tokens of pretty much any time.
+If it can be made to look ahead, however, it will stop before the qualification and allow the parser to continue to evaluate the `qualification` part of the definition.
+
+It is not unreasonable to ask why this look-ahead state is not the default state of the parser, given its obvious utility.
+Ths answer is that it slows the parser down considerably.
+In its normal mode the parser will parse a sequence of tokens in time roughly linearly proportional to the sequence length.
+By comparison, in a look-ahead state, although no profiling has ever been carried out, it is most likely that the time is likely to be exponential.
+Thus although a look-ahead state was a necessity when designing the parser, it is used throughout all of Occam's grammars with care.
+
+We bring this section to a close with mention of custom grammars.
+These are the subject of the next chapter but because the augment the Florence grammar, it makes sense to mention the default custom grammar here.
+This grammar augments the Florence grammar with additional regular expression patterns for the lexer and additional rules for the parser.
+here are the regular expression patterns, for the `type` and `symbol` and `operator` token types.
+Note that the second of these is empty:
+
+```
+typePattern = "Object";
+
+symbolPattern = "";
+
+operatorPattern = "⊧|is|for|omits|contains|undefined";
+```
+
+Note that we would have augmented the `operatorPattern` regular expression pattern with the implication symbol earlier.
+
+And here are the abridged BNF rules:
+
+```
+term!                                ::=   variable ;
+
+statement!                           ::=   "(" metaArgument ")" 
+                                                  
+                                       |   equality
+
+                                       |   typeAssertion 
+                                                  
+                                       |   undefinedAssertion
+
+                                       ;
+                                       
+equality                             ::=   argument "=" argument ;
+
+typeAssertion                        ::=   term ":" type ;
+
+undefinedAssertion                   ::=   variable "is" "undefined" ;
+
+metastatement!                       ::=   "(" metastatement ")" 
+           
+                                       ...
+                                        
+                                       ;
+
+...
+```
+
+These are a bit more convoluted but note the presence of the `metastatement` rule which we augmented earlier.
 
 
 
+
+
+
+## Ambiguity
+
+Florence lexer and parser both robust...
+
+Mention the definitions in the unqualified and qualified rules and that left recursion must not play a role here because of the ambiguity.
+Also note the exclamation mark.
+
+All of Occam's grammars have this feature and it is worth taking a moment to justify why this is.
 
 
 
