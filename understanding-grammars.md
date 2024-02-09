@@ -1,25 +1,24 @@
 # Understanding Grammars
 
-Occam's grammars functionality is one of its strong points but what exactly is a grammar, at least in Occam's parlance?
-A grammar can loosely be described as that which is needed in order to describe and work with a language.
-More specifically, it can be comprised of three parts:
+Occam's grammars functionality is one of its strongest suits but what exactly is a grammar, at least in Occam's parlance?
+A grammar can loosely be described as that which is needed to describe and work with a language.
+More specifically, it can be thought of as comprising three parts:
 
 1. A collection of symbols or characters that are the smallest elements of the language. 
-These symbols or characters are more often than not considered synonymous with the glyphs that represent them.
+These symbols or characters are usually viscerally synonymous with the glyphs that represent them.
 In our case a sequence of such characters is what comprises the content of a document or file.
 
 2. A set of rules, usually based on regular expressions,[^3] to collect these characters into larger elements, called tokens or lexemes.
-We tend to envisage a sequence of characters as continuous rather than discrete and therefore tend to think of these rules as chopping up the content, so to speak.
-This process is called lexing or tokenising and we stick to the latter.
+We tend to envisage a sequence of characters as continuous rather than discrete, however, and therefore tend to think of these rules as chopping up the content rather than gathering it.
+This process is called lexing or tokenising and we stick with the latter.
 
-3. Another set of rules, more high level, that are responsible for organising these tokens into larger elements.
-In the case of natural language these would be phrases, sentences, paragraphs and so on.
+3. Another set of rules, written in BNF,[^4] that are responsible for organising these tokens into larger elements.
+In the case of a natural language these would be phrases, sentences, paragraphs and so on.
 This process is called parsing the tokens or, by extension, the content
 The resulting structure is usually called an abstract syntax tree or AST for short.
 We call it a parse tree, however.
 
-Lastly, not part of this list but equally important is the way in which the parse tree and the tokens themselves are utilised and sometimes maninpulated.
-We cover this practice in this chapter, too.
+Lastly, not part of this list but equally important is the way in which the parse tree and occasionally the tokens themselves are utilised and maninpulated, which we briefly cover in this chapter, too.
 
 ## Language flexibility and extensibility
 
@@ -31,7 +30,7 @@ Variable n:ℕ
 
 Here we are declaring a variable named `n` to be of natrual number type, represented by the double-struck `ℕ` character.
 Now look at the parse tree.
-This is what Occam sees or, more importantly, what the verifier would see.
+This is what what the verifier would see, so to speak.
 
 ```
                                       variableDeclaration [0]                             
@@ -44,11 +43,11 @@ This is what Occam sees or, more importantly, what the verifier would see.
 ```
 
 It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `ℕ` type.
-We imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
+It is not too hard to imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
 
 Now consider the same variable declaration but written in a controlled natural language, or CNL for short.
 Occam does not natively support this language as yet but will do so in the future.
-It can be created using the grammars sandbox that is the subject of the next chapter, however:
+For the moment it can be created using the grammars sandbox that is the subject of the next chapter:
 
 ```
 Let x be a variable of type ℕ.
@@ -67,19 +66,19 @@ Here is the resultant parse tree:
 ```
 
 Note that exactly the same information can be extracted from this parse tree as from the previous one, even though the language has changed.
-The verifier would be able to ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node, for example, just as before.
-Similarly it could also ascertain that the variable is called `n` and that its type is `ℕ`.
+The verifier would be able to ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node, for example.
+Similarly it could also ascertain that the variable is called `n` and that its type is `ℕ`, just as before.
 
-In essence, in fact, the parse trees would appear to be identical to the verifier, since it ignores elements that were not pertinent.
+In essence the parse trees would appear to be identical to the verifier, in fact, since it ignores elements that were not pertinent.
 The `Variable` keyword in the Florence parse tree would be ignored, for example, or the `Let`, `be` and `a` keywordds in the CNL parse tree.
 
-In summary, for all intents and purposes the Flroence and CNL languages will appear to be identical to the verifier and not just for varaible declarations but everything.
+In summary, for all intents and purposes the Flroence and CNL languages will appear to be identical to the verifier and not just for varaible declarations but every pertinent language element.
 Furthermore, it should be clear that the natural language parts of CNL can be akin to any natural language, it does not have to be English.
 This flexibility with languages is an important feature of Occam.
 
 Occam also allows languages to be extended.
 Consider the following inference rule.
-Quite what an inference rule is or what this one is useful for are not important at this stage:
+Quite what an inference rule is or what this one is useful for are not important at this stage, by the way:
 
 ```
 Rule (ModusPonens)
@@ -90,7 +89,7 @@ Rule (ModusPonens)
     B
 ```
 
-Now consider the parse tree of the first of the premises:
+Now consider the parse tree for the first of the premises:
 
 ```
                          unqualifiedMetastatement [0]        
@@ -104,11 +103,11 @@ Now consider the parse tree of the first of the premises:
 "A"[name] [0] "⇒"[unassigned] [0] "B"[name] [0]              
 ```
 
-Note that it does indeed parse, but that it is being parsed as `nonsense`.
-This is the fallback of the grammar, so to speak, if the metastatement cannot be parsed in a more meaningful way.
+Note that it does indeed parse, but that it is being parsed as nonsense.
+This is the fallback if the metastatement cannot be parsed in a more meaningful way.
 
-To make sense of this metastatement, we first augment the grammar with a regular exprssion to pick out the `⇒` implication symbol as an operator token.
-The following parse tree shows that the statement is still parses as nonsense but that this symbol is at least being recognised as an operator:
+To make sense of this metastatement, we first augment the grammar with a regular exprssion pattern that picks out the `⇒` implication character as an operator token.
+The following parse tree shows that the metastatement still parses as nonsense but that this character is at least being recognised as an operator:
 
 ```
                        unqualifiedMetastatement [0]        
@@ -122,13 +121,13 @@ The following parse tree shows that the statement is still parses as nonsense bu
 "A"[name] [0] "⇒"[operator] [0] "B"[name] [0]              
 ```
 
-Next, we augment the `metastatement` rule in the grammar to include metastatements of the requisite form:
+Next, we augment the `metastatement` rule in the BNF to include metastatements of the requisite form:
 
 ```
 metastatement ::= metavariable "⇒" metavariable ;
 ```
 
-As a result of these changes we get a `metastatement` node, not just a `nonsense` one:
+As a result of these changes we get a `metastatement` node instead of a `nonsense` one:
 
 ```
                             unqualifiedMetastatement [0]         
@@ -145,23 +144,23 @@ metavariable [0] "⇒"[operator] [0] metavariable [0]
 ```
 
 What this means in practice is not just a more sensical parse tree.
-With this rule now working, so to speak, its premises and conclusion can be matched to other metastatements and statements in derivations by the verifier.
+With this rule now working its premises and conclusion can be matched to other metastatements and statements in derivations by the verifier.
 This means that whereas before augmenting the grammar the verifier would have fallen over when encountering this rule, now it would be able to continue.
 
 Indeed it could be said that about half the job of verification is getting content to parse by way of extening Occam's in-built grammars.
 As mentioned earlier, there is a grammars sandbox to help you with this work.
-Therefore like Occam's flexibility with languages, extensibility is also an important feature.
+So like Occam's flexibility with languages, extensibility is an important feature.
 
 ## Unicode
 
 The first of the points at the beginning of this chapter suggested that any grammar needs a collection of characters or symbols.
 In Occam's case this is Unicode, a near ubiliquitous standard that encompasses close to 150,000 characters to date and has the potential to support over a million.
-These characters are organised across various planes, namely the basic multilingual plane, or BNP for short, and sixteen so-called astral planes.
+These characters are organised across various planes, namely the basic multilingual plane, or BNP for short, together with sixteen so-called astral planes.
 For example, the aforementioned double-struck `ℕ` character, being regularly used in mathematical texts, can be found in the basic multilingual plane.
 On the other hand the `𝔸` character, being far less common, is relegated to an astral plane.
 In practice the position of a Unicode character, called its code point, is immaterial.
 As mentioned in the previous chapter, the Occam IDE has a Unicode picker to enable you to pick from a large selection of Unicode characters without knowing their code points.
-Finally mention should go the JuliaMono typeface,[^1] which is used in the editor and which has support for thousands of Unicode characters.
+Mention should also go the JuliaMono typeface,[^1] which is used in the editor and which has support for thousands of Unicode characters.
 
 ## Tokenising content with lexers
 
@@ -202,8 +201,8 @@ For example, here are the entries for the plain text lexer:
 ```
 
 The rules that result are used to attempt to tokenise the content should all the plain text lexer's in-built rules fail to do so and they are tried in order from top to bottom.
-Note that all of hte regular expression patterns start with the `^` caret symbol which matches the start of the content.
-Thus we envisage the lexer as eating up the content from left to right, so to speak.
+Note that all of hte regular expression patterns start with the `^` caret character which matches the start of the content.
+Thus we envisage the lexer as consuming up the content from left to right.
 This is always the case.
 
 One other thing to note is that the last user-defined rule will match anything but whitespace.
@@ -217,7 +216,7 @@ Perhaps this is too much detail but what is important to stress is that there ar
 Like the lexers, there are several parsers to be found in the Occam grammars package.[^2]
 And again like the lexers, these are all in fact the same common parser but configured differently in each case. 
 Specifically, a `CommonParser` class is extended for each grammar although, unlike the lexers, there are no other specific properties or in-built rules.
-Effectively the only thing that differentiates these parsers is the BNF[^4] associated with each, in fact.
+Effectively the only thing that differentiates these parsers is the BNF associated with each, in fact.
 
 It is worth a moment to look at BNF in more detail.
 Imagine you want to parse an arithmetic expression.
@@ -231,7 +230,7 @@ An arithmetic expression can be...
 
 Furthermore we would have to define two other rules:
 
-4. An operator is an addition, subtraction, division or multiplication symbol.
+4. An operator is an addition, subtraction, division or multiplication character.
 5. A number is a series of one or more decimal digits.
 
 Such natural language specifications are both cumbersome and ambiguous.
@@ -272,7 +271,7 @@ There is a third category of parts called complex parts which are best described
 It is worth a moment to imagine a top down parser, configured with the BNF above, parsing an arithmetic expression such as `(1+2)÷3`.
 It should become clear why the second definition of the `expression` rule is going to create problems.
 When the parser encounters this definition it will try to evaluate the `expression` rule again and if the first definition cannot be evaluated then the parser will loop indefinitely.
-This problem can be alleviated by rewriting the BNF under the hood, so to speak, but it is reasonable to ask why another parser achtiteture cannot be adopted, one that is not susceptible to left recursion.
+This problem can be alleviated by rewriting the BNF under the hood but it is reasonable to ask why another parser achtiteture cannot be adopted, one that is not susceptible to left recursion.
 The answer is that all parser architectures are susceptible to one form of recursion or another and top down parsers are generally by far the simplest and fastest.
 
 ## The Florence grammar
@@ -402,7 +401,7 @@ nonsense                             ::=   ( [type] | [symbol] | [operator] | [s
 
 Since ambiguity is being treated later we will pass over the fact that each of the first two rules have two definitions and the use of the exclamation mark after these rules' names.
 Instead we focus on the ellipsis `...` modifier attached to each of the rule name parts.
-This switches the parser into what is called a look-ahead state, where it takes note the part that follows the look-ahead part, so to speak, when evaluating the look-ahead part itself.
+This switches the parser into what is called a look-ahead state, where it takes note of the part that follows the look-ahead part when evaluating the look-ahead part itself.
 This is useful because the `nonsense` rule if left to its own devices would parse a qualification, since it parses one or more tokens of pretty much any time.
 If it can be made to look ahead, however, it will stop before the qualification and allow the parser to continue to evaluate the `qualification` part of the definition.
 
@@ -415,7 +414,7 @@ Thus although a look-ahead state was a necessity when designing the parser, it i
 We bring this section to a close with mention of custom grammars.
 These are the subject of the next chapter but because the augment the Florence grammar, it makes sense to mention the default custom grammar here.
 This grammar augments the Florence grammar with additional regular expression patterns for the lexer and additional rules for the parser.
-here are the regular expression patterns, for the `type` and `symbol` and `operator` token types.
+Here are the regular expression patterns, for the `type` and `symbol` and `operator` token types.
 Note that the second of these is empty:
 
 ```
@@ -426,7 +425,7 @@ symbolPattern = "";
 operatorPattern = "⊧|is|for|omits|contains|undefined";
 ```
 
-Note that we would have augmented the `operatorPattern` regular expression pattern with the implication symbol earlier.
+Note that we would have augmented the `operatorPattern` regular expression pattern with the implication character earlier.
 
 And here are the abridged BNF rules:
 
@@ -473,6 +472,8 @@ Mention the definitions in the unqualified and qualified rules and that left rec
 Also note the exclamation mark.
 
 All of Occam's grammars have this feature and it is worth taking a moment to justify why this is.
+
+
 
 
 
