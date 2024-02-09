@@ -165,25 +165,24 @@ Mention should also go the JuliaMono typeface,[^1] which is used in the editor a
 ## Tokenising content with lexers
 
 There are several lexers to be found in the Occam grammars package.[^2]
-In reality these are all the same lexer but configured slightly differently.
+In fact these are all the same lexer but configured slightly differently.
 
-In essence the lexer is a state machine having two states, namely 'in comment' and 'not in comment'.
-Depending on these states it uses a different sequence of both in-b⨶and optionally user defined rules in order to tokenise content.
+In essence Occam's lexer is a state machine having two states, namely 'in comment' and 'not in comment'.
+Depending on these states it uses a different sequence of both in-built and user defined rules to tokenise content.
 The order in which the rules are executed matters.
 Comments must be picked out before string literals, for example.
 
-In fact, it is more apt to say that there really is only one lexer, it is just that it is more handily configured at a low level when compared to the parser.
-To be precise, a `CommonLexer` class is extended with divers static properties which essentially dictate its behaviour.
+For each of the grammars a `CommonLexer` class is extended with divers static properties which essentially define its in-built rules.
 For example, a particular lexer might pick out C-style comments as opposed to Perl-style ones, or it might not pick out comments at all.
 Simiarly it might pick out string literals or, again, it might not.
 
-As well as picking out verious types of token, the lexer distinguishes between two kinds of token, namely significant and non-significant.
+As well as picking out verious types of token, lexers distinguish between two kinds of token, namely significant and non-significant tokens.
 Significant tokens will be picked up by the parser further down the line whereas non-significant tokens are largely ignored.
 There are subtleties in this, however, which we will come to later on.
 One worth mentioning now however is that end of line tokens can be either significant or non-significant depending on the particular lexer's configuration.
 
-Thus the configuration of any lexer comprises a number of in-built properties to do with comments, literals and the like together with an optional sequence of user defined rules.
-These rules are defined by so-called lexical entries in JSON form, where are mappings of token types to the regular expression patterns that pick them out.
+Unlike a lexer's in-built rules, its user defined rules are defined by so-called lexical entries in JSON form.
+These are essentially mappings of token types to the regular expression patterns that match them.
 For example, here are the entries for the plain text lexer:
 
 ```
@@ -200,31 +199,28 @@ For example, here are the entries for the plain text lexer:
 ]
 ```
 
-The rules that result are used to attempt to tokenise the content should all the plain text lexer's in-built rules fail to do so and they are tried in order from top to bottom.
+User defined rules are tried should the lexer's in-built rules fail to match the content and they are tried in order from top to bottom.
 Note that all of hte regular expression patterns start with the `^` caret character which matches the start of the content.
-Thus we envisage the lexer as consuming up the content from left to right.
-This is always the case.
+Thus it is reasonable to envisage the lexer as consuming the content from left to right.
 
 One other thing to note is that the last user-defined rule will match anything but whitespace.
-Given that a prior in-built rule will have already matched any whitespace this all but guarantees that the plain text lexer will cope with just about anything.
+Given that a prior in-built rule will have already matched any whitespace this guarantees that the plain text lexer will cope with any input.
 We call this robustness and come back to this important property of both lexers and pareers in a later section.
-
-Perhaps this is too much detail but what is important to stress is that there are in-built rules which come first and that the configuration of any lexer can be augmented with user-defined rules defined by what we call lexical entries.
 
 ## Parsing tokens with parsers
 
 Like the lexers, there are several parsers to be found in the Occam grammars package.[^2]
 And again like the lexers, these are all in fact the same common parser but configured differently in each case. 
 Specifically, a `CommonParser` class is extended for each grammar although, unlike the lexers, there are no other specific properties or in-built rules.
-Effectively the only thing that differentiates these parsers is the BNF associated with each, in fact.
+The only thing that differentiates each parser is its associated BNF.
 
 It is worth a moment to look at BNF in more detail.
 Imagine you want to parse an arithmetic expression.
-You would require something like the following rules at least.
+You would require something like the following rules at least...
 
-An arithmetic expression can be...
+An arithmetic expression can be:
 
-1. another arithmetic expression enclosed in brackets,
+1. Another arithmetic expression enclosed in brackets,
 2. two other arithmetic expressions separated by a binary operator,
 3. a number.
 
@@ -233,8 +229,8 @@ Furthermore we would have to define two other rules:
 4. An operator is an addition, subtraction, division or multiplication character.
 5. A number is a series of one or more decimal digits.
 
-Such natural language specifications are both cumbersome and ambiguous.
-All BNF does is make this all precise:
+Such natural language specifications are both cumbersome and ambiguous, however.
+All BNF does is make all of this precise:
 
 ```
 expression :: "(" expression ")"
@@ -250,38 +246,34 @@ expression :: "(" expression ")"
    number ::= /\d+/ ;
 ```
 
-There are a couple of further to note.
-Firstly, the `number` rule makes use of a regular expression in its definition.
-Secondly, two of the definitions in the `expression` rule are recursive, in fact the second is what is called left recursive.
-We shall come back to this later.
-
-It is not going too far to claim that not only is this specification clearer than the natural language one by far but that it could have been given with no prior explanation at all.
+It is not going too far to claim that not only are the above rules clearer than their natural language counterparts but that they could have been given with no prior explanation at all.
 Such is BNF's great utility, if employed with common sense.
 
 We end this section with a brief description of how Occam's parser works.
 There is no need for a deep understanding but having at least a passing familiarity with the process may avoid frustration later on.
 So, Occam's parser is what is known as a top-down parser.
-Its goal is to evaluate the starting rule, which by default is usually the first rule, parse all of the tokens it is given and then terminate.
+Its goal is to evaluate the start rule, which is usually the first rule, during the process of which all of the tokens should be consumed.
 It evaluates a rule by evaluating each of its definitions in turn.
 If one of a these definitions evaluates then rule evaluates and we are done.
 In order to evaludate a definition all of its parts must evaluate.
 Parts are generally either non-terminal, that is they simply point to a rule; or terminal, in which case they match a token.
-There is a third category of parts called complex parts which are best described as in-ine rules.
+There is a third category of parts called complex parts which are perhaps best described as in-ine rules.
 
 It is worth a moment to imagine a top down parser, configured with the BNF above, parsing an arithmetic expression such as `(1+2)÷3`.
 It should become clear why the second definition of the `expression` rule is going to create problems.
 When the parser encounters this definition it will try to evaluate the `expression` rule again and if the first definition cannot be evaluated then the parser will loop indefinitely.
 This problem can be alleviated by rewriting the BNF under the hood but it is reasonable to ask why another parser achtiteture cannot be adopted, one that is not susceptible to left recursion.
 The answer is that all parser architectures are susceptible to one form of recursion or another and top down parsers are generally by far the simplest and fastest.
+We come back to this particular form of recursion, called left recursion, later on.
 
 ## The Florence grammar
 
-Some familiarity with the Florence grammar is helpful and so we look it is constituent parts now. To begin with, here is the definition of the `FlorenceLexer` class:
+Some familiarity with the Florence grammar is helpful and so we look at its constituent parts now. 
+To begin with, here is the definition of the `FlorenceLexer` class:
 
 ```
 class FlorenceLexer extends CommonLexer {
   ...
-
   static EndOfLineToken = EndOfLineSignificantToken;
 
   static WhitespaceToken = WhitespaceToken;
@@ -304,11 +296,11 @@ class FlorenceLexer extends CommonLexer {
 }
 ```
 
-Note that end of line tokens are significant, like YAML or Python but unlike JSON or Java, say. 
+Note that end of line tokens are significant, like YAML or Python but unlike JSON or Java. 
 Note also that both single and multiple line Python style comments are supported. 
 And lastly note that doubly quoted string literals are preferred to singly quoted ones and that regular expression string literals are not supported.
-These preferences define the in-built rules and in addition to these we have the following lexical entries.
-Here the regular expression pattern for the `primary-keyword` entry has been abridged:
+These preferences define the in-built rules and in addition to these we have the following lexical entries for the user defined rules.
+The regular expression pattern for the `primary-keyword` entry has been abridged, by the way:
 
 ```
 [
@@ -333,8 +325,8 @@ Here the regular expression pattern for the `primary-keyword` entry has been abr
 ]
 ```
 
-Note that the regular expression literal for the last `unassigned` token type will match anything but whitespace.
-In fact again we make the point, as we did with the plain text lexer, that since a prior in-built rule will have already matched any whitespace this all but guarantees that the Florence lexer will cope with just about anything.
+Note that the regular expression pattern for the last `unassigned` token type will match anything but whitespace.
+In fact again we make the point, as we did with the plain text lexer, that since a prior in-built rule will have already matched any whitespace this guarantees that the Florence lexer will cope with any input.
 
 Here is the abridged top-level part of the BNF for the parser:
 
@@ -368,16 +360,16 @@ verticalSpace                        ::=   <END_OF_LINE>+ ;
 error                                ::=   . ;
 ```
 
-There are some points to note here.
+There are some points to note here, too.
 Firstly, the `verticalSpace` rule matches one or more end of line tokens.
-Recall that the Florence lexer is configured to treat such tokens as significant, hence they can be referenced in the correspodning BNF.
+Recall that the Florence lexer is configured to treat such tokens as significant, hence they can be referenced here.
 Also, the `document` rule's definition has a complex part which stipulates one or more of a choice of three parts.
 These will be evaluated in sequence and therefore the `error` rule provides the required fallback functionality.
-Its single definition has only one wildcard part `'` that will match any significant token, as its name suggests.
-Thus the BNF can be said to be robust, in the sense that the parser will always terminate.
-The theme of robuestness is picked up again in the later section on ambiguity.
+Its single definition has only one wildcard part `.` that will match any significant token, as its name suggests.
+Thus Occam's parsers can be said to be robust, in a similar vein to its lexers, in the sense that they will cope with any input.
+Robustness is picked up again in the later section on ambiguity.
 
-Moving on, here is part of the mid-level BNF:
+Here is part of the mid-level BNF:
 
 ```
 unqualifiedMetastatement!            ::=   metastatement... <END_OF_LINE> 
@@ -402,20 +394,19 @@ nonsense                             ::=   ( [type] | [symbol] | [operator] | [s
 Since ambiguity is being treated later we will pass over the fact that each of the first two rules have two definitions and the use of the exclamation mark after these rules' names.
 Instead we focus on the ellipsis `...` modifier attached to each of the rule name parts.
 This switches the parser into what is called a look-ahead state, where it takes note of the part that follows the look-ahead part when evaluating the look-ahead part itself.
-This is useful because the `nonsense` rule if left to its own devices would parse a qualification, since it parses one or more tokens of pretty much any time.
-If it can be made to look ahead, however, it will stop before the qualification and allow the parser to continue to evaluate the `qualification` part of the definition.
+This is useful because the `nonsense` rule if left to its own devices would parse a qualification, since it parses one or more tokens of pretty much any type.
+If it can be made to look ahead, however, it will stop before the qualification thus allowing the parser to continue to evaluate the `qualification` part of the definition.
 
 It is not unreasonable to ask why this look-ahead state is not the default state of the parser, given its obvious utility.
 Ths answer is that it slows the parser down considerably.
-In its normal mode the parser will parse a sequence of tokens in time roughly linearly proportional to the sequence length.
-By comparison, in a look-ahead state, although no profiling has ever been carried out, it is most likely that the time is likely to be exponential.
-Thus although a look-ahead state was a necessity when designing the parser, it is used throughout all of Occam's grammars with care.
+On one hand in its normal state the parser will parse a sequence of tokens in time roughly linearly proportional to the sequence's length.
+On the other hand in its look-ahead state, although no detailed profiling has ever been done, it seems most likely that the time is likely to be if not expoenentially then at least polynomially propertional.
+Thus although a look-ahead state was a necessity when designing the parser, it is used throughout all of Occam's grammars with considerable care.
 
 We bring this section to a close with mention of custom grammars.
-These are the subject of the next chapter but because the augment the Florence grammar, it makes sense to mention the default custom grammar here.
-This grammar augments the Florence grammar with additional regular expression patterns for the lexer and additional rules for the parser.
-Here are the regular expression patterns, for the `type` and `symbol` and `operator` token types.
-Note that the second of these is empty:
+These are the subject of the next chapter but because they augment the Florence grammar, it makes sense to at least mention the default custom grammar here.
+This grammar completes the Florence grammar with additional regular expression patterns for the lexer and additional rules for the parser.
+Here are the regular expression patterns, for the `type` and `symbol` and `operator` token types, with the second of these being empty:
 
 ```
 typePattern = "Object";
@@ -425,7 +416,7 @@ symbolPattern = "";
 operatorPattern = "⊧|is|for|omits|contains|undefined";
 ```
 
-Note that we would have augmented the `operatorPattern` regular expression pattern with the implication character earlier.
+Note that the `operatorPattern` regular expression pattern would have been augmented with the implication character earlier.
 
 And here are the abridged BNF rules:
 
@@ -457,12 +448,7 @@ metastatement!                       ::=   "(" metastatement ")"
 ...
 ```
 
-These are a bit more convoluted but note the presence of the `metastatement` rule which we augmented earlier.
-
-
-
-
-
+These are a bit more convoluted but note the presence of the `metastatement` rule which again would have been augmented earlier.
 
 ## Ambiguity
 
