@@ -269,7 +269,7 @@ We come back to this particular form of recursion, called left recursion, later 
 ## The Florence grammar
 
 Some familiarity with the Florence grammar is helpful and so we look at its constituent parts now. 
-To begin with, here is the definition of the `FlorenceLexer` class:
+Here is the definition of the `FlorenceLexer` class:
 
 ```
 class FlorenceLexer extends CommonLexer {
@@ -298,8 +298,8 @@ class FlorenceLexer extends CommonLexer {
 
 Note that end of line tokens are significant, like YAML or Python but unlike JSON or Java. 
 Note also that both single and multiple line Python style comments are supported. 
-And lastly note that doubly quoted string literals are preferred to singly quoted ones and that regular expression string literals are not supported.
-These preferences define the in-built rules and in addition to these we have the following lexical entries for the user defined rules.
+And lastly note that doubly quoted string literals are preferred to singly quoted ones and that regular expression literals are not supported.
+These properties define the in-built rules and in addition to these we have the following lexical entries for the user defined rules.
 The regular expression pattern for the `primary-keyword` entry has been abridged, by the way:
 
 ```
@@ -400,8 +400,8 @@ If it can be made to look ahead, however, it will stop before the qualification 
 It is not unreasonable to ask why this look-ahead state is not the default state of the parser, given its obvious utility.
 Ths answer is that it slows the parser down considerably.
 On one hand in its normal state the parser will parse a sequence of tokens in time roughly linearly proportional to the sequence's length.
-On the other hand in its look-ahead state, although no detailed profiling has ever been done, it seems most likely that the time is likely to be if not expoenentially then at least polynomially propertional.
-Thus although a look-ahead state was a necessity when designing the parser, it is used throughout all of Occam's grammars with considerable care.
+On the other hand in its look-ahead state, although no detailed profiling has ever been done, it seems most likely that the time is likely to be if not expoenentially then at least polynomially proportional.
+Thus although a look-ahead state was a necessity when designing the parser, it is used throughout all of Occam's grammars with considerable caution.
 
 We bring this section to a close with mention of custom grammars.
 These are the subject of the next chapter but because they augment the Florence grammar, it makes sense to at least mention the default custom grammar here.
@@ -451,6 +451,29 @@ metastatement!                       ::=   "(" metastatement ")"
 These are a bit more convoluted but note the presence of the `metastatement` rule which again would have been augmented earlier.
 
 ## Ambiguity
+
+Recall that all of both Occam's lexers and parsers are configureed to be robust in the sense that they will cope with any input.
+In the case of the lexers, robustness is guaranteed by an `unassigned` in-built rule that matches whitespace together with a last user defined rule that matches anything but whitespace.
+In the case of the parsers, robusteness is guaranteed by an `error` rule that is always given as the last choice in the topmost rules' singular definitions.
+
+Thus robustness is guaranteed by ambiguity.
+In normal circumstances there should be no unassigned tokens or error nodes, but nonetheless all of the content can tokenised as whiteapce and unassigned tokens and parsed as error nodes.
+So there are always at least two permitted sequences of tokens and two parse trees.
+Any time a grammar admits such a state of affairs it is called ambiguous.
+
+Ambiguity is considered unacceptable from a theoretical perspective but in fact what would happen were we not to build ambiguity into all of Occam's grammars?
+If we wanted guarantee robustness for the lexers, that is that they never terminated early, we would have to hard code an in-built rule to run after the user defined rules expressly for the purposes of catching any content not matched by any other rule.
+But this is precisely what the `unassinged` rule does.
+Simimlarly, in order to guarantee robustness for the parsers we would have to engineer them to default to some error rule somehow should no other rules match the next token.
+This was actually attempted early on in the parser's development, in fact, but was abandoned as it compllicated the parser architecture considerably.
+In the end it was realised that any attempt to solve the problem of robustness programmatically was at best simply simulating an `error` rule at considerable cost and at worst would not do such a thorough job.
+Thus the kind of controlled ambiguity brought about by unassigned tokens and error rules is unavoidable in lexers and parsers that actually have to be usable.
+
+The other use for what we call controlled 
+
+
+
+
 
 Florence lexer and parser both robust...
 
