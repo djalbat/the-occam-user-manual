@@ -453,7 +453,7 @@ These are a bit more convoluted but note the presence of the `metastatement` rul
 ## Ambiguity
 
 Recall that all of both Occam's lexers and parsers are configureed to be robust in the sense that they will cope with any input.
-In the case of the lexers, robustness is guaranteed by an `unassigned` in-built rule that matches whitespace together with a last user defined rule that matches anything but whitespace.
+In the case of the lexers, robustness is guaranteed by an in-built rule that matches whitespace together with a last user defined `unassigned` rule that matches anything but whitespace.
 In the case of the parsers, robusteness is guaranteed by an `error` rule that is always given as the last choice in the topmost rules' singular definitions.
 
 Thus robustness is guaranteed by ambiguity.
