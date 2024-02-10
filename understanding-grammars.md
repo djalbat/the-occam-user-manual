@@ -476,7 +476,7 @@ Furtherfmore, nonsense nodes mean that documents can be parsed with only the def
 This makes indexing in the IDE much faster.
 
 The exclamation mark `!` modifier on the `statement` and `metastatement` rules amongst others also deserves mention at this point.
-This tells the incremental algorithm that the rules are ambiguous, stopping it from recursing into the rules any further.
+This tells the incremental algorithm that the rules are ambiguous, estopping it from recursing into the rules any further.
 No further details of the incremental algorithm will be given aside from mentioning that it is the reason that content of greater lengths can be handled in the IDE whilst maintaining an acceptible level of performance.
 The astute reader may notice that the topmost `document` rule of the Florence BNF does not have this modifier in spite of the fact that it is deliberately ambiguous.
 This is a necessary compromise, however, since if the incremental algorithm were forbidden from recursing into the topmost rule then it would be rendered useless.
@@ -487,6 +487,50 @@ This is indeed an assumption, but in practice it holds.
 
 ## Precedence
 
+```
+expression ::= term... "." ;
+
+
+     term  ::=  term ( "/" (4)
+                            
+                     | "*" (3)
+                                        
+                     | "+" (2)
+            
+                     | "-" (1) ) term
+
+             |  number
+
+             ;
+
+      
+    number ::= /\d+/ ;
+```
+
+```
+            expression ::= additionalTerm... "." ;
+
+
+        additionalTerm ::= additionalTerm additionalOperator multiplicativeTerm
+
+                         | multiplicativeTerm
+
+                         ;
+
+    multiplicativeTerm ::= multiplicativeTerm multiplicativeOperator number
+
+                         | number
+
+                         ;
+
+
+    additionalOperator ::= "+" | "-" ;
+
+multiplicativeOperator ::= "*" | "/" ;
+
+
+                number ::= /\d+/ ;
+```
 
 
 [^1]: https://juliamono.netlify.app/
