@@ -457,33 +457,32 @@ In the case of the lexers, robustness is guaranteed by an in-built rule that mat
 In the case of the parsers, robusteness is guaranteed by an `error` rule that is always given as the last choice in the singular definitions of start rules.
 
 Thus robustness is guaranteed by ambiguity.
-Under normal circumstances there should be no unassigned tokens or error nodes, but nonetheless all of the content can tokenised as whiteapce and unassigned tokens and parsed as error nodes.
-So there are always at least two permitted sequences of tokens and two parse trees for any input.
-Just to reiterate, any time a grammar admits such a state of affairs it is called ambiguous.
+Under normal circumstances there should be no unassigned tokens or error nodes, but nonetheless all of the content can be tokenised as whiteapce and unassigned tokens and parsed as error nodes.
+So there are always at least two sequences of tokens and two parse trees for any input.
 
-Ambiguity is considered unacceptable from a theoretical perspective but what would happen were we not to build ambiguity into all of Occam's grammars?
+Ambiguity is considered unacceptable from a theoretical perspective but what would happen were we it not built in to all of Occam's grammars?
 If we wanted to guarantee robustness for the lexers then we would have to hard code an in-built rule to run after the user defined rules expressly for the purposes of catching any content not matched by any other rule.
 But this is precisely what the `unassinged` rule does.
-Simimlarly, if we wanted to guarantee robustness for the parsers then we would have to engineer them in such as way as to default to some error rule somehow should no other rules match the next token.
-This was actually attempted early on in development, in fact, but was abandoned as it compllicated the parser architecture enormously.
+Simimlarly, if we wanted to guarantee robustness for the parsers then we would have to engineer them in such a way as to default to an error node somehow should no other nodes be possible.
+This approach was attempted early on in development, in fact, but it was abandoned as it compllicated the parser enormously.
 In the end any attempt to solve the problem of robustness programmatically simply simulates these `unassigned` and `error` rules, often at considerable programmatic cost.
-Thus the kind of controlled ambiguity brought about by unassigned tokens and error rules is unavoidable in lexers and parsers that actually have to be usable.
+Thus the kind of controlled ambiguity brought about by unassigned tokens and error node is unavoidable in lexers and parsers that have to actually work in practice.
 
 The other use for what we call controlled ambiguity has already been touched upon, namely the `nonsense` rules instead of `statement` and `metastatement` rules.
-Because these rules are reference in definitions that come after the ones that reference the `statement` and `metstatement` rules, the latter will always be attempted first.
+Because these rules are referenced in definitions that come after the ones that reference the `statement` and `metstatement` rules, the latter will always be evaluated first.
 The need for nonsense nodes is not as pressing as error nodes and they do not contribute to robustness overall.
-Their utility lies in permitting high level nodes such as rule and theorem nodes to remain intact whilst a user completes a statement or whatever.
-Furtherfmore, if such high level nodes can be left intact then any document can be parsed with only the default custom grammars and its labels and references picked out.
+Their utility lies in permitting high level nodes such as rule and theorem nodes to remain intact whilst a user completes finishes typing a statement in the IDE, say.
+Furtherfmore, nonsense nodes mean that documents can be parsed with only the default custom grammar and their labels and references can thus be picked out.
 This makes indexing in the IDE much faster.
 
-Now is also the time to mention the exclamation mark `!` modifier on the `statement` and `metastatement` rules, amongst others.
+The exclamation mark `!` modifier on the `statement` and `metastatement` rules amongst others also deserves mention at this point.
 This tells the incremental algorithm that the rules are ambiguous, stopping it from recursing into the rules any further.
-This incremental algorithm is not mentioned further but is the reason that content of greater lengths can be handled in the IDE with reasonable performance.
-The astute may notice that the topmost `document` rule of the Florence BNF does not have this modifier in spite of the fact that it is deliberately ambiguous.
-This is a necessary compromise because if the incremental algorithm were forbidden from recursing into the topmost rule then it would be rendered useless.
+No further details of the incremental algorithm will be given aside from mentioning that it is the reason that content of greater lengths can be handled in the IDE whilst maintaining an acceptible level of performance.
+The astute reader may notice that the topmost `document` rule of the Florence BNF does not have this modifier in spite of the fact that it is deliberately ambiguous.
+This is a necessary compromise, however, since if the incremental algorithm were forbidden from recursing into the topmost rule then it would be rendered useless.
 
-Finally on the subject of ambiguity, the astute may well ask whether the order of definitions can be relied upon givevn that the BNF may be rewritten in order to eliminate left recursion.
-The answer to this question is that it is assumed that the rules where ambiguity is utilised are assumed not to be left recursive.
+Finally on the subject of ambiguity, the astute reader may well also ask whether the order of definitions can be relied upon givevn that the BNF may be rewritten in order to eliminate left recursion.
+The answer to this question is that it is assumed that the rules where ambiguity happens are assumed not to be left recursive.
 This is indeed an assumption, but in practice it holds.
 
 ## Precedence
