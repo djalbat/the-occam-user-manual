@@ -392,7 +392,7 @@ nonsense                             ::=   ( [type] | [symbol] | [operator] | [s
 ```
 
 Since ambiguity is being treated later we will pass over the fact that each of the first two rules have two definitions and the use of the exclamation mark after these rules' names.
-Instead we focus on the ellipsis `...` modifier attached to each of the rule name parts.
+Instead we focus on the ellipsis `...` modifier on each of the rule name parts.
 This switches the parser into what is called a look-ahead state, where it takes note of the part that follows the look-ahead part when evaluating the look-ahead part itself.
 This is useful because the `nonsense` rule if left to its own devices would parse a qualification, since it parses one or more tokens of pretty much any type.
 If it can be made to look ahead, however, it will stop before the qualification thus allowing the parser to continue to evaluate the `qualification` part of the definition.
@@ -454,35 +454,39 @@ These are a bit more convoluted but note the presence of the `metastatement` rul
 
 Recall that all of both Occam's lexers and parsers are configureed to be robust in the sense that they will cope with any input.
 In the case of the lexers, robustness is guaranteed by an in-built rule that matches whitespace together with a last user defined `unassigned` rule that matches anything but whitespace.
-In the case of the parsers, robusteness is guaranteed by an `error` rule that is always given as the last choice in the topmost rules' singular definitions.
+In the case of the parsers, robusteness is guaranteed by an `error` rule that is always given as the last choice in the singular definitions of start rules.
 
 Thus robustness is guaranteed by ambiguity.
-In normal circumstances there should be no unassigned tokens or error nodes, but nonetheless all of the content can tokenised as whiteapce and unassigned tokens and parsed as error nodes.
-So there are always at least two permitted sequences of tokens and two parse trees.
-Any time a grammar admits such a state of affairs it is called ambiguous.
+Under normal circumstances there should be no unassigned tokens or error nodes, but nonetheless all of the content can tokenised as whiteapce and unassigned tokens and parsed as error nodes.
+So there are always at least two permitted sequences of tokens and two parse trees for any input.
+Just to reiterate, any time a grammar admits such a state of affairs it is called ambiguous.
 
-Ambiguity is considered unacceptable from a theoretical perspective but in fact what would happen were we not to build ambiguity into all of Occam's grammars?
-If we wanted guarantee robustness for the lexers, that is that they never terminated early, we would have to hard code an in-built rule to run after the user defined rules expressly for the purposes of catching any content not matched by any other rule.
+Ambiguity is considered unacceptable from a theoretical perspective but what would happen were we not to build ambiguity into all of Occam's grammars?
+If we wanted to guarantee robustness for the lexers then we would have to hard code an in-built rule to run after the user defined rules expressly for the purposes of catching any content not matched by any other rule.
 But this is precisely what the `unassinged` rule does.
-Simimlarly, in order to guarantee robustness for the parsers we would have to engineer them to default to some error rule somehow should no other rules match the next token.
-This was actually attempted early on in the parser's development, in fact, but was abandoned as it compllicated the parser architecture considerably.
-In the end it was realised that any attempt to solve the problem of robustness programmatically was at best simply simulating an `error` rule at considerable cost and at worst would not do such a thorough job.
+Simimlarly, if we wanted to guarantee robustness for the parsers then we would have to engineer them in such as way as to default to some error rule somehow should no other rules match the next token.
+This was actually attempted early on in development, in fact, but was abandoned as it compllicated the parser architecture enormously.
+In the end any attempt to solve the problem of robustness programmatically simply simulates these `unassigned` and `error` rules, often at considerable programmatic cost.
 Thus the kind of controlled ambiguity brought about by unassigned tokens and error rules is unavoidable in lexers and parsers that actually have to be usable.
 
-The other use for what we call controlled 
+The other use for what we call controlled ambiguity has already been touched upon, namely the `nonsense` rules instead of `statement` and `metastatement` rules.
+Because these rules are reference in definitions that come after the ones that reference the `statement` and `metstatement` rules, the latter will always be attempted first.
+The need for nonsense nodes is not as pressing as error nodes and they do not contribute to robustness overall.
+Their utility lies in permitting high level nodes such as rule and theorem nodes to remain intact whilst a user completes a statement or whatever.
+Furtherfmore, if such high level nodes can be left intact then any document can be parsed with only the default custom grammars and its labels and references picked out.
+This makes indexing in the IDE much faster.
 
+Now is also the time to mention the exclamation mark `!` modifier on the `statement` and `metastatement` rules, amongst others.
+This tells the incremental algorithm that the rules are ambiguous, stopping it from recursing into the rules any further.
+This incremental algorithm is not mentioned further but is the reason that content of greater lengths can be handled in the IDE with reasonable performance.
+The astute may notice that the topmost `document` rule of the Florence BNF does not have this modifier in spite of the fact that it is deliberately ambiguous.
+This is a necessary compromise because if the incremental algorithm were forbidden from recursing into the topmost rule then it would be rendered useless.
 
+Finally on the subject of ambiguity, the astute may well ask whether the order of definitions can be relied upon givevn that the BNF may be rewritten in order to eliminate left recursion.
+The answer to this question is that it is assumed that the rules where ambiguity is utilised are assumed not to be left recursive.
+This is indeed an assumption, but in practice it holds.
 
-
-
-Florence lexer and parser both robust...
-
-Mention the definitions in the unqualified and qualified rules and that left recursion must not play a role here because of the ambiguity.
-Also note the exclamation mark.
-
-All of Occam's grammars have this feature and it is worth taking a moment to justify why this is.
-
-
+## Precedence
 
 
 
