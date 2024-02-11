@@ -18,8 +18,6 @@ This process is called parsing the tokens or, by extension, the content
 The resulting structure is usually called an abstract syntax tree or AST for short.
 We call it a parse tree, however.
 
-Lastly, not part of this list but equally important is the way in which the parse tree and occasionally the tokens themselves are utilised and maninpulated, which we briefly cover in this chapter, too.
-
 ## Language flexibility and extensibility
 
 Consider the following variable declaration written in Occam's default language, called Florence:
@@ -466,20 +464,19 @@ But this is precisely what the `unassinged` rule does.
 Simimlarly, if we wanted to guarantee robustness for the parsers then we would have to engineer them in such a way as to default to an error node somehow should no other nodes be possible.
 This approach was attempted early on in development, in fact, but it was abandoned as it compllicated the parser enormously.
 In the end any attempt to solve the problem of robustness programmatically simply simulates these `unassigned` and `error` rules, often at considerable programmatic cost.
-Thus the kind of controlled ambiguity brought about by unassigned tokens and error node is unavoidable in lexers and parsers that have to actually work in practice.
+Thus the kind of ambiguity brought about by unassigned tokens and error node is unavoidable in lexers and parsers that have to actually work in practice.
 
-The other use for what we call controlled ambiguity has already been touched upon, namely the `nonsense` rules instead of `statement` and `metastatement` rules.
+The other use for ambiguity has already been touched upon, namely the `nonsense` rules instead of `statement` and `metastatement` rules.
 Because these rules are referenced in definitions that come after the ones that reference the `statement` and `metstatement` rules, the latter will always be evaluated first.
 The need for nonsense nodes is not as pressing as error nodes and they do not contribute to robustness overall.
-Their utility lies in permitting high level nodes such as rule and theorem nodes to remain intact whilst a user completes finishes typing a statement in the IDE, say.
-Furtherfmore, nonsense nodes mean that documents can be parsed with only the default custom grammar and their labels and references can thus be picked out.
-This makes indexing in the IDE much faster.
+Their utility lies in permitting high level nodes such as rule and theorem nodes to remain intact whilst a user finishes typing a statement in the IDE, say.
+Furtherfmore, nonsense nodes allow documents to be parsed with only the default custom grammar which makes indexing in the IDE much faster.
 
-The exclamation mark `!` modifier on the `statement` and `metastatement` rules amongst others also deserves mention at this point.
-This tells the incremental algorithm that the rules are ambiguous, estopping it from recursing into the rules any further.
-No further details of the incremental algorithm will be given aside from mentioning that it is the reason that content of greater lengths can be handled in the IDE whilst maintaining an acceptible level of performance.
-The astute reader may notice that the topmost `document` rule of the Florence BNF does not have this modifier in spite of the fact that it is deliberately ambiguous.
-This is a necessary compromise, however, since if the incremental algorithm were forbidden from recursing into the topmost rule then it would be rendered useless.
+The exclamation mark `!` modifier on the `statement` and `metastatement` rules, amongst others, deserves mention at this point.
+These modifiers flag rules as potentially ambiguous but they are not used consistently throughout.
+The topmost `document` rule is deliberately ambiguous, for example, but it is not flagged as such.
+The reason is that in practice this modifier is used to tell the incremental algorithm not to recurse into the rule during its parsing stage since this can cause problems.
+An exception has to be made for the topmost rule, however, since instructing the incremental algorithm not to recurse into it would defeat its purpose entirely.
 
 Finally on the subject of ambiguity, the astute reader may well also ask whether the order of definitions can be relied upon givevn that the BNF may be rewritten in order to eliminate left recursion.
 The answer to this question is that it is assumed that the rules where ambiguity happens are assumed not to be left recursive.
@@ -586,7 +583,7 @@ expression ::= term... "." ;
              ;
 
       
-   number  ::=  /\d+/ ;
+   number  ::=  /\d+/ ; 
 ```
 
 Note that each of the choices in the second part of the `term` rule's first definition are augmented with a number in parenthesis.
@@ -631,6 +628,9 @@ Other than that, note that precedence has been enforced with no compromises on r
 Also, finally, note that it would be possible to augment the `term` rule with futher defintions, there being no need for any kind of hierarchy of definitions.
 
 ## Left recursion
+
+
+
 
  
 
