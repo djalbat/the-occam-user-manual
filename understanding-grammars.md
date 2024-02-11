@@ -628,25 +628,26 @@ Finally, note that it is possible to add further definitions to the `term` rule 
 
 ## Left recursion
 
-The subject of left recursion is something to bear in mind because occasionally the inablity of the algorithm to eliminate left recursion to deal with certain forms of it may crop up.
+It helps to know what left recursion is because the algorithm to eliminate it will cccasionally throw up an error that will appear spurious without a little context.
 To begin with then we recall the following BNF:
 
 ```
-expression :: "(" expression ")"
+expression ::= "(" expression ")"
+ 
+             | expression operator expression
+ 
+             | number
+ 
+             ;
 
-            | expression operator expression
+  operator ::= "+" | "-" | "÷" | "×" ;
 
-            | number
-
-            ;
-
- operator ::= "+" | "-" | "÷" | "×" ;
-
-   number ::= /\d+/ ;
+    number ::= /\d+/ ;
 ```
 
-The second of the definitions of the `expression` rule is left recursive, as previously mentioned.
-Just for once here is the adjusted BNF with left recursion eliminated:
+The second of the definitions of the `expression` rule is left recursive, as previously pointed out.
+For the sake of completeness here is the adjusted BNF with left recursion eliminated.
+It is certainly not necessary to understand how this can come about:
 
 ```
 expression            ::= expression_ expression~* ;
@@ -666,14 +667,77 @@ expression~expression ::= operator expression ;
 expression~           ::= expression~expression ;
 ```
  
-A detailed grasp of exactly how this all works is definitely not needed.
 However, we draw attention to one of the adjustments in order to justify the kinds of errors that result when certain forms of left recursion cannot be eliminated.
-Suppose then the the second definition was abridged so that only the first `expression` rule name part remained.
-Some thought should convince that this would make the situation untenable.
-With no further parts after the left recursive part the defintion becomes untenable.
-It is not the fault of the algorithm that it cannot eliminate such forms of left recursion and in fact it will simply throw an error.
-The exact wording of the error may confuse, however,
+Suppose then the the second definition is abridged thus:
 
+```
+expression ::= "(" expression ")"
+
+             | expression
+ 
+             ...
+
+             ;
+
+...
+```
+
+A little thought should convince that this will make the BNF untenable.
+The algorithm cannot be expected eliminate such forms of left recursion and in fact it will simply throw an error.
+The exact wording of the error may confuse, however:
+
+```
+The 'expression~' directly repeated rule is effectively empty.
+```
+
+Notice that the parts previously found after the `expression` part in the `expression` rule's second definition found their way verbatim into the single definition of the `expresssion~expression` rule.
+But with these parts removed, this rule becomes emtpy.
+And since the `expression~` rule references it, the former is described as being effectively empty.
+Thus a concrete feature of the adjusted BNF, in this case an empty rule, signifies a form of left recursion that is untenable.
+This is typical but fortunately there are only a handful of such forms and the errors largely follow along this lines.
+It is also pretty straightforward to figure out where the problem lies in the original BNF with very little practice.
+
+Lastly, the other type of error that occurs is when complex parts cannot be written.
+Again we alter the second definition of the `expression` rule to demonstrate:
+
+```
+expression ::= "(" expression ")"
+
+             | ( expression | number ) operator expression
+
+             ...
+
+             ;
+ 
+...
+```
+
+The first part of the second definition is what we call a complex part and these cannot be rewritten.
+To see this simply ask yourself what the names of the rewritten rules would be.
+Here si the error:
+
+```
+The '( expression | expression ) operator expression' definition of the 'expression' rule is complex.
+```
+
+In this cases there is no choice but to pull the offending complex part out into its own rule thus:
+
+```
+      expression ::= "(" expression ")"
+
+                   | expressionNumber operator expression
+
+                   ...
+
+                   ;
+
+expressionNumber ::= expression | number ;
+
+...
+```
+
+Now rules such as `expressionNumber~` and the like can be created by the algorithm.
+Finally on this subject it is worth a cautionary word that When errors complex part errors occur experience suggests that they can often be replaced with something better rather than pulling them out in this way.
 
 
 [^1]: https://juliamono.netlify.app/
