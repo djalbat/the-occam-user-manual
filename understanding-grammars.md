@@ -488,7 +488,7 @@ Another of Occam's grammar features is precedence.
 Consider the following arithmetic expression:
 
 ```
-1-2/3-4
+1+2/3-4
 ```
 
 We would like this to parse whilst respecting the precedence of the operators.
@@ -520,7 +520,7 @@ multiplicativeOperator ::= "*" | "/" ;
 ```
 
 To summarise the approach quickly, precedence is enforced by way of splitting the operators into two separate rules.
-The exact details are not important, however we inspect the parse tree in passing:
+The exact details are not important, however we give the parse tree in passing:
 
 ```
                                                                                                                                 expression [0]                                       
@@ -550,15 +550,13 @@ There are two problems with this approach.
 Firstly, the increased depth and complexity of the parse tree.
 Arguably extraneous nodes such as the `multiplicativeTerm` and `additionalOperator` nodes are an inevitable consequence of the elaborate BNF, for example.
 Seconldly, the BNF itself is flawed.
-Note that the `multiplicativeTerm` rule references the `number` rule.
-This typical of such approaches to precedence.
-There must be some rule that occupies the bottom of the hierarchy, so to speak.
-If we try to replace this with a reference to the term rule then we get a form of left recursion that cannot be dealt with.
+Note that the `multiplicativeTerm` rule references the `number` rule, the reason being that there must be some rule at the foot of the hierarchy, so to speak.
+If we try to replace this with a reference to the `term` rule then we get a form of left recursion that cannot be eliminated.
 This is not a fault of the algorithm to eliminate left recusrion but a fault of the BNF itself.
-Thus is someone else wants to add additional rules to the `term` rule then they would be unable to do so.
+Thus is someone else wants to add additional rules to the `term` rule then they would be unable to do so independently.
 
 In order to tackle these problems a new way of treating precedence was devised.
-The BNF below shows all that is needed with this additional functionality to hand:
+The BNF below shows all that is needed with the solution to hand:
 
 ```
 expression ::= term... "." ;
@@ -586,10 +584,11 @@ expression ::= term... "." ;
    number  ::=  /\d+/ ; 
 ```
 
-Note that each of the choices in the second part of the `term` rule's first definition are augmented with a number in parenthesis.
+Here each of the choices in the second part of the `term` rule's first definition has been augmented with a number in parenthesis.
 These numbers will be inherited by the nodes during parsing with the proviso that nodes with lower numbers are not allowed to appear directly below those with higher ones.
-And if look-ahead is enabled then the parse will have the chance to try likely several parse trees until it finds one that fits obeys this rule, thus enforcing precedence.
-One other thing to note is that both the definitions of the `argument` rule, the need for which will be explained in a later chapter, are augmented with what might be called an empty or see-through precedence.
+And if look-ahead is enabled then the parser will have the chance to try likely several parse trees until it finds one that satisfies this criteria, thus enforcing precedence.
+
+One other thing to note is that both the definitions of the `argument` rule, the need for which will be explained in a later chapter, are given what might be called empty or see-through precedence.
 This ensures that precedence is enforced between nodes that are to be found directly above and below them.
 Here is the parse tree:
 
@@ -623,9 +622,9 @@ Here is the parse tree:
                                         "2"[unassigned] [0]                     "3"[unassigned] [0]                                                            
 ```
 
-In fairness it is deeper than the previous parse tree but this is unavoidable given the required `argument` nodes.
-Other than that, note that precedence has been enforced with no compromises on readability.
-Also, finally, note that it would be possible to augment the `term` rule with futher defintions, there being no need for any kind of hierarchy of definitions.
+In fairness it is deeper than the previous parse tree but this is only because of the requisite `argument` nodes.
+Other than that, note that precedence has been enforced with hardly any compromises on readability either of the parse tree or the BNF.
+Finally, note that it is possible to add further definitions to the `term` rule independently without introducting left recursion that cannot be elimintate
 
 ## Left recursion
 
