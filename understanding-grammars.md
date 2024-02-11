@@ -467,7 +467,7 @@ In the end any attempt to solve the problem of robustness programmatically simpl
 Thus the kind of ambiguity brought about by unassigned tokens and error nodes is unavoidable in lexers and parsers that have to work in practice.
 
 The other use for ambiguity has already been touched upon, namely the `nonsense` rules.
-Because these rules are referenced in definitions that come after the ones that reference the `statement` and `metstatement` rules, the latter will always be evaluated first.
+Because these rules are referenced in definitions that come after the ones that reference the `statement` and `metstatement` rules, the latter should always be evaluated first.
 The need for nonsense nodes is not as pressing as error nodes and they do not contribute to robustness overall.
 Their utility lies in permitting high level nodes such as theorem nodes to remain intact whilst a user finishes typing a statement in the IDE, say.
 Furtherfmore, nonsense nodes allow documents to be parsed with only the default custom grammar which makes indexing in the IDE much faster.
@@ -624,14 +624,56 @@ Here is the parse tree:
 
 In fairness it is deeper than the previous parse tree but this is only because of the requisite `argument` nodes.
 Other than that, note that precedence has been enforced with hardly any compromises on readability either of the parse tree or the BNF.
-Finally, note that it is possible to add further definitions to the `term` rule independently without introducting left recursion that cannot be elimintate
+Finally, note that it is possible to add further definitions to the `term` rule independently without introducting left recursion that cannot be eliminated.
 
 ## Left recursion
 
+The subject of left recursion is something to bear in mind because occasionally the inablity of the algorithm to eliminate left recursion to deal with certain forms of it may crop up.
+To begin with then we recall the following BNF:
 
+```
+expression :: "(" expression ")"
 
+            | expression operator expression
 
+            | number
+
+            ;
+
+ operator ::= "+" | "-" | "÷" | "×" ;
+
+   number ::= /\d+/ ;
+```
+
+The second of the definitions of the `expression` rule is left recursive, as previously mentioned.
+Just for once here is the adjusted BNF with left recursion eliminated:
+
+```
+expression            ::= expression_ expression~* ;
+
+operator              ::= "+" | "-" | "÷" | "×" ;
+
+number                ::= /\d+/ ;
+
+expression_           ::= "(" expression ")"
+
+                        | number
+
+                        ;
+
+expression~expression ::= operator expression ;
+
+expression~           ::= expression~expression ;
+```
  
+A detailed grasp of exactly how this all works is definitely not needed.
+However, we draw attention to one of the adjustments in order to justify the kinds of errors that result when certain forms of left recursion cannot be eliminated.
+Suppose then the the second definition was abridged so that only the first `expression` rule name part remained.
+Some thought should convince that this would make the situation untenable.
+With no further parts after the left recursive part the defintion becomes untenable.
+It is not the fault of the algorithm that it cannot eliminate such forms of left recursion and in fact it will simply throw an error.
+The exact wording of the error may confuse, however,
+
 
 
 [^1]: https://juliamono.netlify.app/
