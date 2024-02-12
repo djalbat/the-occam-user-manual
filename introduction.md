@@ -17,12 +17,21 @@ In fact I recommend that you read the introduction together with the first four 
 They are neither very long nor very deep and will provide the necessary background for understanding the verifier in particular.
 
 I hope that the verifier's implenentation is both transparent and readable, and therefore understandable, especially augmented as it is with the explanation here.
-Apart from anything else any genuine understanding will likely save a good deal of frustration when you begin working seriously with Occam.
-The other need for a genuine understanding is that the verifier, like the rest of Occam, is written in JavaScript, and is therefore not verifiable itself.
-So you cannot simply press a button and have confidnece in the verifier.
-That is not the idea at all.
+Apart from anything else any genuine understanding of it will likely save a good deal of frustration when you begin to work seriously with Occam.
+The other need for a genuine understanding is that the verifier and is therefore not verifiable itself.
+So you cannot simply press a button and have confidnece in it, that is not the idea at all.
 
-In f
+In fact, at the risk of courting controversy, I would argue that it should not be the idea with any verifier.
+All are failible regardless of what their proponents may claim and therefore I do not believe that their results should ever be trusted without some level of human oversight.
+Indeed in my opinion verification should be an aid to clarity and rigour and never a substitute for it.
+The idea of a proof as a black box in particular is anathema to me.
+
+Moving on, the standpoint that software should be an aid to human reasonibg and not a substitute for it must these days be tempered by a consideration of artificial intelligence as a tool for reasoning.
+What kept me going over the near decade of work that it took to get Occam to its first viable release was a firm belief in what I call the four elephants, expounded in the aforementtioned first four chapters of the Foundations book.
+I had not heard of large language models when I started out and they were never a motivating factor but as I came to my first milestone after those many years, they began to loom large.
+Their emerenge has not changed my view on the relationship between software and humans apropos of reasoning, however.
+
+
 
 
 In fact on this subject I would like to make a few points clear about what Occam is good for.
