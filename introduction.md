@@ -4,21 +4,21 @@ I have tried to make Occam[^1] as useable as possible but there are limits.
 At the end of the day it is an expert system and some of its parts, not least the verifier, need detailed explanations.
 It is the purpose of this book is to provide these explanations.
 
-It also goes into consdierable detail on the subject of Occam's approach to language, which basically boils down to its use of grammars.
+It also goes into consdierable detail on the subject of Occam's approach to language, which largely boils down to its use of grammars.
 Occam has what might be called a default language or vernacular, called Florence,[^2] but it will also support what is called Controlled Natural Language in the near future.
-Indded, the verifier cannot distinguish between these languages at all.
+Indeed, the verifier cannot distinguish between these languages at all.
 This book explains how this is possible.
 
 After explaining Occam's approach to language this book gives a very detailed explanation of how the verifier works.
-Some may find this explanation nauseating but I maintain that it is essential.
+Some may find this nauseating but I maintain that it is essential.
 The whole idea behind Occam is to facilitate human reasoning and not to supplant it, and it is the verifier that reasons on your behalf.
 So you must understand how it does this.
 In fact I recommend that you read the introduction together with the first four chapters of the Foundations book before going much further with this one.
 They are neither very long nor very deep and will provide the necessary background for understanding the verifier in particular.
 
 I hope that the verifier's implenentation is both transparent and readable, and therefore understandable, especially augmented as it is with the explanation here.
-Apart from anything else any genuine understanding of it will likely save a good deal of frustration when you begin to work seriously with Occam.
-The other need for a genuine understanding is that the verifier and is therefore not verifiable itself.
+Apart from anything else even a partial understanding will likely save a good deal of frustration when you begin to work seriously with Occam.
+The other need for understanding the verifier it that it has not been verified itself.
 So you cannot simply press a button and have confidnece in it, that is not the idea at all.
 
 In fact, at the risk of courting controversy, I would argue that it should not be the idea with any verifier.
@@ -34,12 +34,13 @@ Their emergence has hardly changed my view on the relationship between software 
 Admittedly of late there has been some progress in the direction of coupling artificial intelligence models with formal inference systems and the results have been promising.
 For its part Occam only has a bearing on the right hand side of this coupling, so to speak.
 It is much more flexible and extensible than a tool where the inference rules are hard-coded, however.
-Moreover, on the left hand side, so to speak, the output of any large language model or similar system can serve as input for Occam.
+Moreover, on the left hand side, so to speak, the output of any large language model or similar model can serve as input for Occam.
 
 Thus the panacea of using computers as tools for symbolic reasoning, be that devising algorithms or protocols; mathematics or logic; or whatever, is almost upon us.
 And it is worth pointing out that this panacea has been anticipated for around seventy five years now.
 There is no doubt that artificial intelligence is on the verge of bringing of all this about, but without tools such as Occam the output of these systems will always be clouded in doubt.
 So there is nothing to fear from artificial intelliegence, at least in this realm of human endeavour.
+
 I hope and expect Occam to become a potential tool for anyone working in any field of symbolic reasoning in the coming years.
 It will enable them to leverage artificial intelligence to aid their own enquiries but never, at least for the foreseeable future, is it going replace them.
 
