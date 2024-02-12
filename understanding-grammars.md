@@ -737,7 +737,7 @@ expressionNumber ::= expression | number ;
 ```
 
 Now rules such as `expressionNumber~` can be created by the algorithm.
-Finally on this subject it is worth noting that When complex part errors arise experience suggests that they can often be replaced with something better rather than pulling them out into another ru.
+Finally on this subject it is worth noting that When complex part errors arise experience suggests that they can often be replaced with something better rather than pulling them out into another rule.
 
 [^1]: https://juliamono.netlify.app/
 [^2]: https://github.com/djalbat/occam-grammars
