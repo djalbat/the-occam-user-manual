@@ -31,17 +31,16 @@ What inspired me over the near decade of work that it took to get Occam to its f
 I had not heard of large language models when I started out and they were never a motivating factor, but as I came to my first milestone after those many years, they began to loom large.
 
 The resurgence of artificial intelligence in recent years has hardly changed my view on the relationship between software and humans apropos of reasoning, however.
-Admittedly of late there has been some progress in the direction of coupling artificial intelligence models with formal inference systems.
+Admittedly of late there has been some progress in the direction of coupling artificial intelligence models with formal reasoning systems.
 For its part Occam only has a bearing on the right hand side of this coupling, so to speak.
 It is much more flexible and extensible than systems where inference rules are hard-coded, however.
-Moreover, on the left hand side, so to speak, the output of any large language model or such like can serve as input for Occam.
+Moreover on the left hand side, so to speak, the output of potentially any large language model or such like can serve as input for Occam.
 
 Thus the panacea of using computers as tools for symbolic reasoning, be that devising algorithms or protocols; discovering new mathematics or logic; or whatever, is almost upon us.
 And it is worth pointing out that this panacea has been eagerly anticipated for around seventy five years now.
-There is no doubt that artificial intelligence is on the verge of bringing of all this about, but without tools such as Occam the output of these models will always be clouded in doubt.
-So there is nothing to fear from artificial intelliegence, at least in this realm of human endeavour.
+There is no doubt that artificial intelligence is on the verge of bringing of all this about, but without tools such as Occam the output of artificial intelligence models will always be clouded in doubt.
 
-I hope and expect Occam to potentially become a tool for anyone working in any field of symbolic reasoning in the coming years.
+I hope and expect Occam to become an indespensible tool for at least some of those working in a field of symbolic reasoning in the coming years.
 Amongst other things it will enable them to leverage artificial intelligence to aid their own enquiries but artificial intelligence will not, at least not in the foreseeable future, supplant them.
 
 [^1]: The word Occam is used somewhat nebulously here.
