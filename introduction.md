@@ -1,11 +1,11 @@
 # Introduction
 
-I have tried to make Occam[^1] as useable as possible but there are limits.
+I have tried to make Occam[^occam] as useable as possible but there are limits.
 At the end of the day it is an expert system and some of its parts, not least the verifier, need detailed explanations.
 It is the purpose of this book is to provide these explanations.
 
 This book also goes into consdierable detail on the subject of Occam's approach to language, which largely boils down to its use of grammars.
-Occam has what might be called a default language or vernacular, called Florence,[^2] but it will also support controlled natural languages in the near future.
+Occam has what might be called a default language or vernacular, called Florence,[^florence] but it will also support controlled natural languages in the near future.
 Indeed, the verifier cannot distinguish between these languages at all.
 This book explains how this is possible.
 
@@ -43,7 +43,7 @@ There is no doubt that artificial intelligence is on the verge of bringing of al
 I hope and expect Occam to become an indespensible tool for at least some of those working in a field of symbolic reasoning in the coming years.
 Amongst other things it will enable them to leverage artificial intelligence to aid their own enquiries but artificial intelligence will not, at least not in the foreseeable future, supplant them.
 
-[^1]: The word Occam is used somewhat nebulously here.
+[^occam]: The word Occam is used somewhat nebulously here.
 It is most often associated with Occam's IDE but in fact it encompasses a range of software and services.
 This book explains these divers parts and there is a companion book, called The Foundations of Symbolic Reasoning, that covers the underlying theory.
-[^2]: Occam was originally called Florence but the former seemed more apt.
+[^florence]: Occam was originally called Florence but the former seemed more apt.
