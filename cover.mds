@@ -1,13 +1,12 @@
-document {
-  background-colour: #f5f4ed;
-}
-
+padding-top: 64pt;
+background-colour: #f5f4ed;
+  
 image {
-  width: 8em;
+  width: 100%;
   height: auto;
-  border: 0.05em solid #0a0d0b;
+  border: 2pt solid #0a0d0b;
   display: block;
-  padding: 0.5em 0 0.5em 0;
+  padding: 24pt 0 24pt 0;
   border-left: none;
   border-right: none;
 }
@@ -17,28 +16,23 @@ secondaryHeading {
   colour: #0a0d0b;
   text-align: center;
   font-weight: normal;
-  font-family: "Computer Modern Serif";  
   margin-left: auto;
   margin-right: auto;
   text-transform: uppercase;
 }
 
 primaryHeading {
-  width: fit-content;
-  border: 0.1em solid #0a0d0b;
-  font-size: 3em;
+  width: 320pt;
+  border: 3pt solid #0a0d0b;
+  font-size: 40pt;
   border-left: none;
   border-right: none;
-
-  :first-child {
-    margin-top: 1em;
-  }
 }
 
 secondaryHeading {
-  font-size: 2em;
+  font-size: 24pt;
 
   :last-child {
-    margin-top: 1em;
+    margin-top: 32pt;
   }
 }
