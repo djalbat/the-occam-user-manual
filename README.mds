@@ -1,0 +1,37 @@
+font-size: 12pt;
+font-family: Arial;
+
+primaryHeading,
+secondaryHeading {
+  colour: #1f2328;
+  margin-top: 18pt;
+  margin-bottom: 12pt;
+  border-bottom: 1pt solid #d0D7de;
+
+  :first-child {
+    margin-top: 0;
+  }
+}
+
+primaryHeading {
+  font-size: 24pt;
+  padding-bottom: 12pt;
+}
+
+secondaryHeading {
+  font-size: 18pt;
+  padding-bottom: 8pt;
+}
+
+unorderedList {
+  padding-left: 18pt;
+  margin-bottom: 12pt;
+}
+
+unorderedListItem {
+  margin-top: 3pt;
+}
+
+hyperlink {
+  colour: #0969da;
+}
