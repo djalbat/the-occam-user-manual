@@ -42,11 +42,11 @@ Remember also that the topmost directories of packages are shown with a padlock.
 One other thing to bear in mind is that only what are known as recognised files are shown in the proejcts pane by default.
 Thus a file may seem to disappear if you drag it into a child directory, for example.
 Recognised files are those that go into packages, with other files being ignored.
-The one exception are `*.md` files of which only `README.md` files in the topmost directories of projects make it into packages.
+The one exception are `\*.md` files of which only `README.md` files in the topmost directories of projects make it into packages.
 Here is the list:
 
-* `*.fls `
-* `*.md `
+* `\*.fls `
+* `\*.md `
 * `meta.json`
 * `type.ptn`
 * `symbol.ptn`
@@ -55,7 +55,7 @@ Here is the list:
 * `statement.bnf`
 * `metastatement.bnf`
 
-All but `*.fls` and `*.md` files belong strictly in the topmost directories of projects and packages.
+All but `\*.fls` and `\*.md` files belong strictly in the topmost directories of projects and packages.
 As already mentioned, by default they will not show in the projects pane if placed elsewhere.
 There is no such restriction on `.fls` files and you are encouraged to cretae sub-directories for them.
 

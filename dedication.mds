@@ -1,0 +1,9 @@
+padding: 0;
+
+paragraph {
+  width: fit-content;
+  font-size: 18pt;
+  padding-top: 160pt;
+  margin-left: auto;
+  margin-right: auto;
+}

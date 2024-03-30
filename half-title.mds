@@ -1,20 +1,18 @@
 padding: 0;
-padding-top: 64pt;
-background-colour: #f5f4ed;
+padding-top: 96pt;
   
 image {
   width: 100%;
   height: auto;
   border: 2pt solid #0a0d0b;
   display: block;
-  padding: 24pt 0 24pt 0;
+  padding: 18pt 0 18pt 0;
   border-left: none;
   border-right: none;
 }
 
 primaryHeading,
 secondaryHeading {
-  colour: #0a0d0b;
   text-align: center;
   font-weight: normal;
   margin-left: auto;
@@ -23,15 +21,15 @@ secondaryHeading {
 }
 
 primaryHeading {
-  width: 320pt;
-  border: 4pt solid #0a0d0b;
-  font-size: 40pt;
+  width: 240pt;
+  border: 3pt solid #0a0d0b;
+  font-size: 30pt;
   border-left: none;
   border-right: none;
 }
 
 secondaryHeading {
-  font-size: 24pt;
+  font-size: 18pt;
 
   :last-child {
     margin-top: 32pt;

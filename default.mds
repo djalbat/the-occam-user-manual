@@ -1,0 +1,7 @@
+padding: 24pt;
+
+blockListing,
+inlineListing {
+  colour: #000;
+  background-colour: #eee;
+}

@@ -26,18 +26,17 @@ Consider the following variable declaration written in Occam's default language,
 Variable n:ℕ
 ```
 
-Here we are declaring a variable named `n` to be of natrual number type, represented by the double-struck `ℕ` character.
-Now look at the parse tree.
-This is what what the verifier would see, so to speak.
+Here we are declaring a variable named `n` to be of natrual number type, represented by the double-struck `\ℕ` character.
+Now look at the parse tree. This is what what the verifier would see, so to speak:
 
 ```
                                       variableDeclaration [0]                             
-                                                 |                                        
-               ---------------------------------------------------------------------      
-               |                      |               |              |             |      
+                                                 \|                                        
+               \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-      
+               \|                      \|               \|              \|             \|      
 "Variable"[primary-keyword] [0] variable [0]  ":"[special] [0]   type [0]    <END_OF_LINE>
-                                      |                              |                    
-                                "x"[name] [0]                  "ℕ"[type] [0]              
+                                      \|                              \|                    
+                                "x"[name] [0]                  "\ℕ"[type] [0]              
 ```
 
 It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `ℕ` type.
