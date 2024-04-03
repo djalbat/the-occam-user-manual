@@ -1,3 +1,4 @@
+
 # Getting started
 
 Occam comprises divers sites, services and applications, the documentation for which is somewhat disparate.
@@ -23,7 +24,7 @@ In fact the chances are that it already is.
 To check this, run the following command in a terminal or command prompt:
 
 ```
-node \-\-version
+node --version
 ```
 
 If something like the following is returned...
@@ -44,7 +45,7 @@ Installing Node will also install Node's package manager, called `npm`.
 Again you can easily check that it is installed with the following command:
 
 ```
-npm \-\-version
+npm --version
 ```
 
 If you have a relatively recent version of Node installed then the version of `npm` will also be recent enough, too.
@@ -61,7 +62,7 @@ Git may well already be installed on your system.
 In order to check, run the following command:
 
 ```
-git \-\-version
+git --version
 ```
 
 Any version will do since Git has been more than adequate since its initial release.
@@ -136,37 +137,37 @@ It is far easier to just prepend `sudo` and have done with it.
 Moving on, in order to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as necessary:
 
 ```
-sudo npm install \-\-global occam-open-cli@latest
+sudo npm install --global occam-open-cli@latest
 ```
 
 Similarly for the verifier:
 
 ```
-sudo npm install \-\-global occam-verify-cli@latest
+sudo npm install --global occam-verify-cli@latest
 ```
 
 You can immediately check that the verifier is installed by running the following command:
 
 ```
-verify \-\-version
+verify --version
 ```
 
 You should see something like this:
 
 ```
-Occam Verify\-CLI version 0.0.645
+Occam Verify-CLI version 0.0.645
 ```
 
 You can also try the `open` package manager with the following command:
 
 ```
-open \-\-version
+open --version
 ```
 
 And you may, if you are fortunate, see something like this:
 
 ```
-Occam Open\-CLI version 6.0.9
+Occam Open-CLI version 6.0.9
 ```
 
 If you do then you can safely skip to the next section.
@@ -185,7 +186,7 @@ To continue, in order to create a symbolic link you first need to know the fully
 This is easily recovered as the first line of the output from the following command:
 
 ```
-npm list \-\-global
+npm list --global
 ```
 
 Once you have the directory to hand, you need to add an alias to your terminal or command promopt's configuration file.
@@ -250,13 +251,13 @@ Before opening any projects, delete the existing packages.
 In order to do so, from within the projects directory run the following command if you are on Windows...
 
 ```
-del /S \*
+del /S *
 ```
 
 ...or the followinog command if you are on unixy systems:
 
 ```
-rm \-rf \*
+rm -rf *
 ```
 
 Double check that all of the packages have been removed by returning to the IDE and clicking the refresh button.
@@ -285,14 +286,14 @@ verify peano-axioms
 If all goes well then you should see the last ten lines of the output, something like this:
 
 ```
-INFO: peano\-axioms/theorems.fls (91) \- Verified the 'successor(n) = zero' supposition.
-INFO: peano\-axioms/theorems.fls (93) \- Verified the 'zero = successor(n)' statement as an equality.
-INFO: peano\-axioms/theorems.fls (93) \- Verified the 'zero = successor(n)' unqualified statement.
-INFO: peano\-axioms/theorems.fls (95) \- Verified the 'zero:NonZeroNaturalNumber' qualified statement.
-INFO: peano\-axioms/theorems.fls (96) \- Verified the '(successor(n) = zero) ⇒ zero:NonZeroNaturalNumber' qualified statement.
-INFO: peano\-axioms/theorems.fls (97) \- Verified the '¬(zero:NonZeroNaturalNumber)' qualified statement.
-INFO: peano\-axioms/theorems.fls (99) \- Verified the '¬(successor(n) = zero)' qualified statement.
-INFO: peano\-axioms/theorems.fls (82\-99) \- Verified the 'P8' theorem.
+INFO: peano-axioms/theorems.fls (91) - Verified the 'successor(n) = zero' supposition.
+INFO: peano-axioms/theorems.fls (93) - Verified the 'zero = successor(n)' statement as an equality.
+INFO: peano-axioms/theorems.fls (93) - Verified the 'zero = successor(n)' unqualified statement.
+INFO: peano-axioms/theorems.fls (95) - Verified the 'zero:NonZeroNaturalNumber' qualified statement.
+INFO: peano-axioms/theorems.fls (96) - Verified the '(successor(n) = zero) ⇒ zero:NonZeroNaturalNumber' qualified statement.
+INFO: peano-axioms/theorems.fls (97) - Verified the '¬(zero:NonZeroNaturalNumber)' qualified statement.
+INFO: peano-axioms/theorems.fls (99) - Verified the '¬(successor(n) = zero)' qualified statement.
+INFO: peano-axioms/theorems.fls (82-99) - Verified the 'P8' theorem.
 INFO: Verified the 'peano-axioms/theorems.fls' file.
 INFO: Verified  'peano-axioms'.
 ```
@@ -300,13 +301,13 @@ INFO: Verified  'peano-axioms'.
 To see the last one hundred lines of output, run the following command:
 
 ```
-verify \-\-tail=100 peano-axioms
+verify --tail=100 peano-axioms
 ```
 
 Lastly, if you would like to follow the output as the verifier does its work, run the following command:
 
 ```
-verify \-\-follow peano-axioms
+verify --follow peano-axioms
 ```
 
 There will be several hundred lines of output in this case because the verifier has to verify not just the `peano-axioms` project but all the projects it depends on.

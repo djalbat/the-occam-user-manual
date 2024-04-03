@@ -1,22 +1,15 @@
+
 # Understanding Grammars
 
 Occam's grammars functionality is one of its strongest suits but what exactly is a grammar, at least in Occam's parlance?
 A grammar can loosely be described as that which is needed to describe and work with a language.
 More specifically, it can be thought of as comprising three parts:
 
-1. A collection of symbols or characters that are the smallest elements of the language. 
-These symbols or characters are usually viscerally synonymous with the glyphs that represent them.
-In our case a sequence of such characters is what comprises the content of a document or file.
+1. A collection of symbols or characters that are the smallest elements of the language. These symbols or characters are usually viscerally synonymous with the glyphs that represent them. In our case a sequence of such characters is what comprises the content of a document or file.
 
-2. A set of rules, usually based on regular expressions,[^3] to collect these characters into larger elements, called tokens or lexemes.
-We tend to envisage a sequence of characters as continuous rather than discrete, however, and therefore tend to think of these rules as chopping up the content rather than gathering it.
-This process is called lexing or tokenising and we stick with the latter.
+2. A set of rules, usually based on regular expressions,[^regular-expressions] to collect these characters into larger elements, called tokens or lexemes. We tend to envisage a sequence of characters as continuous rather than discrete, however, and therefore tend to think of these rules as chopping up the content rather than gathering it. This process is called lexing or tokenising and we stick with the latter.
 
-3. Another set of rules, written in BNF,[^4] that are responsible for organising these tokens into larger elements.
-In the case of a natural language these would be phrases, sentences, paragraphs and so on.
-This process is called parsing the tokens or, by extension, the content
-The resulting structure is usually called an abstract syntax tree or AST for short.
-We call it a parse tree, however.
+3. Another set of rules, written in BNF,[^bnf] that are responsible for organising these tokens into larger elements. In the case of a natural language these would be phrases, sentences, paragraphs and so on. This process is called parsing the tokens or, by extension, the content The resulting structure is usually called an abstract syntax tree or AST for short. We call it a parse tree, however.
 
 ## Language flexibility and extensibility
 
@@ -31,15 +24,15 @@ Now look at the parse tree. This is what what the verifier would see, so to spea
 
 ```
                                       variableDeclaration [0]                             
-                                                 \|                                        
-               \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-      
-               \|                      \|               \|              \|             \|      
+                                                 |                                        
+               ---------------------------------------------------------------------
+               |                      |               |              |             |      
 "Variable"[primary-keyword] [0] variable [0]  ":"[special] [0]   type [0]    <END_OF_LINE>
-                                      \|                              \|                    
+                                      |                              |                    
                                 "x"[name] [0]                  "\ℕ"[type] [0]              
 ```
 
-It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `ℕ` type.
+It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `\ℕ` type.
 It is not too hard to imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
 
 Now consider the same variable declaration but written in a controlled natural language, or CNL for short.
@@ -47,7 +40,7 @@ Occam does not natively support this language as yet but will do so in the futur
 For the moment it can be created using the grammars sandbox that is the subject of the next chapter:
 
 ```
-Let x be a variable of type ℕ.
+Let x be a variable of type \ℕ.
 ```
 
 Here is the resultant parse tree:
@@ -55,16 +48,16 @@ Here is the resultant parse tree:
 ```
                                                             variableDeclaration [0]                                                              
                                                                        |                                                                         
-       ---------------------------------------------------------------------------------------------------------------------------------         
+       ---------------------------------------------------------------------------------------------------------------------------------
        |              |              |             |                 |                 |               |              |                |         
 "Let"[name] [0] variable [0]  "be"[name] [0] "a"[name] [0] "variable"[name] [0] "of"[name] [0] "type"[name] [0]   type [0]    "."[unassigned] [0]
                       |                                                                                               |                          
-                "x"[name] [0]                                                                                   "ℕ"[type] [0]                    
+                "x"[name] [0]                                                                                   "\ℕ"[type] [0]                    
 ```
 
 Note that exactly the same information can be extracted from this parse tree as from the previous one, even though the language has changed.
 The verifier would be able to ascertain that this is indeed a variable declaration from the topmost `variableDeclaration` node, for example.
-Similarly it could also ascertain that the variable is called `n` and that its type is `ℕ`, just as before.
+Similarly it could also ascertain that the variable is called `n` and that its type is `\ℕ`, just as before.
 
 In essence the parse trees would appear to be identical to the verifier, in fact, since it ignores elements that were not pertinent.
 The `Variable` keyword in the Florence parse tree would be ignored, for example, or the `Let`, `be` and `a` keywordds in the CNL parse tree.
@@ -103,7 +96,7 @@ Now consider the parse tree for the first of the premises:
 Note that it does indeed parse, but that it is being parsed as nonsense.
 This is the fallback if the metastatement cannot be parsed in a more meaningful way.
 
-To make sense of this metastatement, we first augment the grammar with a regular exprssion pattern that picks out the `⇒` implication character as an operator token.
+To make sense of this metastatement, we first augment the grammar with a regular exprssion pattern that picks out the `\⇒` implication character as an operator token.
 The following parse tree shows that the metastatement still parses as nonsense but that this character is at least being recognised as an operator:
 
 ```
@@ -121,7 +114,7 @@ The following parse tree shows that the metastatement still parses as nonsense b
 Next, we augment the `metastatement` rule in the BNF to include metastatements of the requisite form:
 
 ```
-metastatement ::= metavariable "⇒" metavariable ;
+metastatement ::= metavariable "\⇒" metavariable ;
 ```
 
 As a result of these changes we get a `metastatement` node instead of a `nonsense` one:
@@ -153,15 +146,15 @@ So like Occam's flexibility with languages, extensibility is an important featur
 The first of the points at the beginning of this chapter suggested that any grammar needs a collection of characters or symbols.
 In Occam's case this is Unicode, a near ubiliquitous standard that encompasses close to 150,000 characters to date and has the potential to support over a million.
 These characters are organised across various planes, namely the basic multilingual plane, or BNP for short, together with sixteen so-called astral planes.
-For example, the aforementioned double-struck `ℕ` character, being regularly used in mathematical texts, can be found in the basic multilingual plane.
-On the other hand the `𝔸` character, being far less common, is relegated to an astral plane.
+For example, the aforementioned double-struck `\ℕ` character, being regularly used in mathematical texts, can be found in the basic multilingual plane.
+On the other hand the `\𝔸` character, being far less common, is relegated to an astral plane.
 In practice the position of a Unicode character, called its code point, is immaterial.
 As mentioned in the previous chapter, the Occam IDE has a Unicode picker to enable you to pick from a large selection of Unicode characters without knowing their code points.
-Mention should also go the JuliaMono typeface,[^1] which is used in the editor and which has support for thousands of Unicode characters.
+Mention should also go the JuliaMono typeface,[^juliamono] which is used in the editor and which has support for thousands of Unicode characters.
 
 ## Tokenising content with lexers
 
-There are several lexers to be found in the Occam grammars package.[^2]
+There are several lexers to be found in the Occam grammars package.[^occam-grammars]
 In fact these are all the same lexer but configured slightly differently.
 
 In essence Occam's lexer is a state machine having two states, namely 'in comment' and 'not in comment'.
@@ -206,7 +199,7 @@ We call this robustness and come back to this important property of both lexers 
 
 ## Parsing tokens with parsers
 
-Like the lexers, there are several parsers to be found in the Occam grammars package.[^2]
+Like the lexers, there are several parsers to be found in the Occam grammars package.[^occam-grammars]
 And again like the lexers, these are all in fact the same common parser but configured differently in each case. 
 Specifically, a `CommonParser` class is extended for each grammar although, unlike the lexers, there are no other specific properties or in-built rules.
 The only thing that differentiates each parser is its associated BNF.
@@ -230,17 +223,17 @@ Such natural language specifications are both cumbersome and ambiguous, however.
 All BNF does is make all of this precise:
 
 ```
-expression :: "(" expression ")"
+expression ::= "(" expression ")"
 
-            | expression operator expression
+             | expression operator expression
 
-            | number
+             | number
 
-            ;
+             ;
 
- operator ::= "+" | "-" | "÷" | "×" ;
+  operator ::= "+" | "-" | "÷" | "×" ;
 
-   number ::= /\d+/ ;
+    number ::= /\d+/ ;
 ```
 
 It is not going too far to claim that not only are the above rules clearer than their natural language counterparts but that they could have been given with no prior explanation at all.
@@ -738,8 +731,10 @@ expressionNumber ::= expression | number ;
 Now rules such as `expressionNumber~` can be created by the algorithm.
 Finally on this subject it is worth noting that When complex part errors arise experience suggests that they can often be replaced with something better rather than pulling them out into another rule.
 
-[^1]: https://juliamono.netlify.app/
-[^2]: https://github.com/djalbat/occam-grammars
-[^3]: https://en.wikipedia.org/wiki/Regular_expression
-[^4]: https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
-[^5]: https://github.com/djalbat/occam-parsers/blob/master/src/bnf/bnf.js
+[^bnf]: [https://en.wikipedia.org/wiki/Backus-Naur_form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)
+
+[^juliamono]: https://juliamono.netlify.app/
+
+[^occam-grammars]: https://github.com/djalbat/occam-grammars
+
+[^regular-expressions]: https://en.wikipedia.org/wiki/Regular_expression
