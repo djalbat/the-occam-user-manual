@@ -1,4 +1,3 @@
-
 # Getting to grips with the IDE
 
 As mentioned in the getting started chapter, Occam has its own IDE. 

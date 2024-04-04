@@ -1,4 +1,3 @@
-
 # The Occam User Manual
 
 * [Half title](half-title.md)

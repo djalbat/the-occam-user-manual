@@ -1,4 +1,3 @@
-
 # Getting started
 
 Occam comprises divers sites, services and applications, the documentation for which is somewhat disparate.

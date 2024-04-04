@@ -1,4 +1,3 @@
-
 # Understanding Grammars
 
 Occam's grammars functionality is one of its strongest suits but what exactly is a grammar, at least in Occam's parlance?
