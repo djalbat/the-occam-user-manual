@@ -1,3 +1,5 @@
-# The Occam ![Logo](/image/occam-half.svg) User Manual
+![Logo](/image/occam-half.svg) 
+
+# The Occam User Manual
 
 ## James Smith
