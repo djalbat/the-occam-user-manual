@@ -1,4 +1,4 @@
-![Logo](/image/occam-half.svg) 
+![Logo](image/occam-half.svg) 
 
 # The Occam User Manual
 
