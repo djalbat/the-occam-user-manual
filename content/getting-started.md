@@ -312,3 +312,5 @@ verify --follow peano-axioms
 There will be several hundred lines of output in this case because the verifier has to verify not just the `peano-axioms` project but all the projects it depends on.
 To bring this chapter to a close, therefore, remove all but the `peano-axioms` project and open its dependencies as packages rather than projects.
 Afterwards, when you verify the `peano-axioms` project the verifier will work much more quickly.
+
+@footnotes

@@ -1,4 +1,8 @@
-padding: 24pt;
+@media web {
+  division division {
+    padding: 24pt;
+  }
+}
 
 blockListing,
 inlineListing {

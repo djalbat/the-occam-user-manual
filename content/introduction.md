@@ -48,3 +48,5 @@ It is most often associated with Occam's IDE but in fact it encompasses a range 
 This book explains these divers parts and there is a companion book, called The Foundations of Symbolic Reasoning, that covers the underlying theory.
 
 [^florence]: Occam was originally called Florence but the former seemed more apt.
+
+@footnotes
