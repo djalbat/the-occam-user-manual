@@ -1,4 +1,6 @@
-@import content/introduction.md
-@import content/getting-started.md
-@import content/getting-to-grips-with-the-ide.md
-@import content/understanding-grammars.md
+@ignore
+
+@include content/introduction.md
+@include content/getting-started.md
+@include content/getting-to-grips-with-the-ide.md
+@include content/understanding-grammars.md
