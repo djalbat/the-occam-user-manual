@@ -1,5 +1,12 @@
 padding: 24pt;
 
+primaryHeading,
+secondaryHeading,
+tertiaryHeading {
+  font-weight: normal;
+  font-family: "Computer Modern Sans";
+}
+
 blockListing,
 inlineListing {
   colour: #000;
