@@ -1,0 +1,8 @@
+paragraph {
+  font-size: 14pt;
+  text-align: center;
+
+  :first-child {
+    margin-top: 560pt;
+  }
+}
