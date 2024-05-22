@@ -1,8 +1,7 @@
-padding: 0;
-
 paragraph {
   width: fit-content;
   margin: auto;
   font-size: 18pt;
-  padding-top: 160pt;
+  margin-top: 160pt;
+  margin-bottom: 480pt;
 }

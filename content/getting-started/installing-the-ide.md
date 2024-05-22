@@ -7,21 +7,18 @@ You must use Google Chrome in order to run it, however.
 Other browsers may work but they are not supported.
 If you really have an issue with Chrome then use Chromium which, although still Google's, is at least open source:
 
-https://www.chromium.org/home
-
 It is worth mentioning that there is effectively no difference between the two variants and you are not missing out if you can only install the browser variant.
 The desktop variant is in fact simply the aforementioned Chromium configured so as to hide the usual browser functionality and present only the embedded application.
 If you get the chance to run the two variants side by side then will be able to see for yourself that they are identical.
 
 Both variants are available from the Occam website:
 
-[https://occam.science](https://occam.science)
+https://occam.science
 
 Click on the 'I am not a robot' checkbox and download your preference.
 
-Installing the browser variant will be covered first.
-Simply unzip the downloaded zip file and move the unzipped 'Occam' directory to a location of your choice.
-Your home directory is advised but it does not really matter as long as you have access to the directory from a terminal or command prompt.
+To install the browser variant, simply unzip the downloaded zip file and move the unzipped 'Occam' directory to a location of your choice.
+Your home directory is advised but it does not really matter as long as you have access to it from a terminal or command prompt.
 Now open a terminal or command prompt, `cd` into the Occam directory and execute the following command:
 
 ```
@@ -30,7 +27,7 @@ npm start
 
 Lastly, open a browser with the following URL:
 
-[http://localhost:8888](http://localhost:8888)
+http://localhost:8888
 
 You will be presented with the Occam IDE.
 Beyond bookmarking the URL there is nothing more to do.

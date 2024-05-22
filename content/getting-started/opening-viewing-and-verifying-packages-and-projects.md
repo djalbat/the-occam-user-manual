@@ -4,6 +4,7 @@ With the IDE and `open` package manager to hand you are ready to start looking a
 To begin with, create a projects directory.
 You can call it what you like but here it will be called 'Projects'.
 By the way, projects and packages tend to sit side by side in the same diretory with Occam.
+In particular there is no separate directory for packages.
 To continue, when you have created the projects directory, open a terminal or command prompt and `cd` into it:
 
 ```
@@ -25,7 +26,13 @@ open material-conditional
 ```
 
 Several packages will be opened, in fact, the last of which will be the `material-conditional` package.
-Next, in order to find out the fully qualified path of the projects directory use the following command, which stands for present working dfirectory:
+Next, use the following command to find out the fully qualified path of the projects directory on Windows:
+
+```
+cd
+```
+
+...or the following on unixy systems:
 
 ```
 pwd
@@ -62,7 +69,7 @@ open clone peano-axioms
 ```
 
 This time you will be prompted to clone all of the depdencies.
-If you type 'y' and hit return then `open` will clone the underlying projects for the packages rather than just downloading the packages themselves.
+If you type 'y' and hit return then `open` will clone the underlying projects for the dependencies rather than just downloading the packages themselves.
 It leverages Git in order to do this, which is why you need Git installed even at this relatively early stage.
 Return to the IDE and click the refresh button again.
 You will see the newly created project directories, without padlocks this time.
@@ -105,4 +112,4 @@ verify --follow peano-axioms
 
 There will be several hundred lines of output in this case because the verifier has to verify not just the `peano-axioms` project but all the projects it depends on.
 To bring this chapter to a close, therefore, remove all but the `peano-axioms` project and open its dependencies as packages rather than projects.
-Afterwards, when you verify the `peano-axioms` project the verifier will work much more quickly.
+Afterwards, if you verify the `peano-axioms` project then the verifier will work much more quickly.
