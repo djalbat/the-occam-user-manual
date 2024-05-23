@@ -2,7 +2,7 @@
 
 As mentioned in the getting started chapter, Occam has its own IDE. 
 Actually Occam's CLI tools are not integrated with it as of yet and therefore it is really just a useful collaborative text editor.
-It supports Occam's own vernacular, for example, called Florence. 
+It supports Florence, Occam's own language. 
 It will also unpack Occam's packages in its projects pane so that you can browse them as projects. 
 And it has useful indexing and navigation features.
 All told it is worth the effort of downloading and installing it and will only improve with time.

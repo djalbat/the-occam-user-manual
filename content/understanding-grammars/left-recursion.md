@@ -1,7 +1,7 @@
 ## Left recursion
 
-It helps to know what left recursion is because the algorithm to eliminate it will occasionally throw up an error that will appear spurious without context.
-We recall the following BNF:
+A detailed understanding of left recursion is not required but It helps to know what it is because the algorithm to eliminate it will occasionally throw up errors that will appear spurious without at least some context.
+We recall the following BNF, therefore:
 
 ```
 expression ::= "(" expression ")"
@@ -18,6 +18,7 @@ expression ::= "(" expression ")"
 ```
 
 The second of the definitions of the `expression` rule is left recursive, as previously pointed out.
+
 Here is the adjusted BNF with the left recursion eliminated.
 It is certainly not necessary to understand how this can come about:
 
@@ -109,4 +110,5 @@ expressionNumber ::= expression | number ;
 ```
 
 Now rules such as `expressionNumber~` can be created by the algorithm.
-Finally on this subject it is worth noting that When complex part errors arise experience suggests that they can often be replaced with something better rather than pulling them out into another rule.
+
+Finally on this subject it is worth noting that when complex part errors arise experience suggests that the offending complex parts can often be replaced with something better rather than pulling them out into another rule.
