@@ -1,17 +1,19 @@
+padding: 0;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
 background-colour: #f5f4ed;
   
 image {
   width: 320pt;
   height: auto;
-  margin: auto;
   display: block;
-  margin-top: 96pt;
 }
 
 primaryHeading,
 secondaryHeading {
   width: 320pt;
-  margin: auto;
   colour: #0a0d0b;
   text-align: center;
   font-weight: normal;
@@ -22,12 +24,11 @@ secondaryHeading {
 primaryHeading {
   padding: 2pt;
   font-size: 40pt;
+  line-height: 48pt;
   border-top: 2pt solid #0a0d0b;
   border-bottom: 2pt solid #0a0d0b;
 }
 
 secondaryHeading {
   font-size: 24pt;
-  margin-top: 128pt;
-  margin-bottom: 128pt;
 }

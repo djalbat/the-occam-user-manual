@@ -9,3 +9,5 @@ In practice the position of a Unicode character, called its code point, is immat
 As mentioned in the previous chapter, the Occam IDE has a Unicode picker to enable you to pick from a large selection of Unicode characters without knowing their code points.
 
 Brief mention should also go the JuliaMono typeface, [^juliamono] which is used in the editor and which has support for thousands of Unicode characters.
+
+[^juliamono]: https://juliamono.netlify.app/

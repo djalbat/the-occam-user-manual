@@ -29,7 +29,7 @@ The following BNF will achieve this in the standard way:
 
     additionalOperator ::= "+" | "-" ;
 
-multiplicativeOperator ::= "*" | "/" ;
+multiplicativeOperator ::= "\*" | "/" ;
 
 
                 number ::= /\d+/ ;
@@ -64,9 +64,12 @@ multiplicativeTerm [0]   "+"[unassigned] [0]             -----------------------
 
 There are two problems with this cumbersome approach:
 
-1. The increased depth and complexity of the parse tree. Arguably extraneous nodes such as the `multiplicativeTerm` and `additionalOperator` nodes are an inevitable consequence of the elaborate BNF, for example.
-
-2. The BNF itself is flawed. Note that the `multiplicativeTerm` rule references the `number` rule, the reason being that there must be some rule at the foot of the hierarchy, so to speak. If we try to replace this with a reference to the `term` rule then we get a form of left recursion that cannot be eliminated. Thus if someone else wants to add additional rules to the `term` rule then they would be unable to do so independently.
+1. The increased depth and complexity of the parse tree. 
+Arguably extraneous nodes such as the `multiplicativeTerm` and `additionalOperator` nodes are an inevitable consequence of the elaborate BNF, for example.
+2. The BNF itself is flawed. 
+Note that the `multiplicativeTerm` rule references the `number` rule, the reason being that there must be some rule at the foot of the hierarchy, so to speak. 
+If we try to replace this with a reference to the `term` rule then we get a form of left recursion that cannot be eliminated. 
+Thus if someone else wants to add additional rules to the `term` rule then they would be unable to do so independently.
 
 In order to tackle these problems a new way of treating precedence was devised.
 The BNF below shows how it can be utilised:
@@ -77,7 +80,7 @@ expression ::= term... "." ;
 
      term  ::=  argument ( "/" (4)
                             
-                         | "*" (3)
+                         | "\*" (3)
                                             
                          | "+" (2)
                

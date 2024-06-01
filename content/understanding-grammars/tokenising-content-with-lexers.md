@@ -42,3 +42,5 @@ Thus it is reasonable to envisage the lexer as consuming the content from left t
 One other thing to note is that the last user-defined rule will match anything but whitespace.
 Given that a prior in-built rule will have already matched any whitespace this guarantees that the plain text lexer will cope with any content.
 We call this robustness and come back to this important property of both lexers and pareers in a later section.
+
+[^occam-grammars]: https://github.com/djalbat/occam-grammars

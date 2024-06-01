@@ -26,8 +26,8 @@ Recognised files are those that go into packages, with other files being ignored
 The exceptions are `\*.md` files of which only `README.md` files in the topmost directories of projects make it into packages.
 Here is the list of recognised files:
 
-* `\*.fls `
-* `\*.md `
+* `*.fls `
+* `*.md `
 * `meta.json`
 * `type.ptn`
 * `symbol.ptn`

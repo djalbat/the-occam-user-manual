@@ -51,13 +51,13 @@ Before opening any projects, delete the existing packages.
 In order to do so, from within the projects directory run the following command if you are on Windows...
 
 ```
-del /S *
+del /S \*
 ```
 
 ...or the followinog command if you are on unixy systems:
 
 ```
-rm -rf *
+rm -rf \*
 ```
 
 Double check that all of the packages have been removed by returning to the IDE and clicking the refresh button.

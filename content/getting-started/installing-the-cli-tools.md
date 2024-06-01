@@ -15,13 +15,13 @@ It is far easier to just prepend `sudo` and have done with it.
 Moving on, in order to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as necessary:
 
 ```
-sudo npm install --global occam-open-cli@latest
+sudo npm install --global occam-open-cli\@latest
 ```
 
 Similarly for the verifier:
 
 ```
-sudo npm install --global occam-verify-cli@latest
+sudo npm install --global occam-verify-cli\@latest
 ```
 
 You can immediately check that the verifier is installed by running the following command:
@@ -45,7 +45,7 @@ open --version
 And you may, if you are fortunate, see something like this:
 
 ```
-Occam Open-CLI version 6.0.9
+Occam Open-CLI version 6\.0\.9
 ```
 
 If you do then you can safely skip to the next section.

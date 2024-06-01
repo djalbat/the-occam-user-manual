@@ -1,4 +1,4 @@
-@ignore 
+@ignore
 
 @include cover.md
 @include front-matter.md
