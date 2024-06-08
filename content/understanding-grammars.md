@@ -6,10 +6,10 @@ More specifically, it can be thought of as comprising three parts:
 
 1. A collection of symbols or characters that are the smallest elements of the language. 
 These symbols or characters are usually conflated with the glyphs that represent them. 
-In our case a sequence of such characters is what comprises the content of a document or file.
+In our case a sequence of such characters is what comprises the content of a document or file. 
 2. A set of rules, usually based on regular expressions,[^regular-expressions] to collect these characters into larger elements, called tokens or lexemes. 
 We tend to envisage a sequence of characters as continuous rather than discrete and therefore tend to think of these rules as chopping up the content rather than gathering it. 
-This process is called lexing or tokenising and we stick with the latter.
+This process is called lexing or tokenising and we stick with the latter. 
 3. Another set of rules, written in BNF,[^bnf] that are responsible for organising these tokens into larger elements. 
 In the case of a natural language these would be phrases, sentences, paragraphs and so on. 
 This process is called parsing the tokens or, by extension, the content The resulting structure is usually called an abstract syntax tree or AST for short. 

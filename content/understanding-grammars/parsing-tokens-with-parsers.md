@@ -58,4 +58,3 @@ The answer is that all parser architectures are susceptible to one form of recur
 We come back to this particular form of recursion later on.
 
 [^occam-grammars]: https://github.com/djalbat/occam-grammars
-

@@ -42,7 +42,3 @@ Thus if that part of the content can indeed be parsed as a statment then this wi
 
 These modifiers are of singular use when dealing with the ambiguity purposely added to the Flroence grammar and indeed others.
 We call rules modified with single and double period modifiers semi-opaque and opaque, respectively, hopefully for obviously reasons.
-
-Finally, the astute may notice that the `document` rule is ambiguous but is not flagged as either semi-opaque or opaque.
-The reason for this is that modifying the start rule in this way would defeat the objective of the incremental parser altogether.
-It is worth a moment to ponder why this is legitimate and does not in fact lead to problems.
