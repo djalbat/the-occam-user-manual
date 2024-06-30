@@ -1,3 +1,3 @@
 ## Contents
 
-@contents 2
+@contents

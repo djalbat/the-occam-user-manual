@@ -21,3 +21,7 @@ Moreover the vertical splitters, that is the draggable elements between the pane
 @embed content/getting-to-grips-with-the-ide/the-console-and-settings.md
 @embed content/getting-to-grips-with-the-ide/editing.md
 @embed content/getting-to-grips-with-the-ide/exporting-custom-grammars.md
+
+@footnotes
+
+@pageNumber

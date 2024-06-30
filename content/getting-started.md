@@ -20,3 +20,7 @@ Both JavaScript and Node continue to evolve and although both have their detract
 @embed content/getting-started/installing-the-ide.md
 @embed content/getting-started/installing-the-cli-tools.md
 @embed content/getting-started/opening-viewing-and-verifying-packages-and-projects.md
+
+@footnotes
+
+@pageNumber

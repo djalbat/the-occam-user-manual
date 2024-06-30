@@ -56,3 +56,5 @@ This book explains these divers parts and there is a companion book, called The 
 [^florence]: Occam was originally called Florence but the former seemed more apt.
 
 @footnotes
+
+@pageNumber

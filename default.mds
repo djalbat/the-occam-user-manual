@@ -1,14 +1,18 @@
 padding: 6vh;
 
-primaryHeading,
-secondaryHeading,
-tertiaryHeading {
-  font-weight: normal;
-  font-family: "Computer Modern Sans";
-}
-
 blockListing,
 inlineListing {
   colour: #000;
-  background-colour: #eee;
+  background-colour: transparent;
+}
+
+inlineListing {
+  padding: 0;
+}
+
+blockListing {
+  border: 1PX solid #333;
+  padding: 12pt 18pt;
+  line-height: 19pt;
+  box-shadow: 3pt 3pt 0 #999;
 }
