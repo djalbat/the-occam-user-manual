@@ -19,7 +19,7 @@ Here is the parse tree, which is what what the verifier would see, so to speak:
                                 "x"[name] [0]                  "ℕ"[type] [0]              
 ```
 
-It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` varaible and `ℕ` type.
+It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` variable and `ℕ` type.
 It is not too hard to imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
 
 Now consider the same variable declaration but written in a controlled natural language.
@@ -49,7 +49,7 @@ Similarly it could also ascertain that the variable is called `n` and that its t
 In essence the parse trees would appear to be identical to the verifier, in fact, since it ignores elements that were not pertinent.
 The `Variable` keyword in the Florence parse tree would be ignored, for example, or the `Let`, `be` and `a` keywordds in the controlled natural language parse tree.
 
-In summary, for all intents and purposes the Florence and controlled natural languages will appear to be identical to the verifier and not just for varaible declarations but every language element.
+In summary, for all intents and purposes the Florence and controlled natural languages will appear to be identical to the verifier and not just for variable declarations but every language element.
 Furthermore, it should be clear that the natural language parts of the latter could be given in any natural language, it does not have to be English.
 This flexibility with languages is an important feature of Occam.
 

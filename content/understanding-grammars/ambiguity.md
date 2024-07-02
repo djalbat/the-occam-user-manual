@@ -5,7 +5,7 @@ In the case of the lexers, robustness is guaranteed by an in-built rule that mat
 In the case of the parsers, robustness is guaranteed by an `error` rule that is always given as the last choice in the singular definitions of start rules.
 In theory perhaps there should be no unassigned tokens or error nodes but practice they do regularly come about.
 
-To reiterate this point, as a last resort all content can be tokenised as whiteapce together with unassigned tokens; and parsed as error nodes.
+To reiterate this point, as a last resort all content can be tokenised as whitespace together with unassigned tokens; and parsed as error nodes.
 So there are always at least two sequences of tokens and two corresponding parse trees for any content.
 Thus robustness is effectively guaranteed by ambiguity.
 
@@ -38,7 +38,7 @@ Both of these modifiers are needed when dealing with ambiguity at a medium to lo
 To see this, suppose that the batch parser parses part of the content as nonsense and suppose also that subsequently the user makes an incremental change to that part of the content that allows it to be parsed as a statement.
 If the incremental parser were to be allowed to traverse down the parse tree indefinitely, however, it would perhaps make a change only to a child node of the nonsense node, leaving the parse nonsense node otherwise intact.
 By stopping the incremental parser at the higher level, however, it is forced to try to evaluate the `statement` rule every time and in particular before the `nonsense` rule.
-Thus if that part of the content can indeed be parsed as a statment then this will be the outcome.
+Thus if that part of the content can indeed be parsed as a statement then this will be the outcome.
 
 These modifiers are of singular use when dealing with the ambiguity purposely added to the Florence grammar and indeed others.
 We call rules modified with single and double period modifiers semi-opaque and opaque, respectively, hopefully for obviously reasons.

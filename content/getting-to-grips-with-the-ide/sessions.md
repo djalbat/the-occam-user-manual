@@ -4,10 +4,10 @@ The second toolbar goes with the sessions pane.
 It has a rubbish bin and an input field for session keys.
 There are also three buttons for creating, joining and leaving sessions, as well as a button to copy the session key to the clipboard.
 
-Clicking the button for creating a session when the session key input field is left blank will create a seesion with a random key.
+Clicking the button for creating a session when the session key input field is left blank will create a session with a random key.
 It is recommended that you do this and then pass the session key to other session users by way of email or whatever.
 They can paste the session key into the session key input field and then click the join session button in order to join the session.
-Anyone can leave a sesssion at any time, including the creator.
+Anyone can leave a session at any time, including the creator.
 In fact the session will persist on the server for half a minute or so even when everyone has left, during which time it can be re-joined.
 
 Once a session is created you can drag files and directories into it from the projects pane.
