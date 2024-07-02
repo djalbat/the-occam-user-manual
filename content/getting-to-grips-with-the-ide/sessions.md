@@ -10,7 +10,7 @@ They can paste the session key into the session key input field and then click t
 Anyone can leave a sesssion at any time, including the creator.
 In fact the session will persist on the server for half a minute or so even when everyone has left, during which time it can be re-joined.
 
-Once a session is created you can drag files and folders into it from the projects pane.
+Once a session is created you can drag files and directories into it from the projects pane.
 These can then be removed from the session by dragging them into the rubbish bin to the left of the session key input field.
 Anyone can add files to and remove files from a session. 
 The session creator has no special privileges in this respect.

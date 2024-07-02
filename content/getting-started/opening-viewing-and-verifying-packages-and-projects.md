@@ -3,7 +3,7 @@
 With the IDE and `open` package manager to hand you are ready to start looking at some Occam packages and projects.
 To begin with, create a projects directory.
 You can call it what you like but here it will be called 'Projects'.
-By the way, projects and packages tend to sit side by side in the same diretory with Occam.
+By the way, projects and packages tend to sit side by side in the same directory with Occam.
 In particular there is no separate directory for packages.
 To continue, when you have created the projects directory, open a terminal or command prompt and `cd` into it:
 
@@ -42,7 +42,7 @@ Make a note of the fully qualified path and launch the IDE.
 Near to the top left you will see a projects path input field.
 Type in the fully qualified path of the projects directory and hit return or click on the refresh button immediately to the right of the input field.
 You will see the packages appear in the projects pane on the left.
-Note the small padlocks on the folder icons, which tell you that these are packages and not project directories.
+Note the small padlocks on the directory icons, which tell you that these are packages and not project directories.
 It is perhaps not worth going into too much detail in this chapter about what the various files and directories contain, but do at least take a few moments to click around, so to speak.
 One thing you will notice is that all of the files are read only.
 This is to be expected given that these are packages and not projects.
@@ -68,7 +68,7 @@ Now run the following command in the projects directory:
 open clone peano-axioms
 ```
 
-This time you will be prompted to clone all of the depdencies.
+This time you will be prompted to clone all of the dependencies.
 If you type 'y' and hit return then `open` will clone the underlying projects for the dependencies rather than just downloading the packages themselves.
 It leverages Git in order to do this, which is why you need Git installed even at this relatively early stage.
 Return to the IDE and click the refresh button again.

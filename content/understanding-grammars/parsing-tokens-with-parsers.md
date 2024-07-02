@@ -53,8 +53,8 @@ There is a third category of parts called complex parts which are perhaps best d
 It is worth a moment to imagine a top down parser, configured with the BNF above, parsing an arithmetic expression such as `(1+2)÷3`.
 It should become clear why the second definition of the `expression` rule is going to create problems.
 When the parser encounters this definition it will try to evaluate the `expression` rule again and if the first definition cannot be evaluated then the parser will loop indefinitely.
-This problem can be alleviated by rewriting the BNF under the hood but it is reasonable to ask why another parser achtiteture cannot be adopted, one that is not susceptible to so-called left recursion.
-The answer is that all parser architectures are susceptible to one form of recursion or another and top down parsers are generally by far the simplest and fastest.
+This problem can be alleviated by rewriting the BNF under the hood but it is reasonable to ask why another kind of parser cannot be adopted, one that is not susceptible to so-called left recursion.
+The answer is that all kinds of parsers are susceptible to one form of recursion or another and top down parsers are generally by far the simplest and fastest.
 We come back to this particular form of recursion later on.
 
 [^occam-grammars]: https://github.com/djalbat/occam-grammars

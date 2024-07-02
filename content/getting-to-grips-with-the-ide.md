@@ -6,7 +6,7 @@ It supports Florence, Occam's own language.
 It will also unpack Occam's packages in its projects pane so that you can browse them as projects. 
 And it has useful indexing and navigation features.
 All told it is worth the effort of downloading and installing it and will only improve with time.
-Some effort has been made in order to make it as usable as possible and most of its functionaoity should therefore be discoverable.
+Some effort has been made in order to make it as usable as possible and most of its functionality should therefore be discoverable.
 However, some functionality is subtle or hidden and so all of it is covered in what follows.
 
 To begin with then, note that there are severral toolbars along the top as well as the several panes.

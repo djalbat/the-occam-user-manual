@@ -21,7 +21,7 @@ Thus it can be argued that the kind of ambiguity brought about by unassigned tok
 Another use for ambiguity has already been touched upon, namely the `nonsense` rules.
 The need for nonsense nodes is not as pressing as error nodes and they do not contribute to robustness overall.
 Their utility lies in permitting high level nodes such as theorem nodes to remain intact whilst a user finishes typing a statement in the IDE, say.
-Furtherfmore, nonsense nodes allow documents to be parsed with only the default custom grammar, which makes indexing in the IDE much faster.
+Furthermore, nonsense nodes allow documents to be parsed with only the default custom grammar, which makes indexing in the IDE much faster.
 
 The double period modifier for the `unqualifiedMetastatement` and `qualifiedMetastatement` rules deserves mention at this point.
 In fact there is also a single period modifier, an example of its use being the `error` rule.
@@ -37,8 +37,8 @@ It behaves similarly if it encounters a rule modified with a double period modif
 Both of these modifiers are needed when dealing with ambiguity at a medium to low level, so to speak.
 To see this, suppose that the batch parser parses part of the content as nonsense and suppose also that subsequently the user makes an incremental change to that part of the content that allows it to be parsed as a statement.
 If the incremental parser were to be allowed to traverse down the parse tree indefinitely, however, it would perhaps make a change only to a child node of the nonsense node, leaving the parse nonsense node otherwise intact.
-By stopping the incremental parser at the higher level, however, it is forced to try to evaluate the `statement` fule every time and in particular before the `nonsense` rule.
+By stopping the incremental parser at the higher level, however, it is forced to try to evaluate the `statement` rule every time and in particular before the `nonsense` rule.
 Thus if that part of the content can indeed be parsed as a statment then this will be the outcome.
 
-These modifiers are of singular use when dealing with the ambiguity purposely added to the Flroence grammar and indeed others.
+These modifiers are of singular use when dealing with the ambiguity purposely added to the Florence grammar and indeed others.
 We call rules modified with single and double period modifiers semi-opaque and opaque, respectively, hopefully for obviously reasons.

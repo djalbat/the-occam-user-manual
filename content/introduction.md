@@ -26,7 +26,7 @@ All are failible regardless of what their proponents may claim and therefore I d
 Indeed in my opinion verification should be an aid to clarity and rigour and never a substitute for it.
 The idea of a proof as a black box in particular is anathema to me.
 
-Moving on, the standpoint that software should be an aid to human reasonibg and not a substitute for it must these days be tempered by a consideration of artificial intelligence as a tool for reasoning.
+Moving on, the standpoint that software should be an aid to human reasoning and not a substitute for it must these days be tempered by a consideration of artificial intelligence as a tool for reasoning.
 What inspired me over the near decade of work that it took to get Occam to its first viable release was a firm belief in what I call the four elephants, expounded in the four chapters of the aforementioned Foundations book.
 I had not heard of large language models when I started out and they were never a motivating factor, but as I came to my first milestone after those many years, they began to loom large.
 

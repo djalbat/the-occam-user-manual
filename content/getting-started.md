@@ -13,7 +13,7 @@ Node brought several innovations:
 * As well as server side code, developers could write client side code on Node which could be made to run on browsers by way of a process called bundling.
 
 Allied with continued improvements to JavaScript itself, most notably the ES6 and ES7 releases, Node resulted in an explosion in JavaScript's use.
-This was especially evidient in, but by no means restricted to, Internet appcliations.
+This was especially evidient in, but by no means restricted to, Internet applications.
 Both JavaScript and Node continue to evolve and although both have their detractors, it is safe to say that they will be with us and in a healthy state for the foreseeable future.
 
 @embed content/getting-started/prerequisites.md

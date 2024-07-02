@@ -41,5 +41,5 @@ Once the IDE is running, right click on the icon in the dock and choose the opti
 
 One last thing to bear in mind is that opening more than one instance of either the browser or indeed the desktop variant of the IDE will almost certainly lead to problems and possibly even lost work.
 This is because the IDE stores its settings in the browser's local storage, remember that the desktop version is really just a browser in disguise, and this storage is shared across instances.
-If you have two instances and change the projects directory in one of them, for example, you will effectivley be changing it in the other.
+If you have two instances and change the projects directory in one of them, for example, you will effectively be changing it in the other.
 Perhaps the settings can be sandboxed to particular instances in some later release but this is not the case presently so beware.

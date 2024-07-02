@@ -56,7 +56,7 @@ One workaround is to create a symbolic link to the package in order to ensure th
 This may render the other application useless, but in practice this is rarely an issue.
 It is worth briefly mentioning what kinds of applications are likely to be pushed aside by this workaround, however.
 In the case of MacOS, the native `open` CLI tool can be used to open files with their registered applications.
-For example, you could open a PDF file with the system's default PUF viewer.
+For example, you could open a PDF file with the system's default PDF viewer.
 On other unixy systems the native `open` application is likely to be a legacy graphics utility.
 In either case, temporarily pushing it to one side will do no lasting harm.
 
@@ -67,7 +67,7 @@ This is easily recovered as the first line of the output from the following comm
 npm list --global
 ```
 
-Once you have the directory to hand, you need to add an alias to your terminal or command promopt's configuration file.
+Once you have the directory to hand, you need to add an alias to your terminal or command prompt's configuration file.
 Exactly what this file is depends on your system.
 On MacOS it will be either the `.bashrc` or `.bash_profile` file in your home directory.
 If you are not using MacOS then hopefully you will have enough knowledge of your system to know which file to edit.

@@ -49,7 +49,7 @@ Similarly it could also ascertain that the variable is called `n` and that its t
 In essence the parse trees would appear to be identical to the verifier, in fact, since it ignores elements that were not pertinent.
 The `Variable` keyword in the Florence parse tree would be ignored, for example, or the `Let`, `be` and `a` keywordds in the controlled natural language parse tree.
 
-In summary, for all intents and purposes the Flroence and controlled natural languages will appear to be identical to the verifier and not just for varaible declarations but every language element.
+In summary, for all intents and purposes the Florence and controlled natural languages will appear to be identical to the verifier and not just for varaible declarations but every language element.
 Furthermore, it should be clear that the natural language parts of the latter could be given in any natural language, it does not have to be English.
 This flexibility with languages is an important feature of Occam.
 
@@ -124,6 +124,6 @@ What this demonstrates in practice is not just a more sensical parse tree.
 With this rule now working, its premises and conclusion can be matched to other metastatements and statements in derivations by the verifier.
 This means that whereas before augmenting the grammar the verifier would have fallen over when encountering this rule, now it would be able to continue.
 
-Indeed it could be said that about half the job of verification is getting content to parse by way of extening Occam's in-built grammars.
+Indeed it could be said that about half the job of verification is getting content to parse by way of extending Occam's in-built grammars.
 As mentioned earlier, there is a grammars sandbox to help you with this work.
 So, like Occam's flexibility with languages, extensibility is an important feature.
