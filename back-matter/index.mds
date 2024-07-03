@@ -1,0 +1,6 @@
+column-gap: 32pt;
+column-width: 320pt;
+
+indexItem {
+  word-break: break-word;
+}
