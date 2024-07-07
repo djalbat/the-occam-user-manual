@@ -209,6 +209,7 @@
   "ignoredWords": [
     "a",
     "a-za-z",
+    "a-za-z0-9",
     "abandoned",
     "able",
     "about",
