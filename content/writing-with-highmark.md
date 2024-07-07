@@ -4,9 +4,11 @@ Highmark is a document preparation system inspired by Markdown[^markdown] and Te
 It is supported by Occam, as will been seen.     
 As a matter of fact both this book and the Foundations book are written in Highmark.
 
-The core concept that underlies Highmark is the distinctxion between style and content.
-To give an example, in the early days of the web often no such distinction was made.
-Consider the following HTML:
+What motivated Highmark's development was the need to make clear the distinctxion between style and content.
+This is essential for controlled natural languages, indeed Highmark could be seen as an intermediate step towards Occam's CNL support.
+
+As an example of the need to distinguish style from content, consider the following HTML.
+Here the `b` and `i` elements stand for bold and italic, respectively:
 
 ```
 <p>
@@ -14,10 +16,9 @@ This is meant to be communicated <b>strongly</b> whereas this is meant to be <i>
 </p>
 ```
 
-Here the `b` and `i` elements stand for bold and italic, respectively.
-What if the reader is visually impaired, however? 
-To cover such cincumstances thnew elements were deprecated and new elements invented to encapsulate the **meaning** of parts of the document whilst their **presentation** was defined in CSS.
-Thus the above became:
+In fact these days these kinds of elements, the ones that intimate style that is, have all been deprecated in favour of elements that convey meaning.
+Here is the HTML that would be used today, with the modern `strong` and `em` elements replacing the `b` and `i` elements.
+Here `em` here stands for emphasis;
 
 ```
 <p>
@@ -25,8 +26,7 @@ This is meant to be communicated <strong>strongly</strong> whereas this is meant
 </p>
 ```
 
-Note that `em` here stands for emphasise.
-Now the attendant visual CSS:
+And now the attendant visual CSS:
 
 ```
 b {
@@ -38,10 +38,10 @@ em {
 }
 ```
 
-And the aural CSS:
+Or the aural CSS:
 
 ```
-\@media speech {
+\@media aural {
   strong {
     voice-volume: x-loud;
   }
@@ -52,12 +52,16 @@ And the aural CSS:
 }
 ```
 
-In fact this approach was never widely adopted, but nonetheless the point has been made.
+In fact this latter approach, namely using the `aural` medai type, was never widely adopted, but nonetheless the point about separation of style and content holds.
 
-
+Markdown does not have an attendant style language in the way HTML has CSS, and therefore Highmark includes a new language, originally called Markdown Style.
+This is very much like CSS and indeed compiles down to CSS just as Markdown compiles down to HTML.
 
 [^tex]: https://en.wikipedia.org/wiki/TeX
 
 [^markdown]: https://en.wikipedia.org/wiki/Markdown
 
 @footnotes
+
+@pageNumber
+ 
