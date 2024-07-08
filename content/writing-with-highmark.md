@@ -54,8 +54,11 @@ Or the aural CSS:
 
 In fact this latter approach, namely using the `aural` medai type, was never widely adopted, but nonetheless the point about separation of style and content holds.
 
-Markdown does not have an attendant style language in the way HTML has CSS, and therefore Highmark includes a new language, originally called Markdown Style.
+Markdown does not have an attendant style language in the way HTML has CSS, and therefore Highmark includes a new language imaginatively called Markdown Style.
 This is very much like CSS and indeed compiles down to CSS just as Markdown compiles down to HTML.
+
+@include content/writing-with-highmark/installation-and-publishing.md
+@include content/writing-with-highmark/projects-and-publishing.md
 
 [^tex]: https://en.wikipedia.org/wiki/TeX
 
