@@ -5,7 +5,7 @@ And again like the lexers, these are all in fact the same common parser but conf
 Specifically, a `CommonParser` class is extended for each grammar although, unlike the lexers, there are no other specific properties or in-built rules.
 The only thing that differentiates each parser is its associated BNF.
 
-It is worth a moment to look at BNF in more detail.
+It is worth a moment to look at BNF in isolation.
 Imagine you want to parse an arithmetic expression.
 You would require something like the following rules at least...
 
@@ -20,7 +20,7 @@ Furthermore you would have to define two other rules:
 4. An operator is an addition, subtraction, division or multiplication character.
 5. A number is a series of one or more decimal digits.
 
-Such natural language specifications can cumbersome, however.
+Such natural language specifications are cumbersome, however.
 All BNF does is make all of this precise:
 
 ```

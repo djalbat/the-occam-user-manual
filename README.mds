@@ -28,7 +28,7 @@ unorderedList {
   margin-bottom: 12pt;
 }
 
-unorderedListItem {
+unorderedItem {
   margin-top: 3pt;
 }
 

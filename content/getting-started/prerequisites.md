@@ -1,8 +1,8 @@
 ## Prerequisites
 
 It almost goes without saying then that in order to use Occam you will need to have Node installed.
-Fortunatelyy, the chances are that it already is.
-To check this, run the following command in a terminal or command prompt:
+Fortunately the chances are that it already is.
+To check this, run the following command in a terminal:
 
 ```
 node --version

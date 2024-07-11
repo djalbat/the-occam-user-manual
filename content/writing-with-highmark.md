@@ -16,9 +16,9 @@ This is meant to be communicated <b>strongly</b> whereas this is meant to be <i>
 </p>
 ```
 
-In fact these days these kinds of elements, the ones that intimate style that is, have all been deprecated in favour of elements that convey meaning.
-Here is the HTML that would be used today, with the modern `strong` and `em` elements replacing the `b` and `i` elements.
-Here `em` here stands for emphasis;
+These days such elements, the ones that intimate style that is, have been deprecated in favour of elements that convey meaning.
+Here is the HTML that would be used today.
+Here `em` here stands for emphasis, by the way:
 
 ```
 <p>
@@ -58,7 +58,9 @@ Markdown does not have an attendant style language in the way HTML has CSS, and 
 This is very much like CSS and indeed compiles down to CSS just as Markdown compiles down to HTML.
 
 @include content/writing-with-highmark/installation-and-publishing.md
-@include content/writing-with-highmark/projects-and-publishing.md
+@include content/writing-with-highmark/project-and-published-structure.md
+@include content/writing-with-highmark/markdown-elements.md
+@include content/writing-with-highmark/markdown-style.md
 
 [^tex]: https://en.wikipedia.org/wiki/TeX
 
@@ -67,4 +69,3 @@ This is very much like CSS and indeed compiles down to CSS just as Markdown comp
 @footnotes
 
 @pageNumber
- 

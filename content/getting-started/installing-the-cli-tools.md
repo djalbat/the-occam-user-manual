@@ -1,8 +1,8 @@
 ## Installing the CLI tools
 
 CLI stands for command line interface.
-CLI tools are the ones that do not have a GUI, instead running directly inside a terminal or command prompt.
-Occam has two, namely a package manager and called `open`; and a verifier called simply `verify`.
+CLI tools are the ones that do not have a GUI, instead running directly inside a terminal.
+Occam has two, namely a package manager called `open`; and a verifier called simply `verify`.
 Installing them both is done by way of `npm` and is easy enough, although there are caveats.
 
 The first caveat is that if you are using a unixy operating system, and this includes MacOS, then you will probably need to prepend `sudo` to the installation commands.
@@ -12,7 +12,7 @@ There is an argument that says that you should not use such a directory and inst
 However, in all honesty, if you trust the package in question then it is not worth the bother.
 It is far easier to just prepend `sudo` and have done with it.
 
-Moving on, in order to install the `open` package manager execute the following command in a terminal or command prompt, leaving off the `sudo` as necessary:
+Moving on, in order to install the `open` package manager run the following command in a terminal, leaving off the `sudo` as necessary:
 
 ```
 sudo npm install --global occam-open-cli\@latest
@@ -54,7 +54,7 @@ Otherwise, if you see an error then the second caveat applies to you and you wil
 An error occurs when there is another application called `open` that takes precedence over the `open` npm package that you have just installed.
 One workaround is to create a symbolic link to the package in order to ensure that it takes precedence.
 This may render the other application useless, but in practice this is rarely an issue.
-It is worth briefly mentioning what kinds of applications are likely to be pushed aside by this workaround, however.
+It is worth briefly mentioning what kinds of applications are likely to be pushed aside by this workaround, though.
 In the case of MacOS, the native `open` CLI tool can be used to open files with their registered applications.
 For example, you could open a PDF file with the system's default PDF viewer.
 On other unixy systems the native `open` application is likely to be a legacy graphics utility.
@@ -67,18 +67,19 @@ This is easily recovered as the first line of the output from the following comm
 npm list --global
 ```
 
-Once you have the directory to hand, you need to add an alias to your terminal or command prompt's configuration file.
+Once you have the directory to hand, you need to add an alias to your terminal's configuration file.
 Exactly what this file is depends on your system.
 On MacOS it will be either the `.bashrc` or `.bash_profile` file in your home directory.
 If you are not using MacOS then hopefully you will have enough knowledge of your system to know which file to edit.
-Moving swiftly on, assuming that the fully qualified path of the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal or command prompt configuration file:
+
+Moving swiftly on, assuming that the fully qualified path of the npm global installation directory is `/usr/local/bin`, add the following line to the requisite terminal configuration file:
 
 ```
 alias open='/usr/local/lib/node_modules/occam-open-cli/open.js'
 ```
 
 Obviously adjust this to match your own npm global installation directory.
-Save the file and if you open a new terminal or command prompt then the `open` package manager should now be ready to use.
+Save the file and if you open a new terminal then the `open` package manager should now be ready to use.
 
 With hindsight perhaps `open` was not the best name to choose for Occam's package manager.
-Hopefully the above workaround has not caused too many difficulties.
+Hopefully the above workaround will not caused too many difficulties.

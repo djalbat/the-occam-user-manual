@@ -13,7 +13,6 @@ The following BNF will achieve this in the standard way:
 ```
             expression ::= additionalTerm... "." ;
 
-
         additionalTerm ::= additionalTerm additionalOperator multiplicativeTerm
 
                          | multiplicativeTerm
@@ -26,11 +25,9 @@ The following BNF will achieve this in the standard way:
 
                          ;
 
-
     additionalOperator ::= "+" | "-" ;
 
 multiplicativeOperator ::= "\*" | "/" ;
-
 
                 number ::= /\d+/ ;
 ```
@@ -77,7 +74,6 @@ The BNF below shows how it can be utilised:
 ```
 expression ::= term... "." ;
 
-
      term  ::=  argument ( "/" (4)
                             
                          | "\*" (3)
@@ -95,14 +91,13 @@ expression ::= term... "." ;
              | type ( )
              
              ;
-
       
    number  ::=  /\d+/ ; 
 ```
 
 Here each of the choices in the second part of the `term` rule's first definition has been augmented with a number in parenthesis.
 These numbers will be inherited by the nodes during parsing with the proviso that nodes with lower numbers are not allowed to appear directly below those with higher ones.
-And if look-ahead is enabled then the parser will have the chance to all possible parse trees until it finds one that satisfies this criteria, thus enforcing precedence.
+And if look-ahead is enabled then the parser will have the chance to try all possible parse trees until it finds one that satisfies this criteria, thus enforcing precedence.
 
 One other thing to note is that both the definitions of the `argument` rule, the need for which will be explained in a later chapter, are given what might be called empty or see-through precedence.
 This ensures that precedence is enforced between nodes that are to be found directly above and below them.

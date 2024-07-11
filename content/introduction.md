@@ -9,10 +9,9 @@ Occam has its own language, called Florence,[^florence] but it will also support
 Indeed, the verifier cannot distinguish between these languages at all.
 This book explains how this is possible.
 
-After explaining Occam's approach to language this book gives a very detailed explanation of how the verifier works.
+After explaining Occam's approach to language this book will give a very detailed explanation of how the verifier works.
 Some may find this nauseating but I maintain that it is essential.
-The whole idea behind Occam is to facilitate human reasoning and not to supplant it, and it is the verifier that reasons on your behalf.
-So you must understand how it works.
+The whole idea of Occam is not to replace human reasoning but to facilitate it, and it is the verifier that reasons on your behalf.
 In fact I recommend that you read the introduction together with the first four chapters of the Foundations book before going much further with this one.
 They are neither very long nor very deep and will provide the necessary background for understanding the verifier in particular.
 
@@ -27,31 +26,30 @@ Indeed in my opinion verification should be an aid to clarity and rigour and nev
 The idea of a proof as a black box in particular is anathema to me.
 
 Moving on, the standpoint that software should be an aid to human reasoning and not a substitute for it must these days be tempered by a consideration of artificial intelligence as a tool for reasoning.
-What inspired me over the near decade of work that it took to get Occam to its first viable release was a firm belief in what I call the four elephants, expounded in the four chapters of the aforementioned Foundations book.
+What inspired me over the near decade of work that it took to get Occam to its first viable release was a firm belief in what I call the four elephants, expounded in the first four chapters of the aforementioned Foundations book.
 I had not heard of large language models when I started out and they were never a motivating factor, but as I came to my first milestone after those many years, they began to loom large.
 
 The resurgence of artificial intelligence in recent years has hardly changed my views on automated reasoning, however.
 Admittedly of late there has been some progress in the direction of coupling artificial intelligence with formal reasoning systems.
-But for its part Occam only has a bearing on the right hand side of this coupling.
-However on the left hand side, it is importtant to note that the output of potentially any large language model or such like can serve as input for Occam.
+Occam's role in all of this seems to be that the output of any large language model or such like can potentially serve as its input.
 
 Thus the panacea of using computers as tools for symbolic reasoning, be that devising algorithms or protocols; discovering new mathematics or logic; or whatever, is almost upon us.
 And it is worth pointing out that this panacea has been eagerly anticipated for around seventy five years now.
-There is no doubt that artificial intelligence is on the verge of bringing all of this about, but without tools such as Occam the output of artificial intelligence models will always be clouded in doubt.
+There is no doubt that artificial intelligence is on the verge of bringing all of this about, but without tools such as Occam the output of artificial intelligence models will be clouded in doubt.
 
-Finally I should mention Highmark, wihch is a new document preparation system developed in tandem with Occam.
-It is a necessary intermediate step in working towards Occam's support for controlled natural languages but I hope that in the long run it will succeed in its own right.
+Changing the subject, I should mention Highmark, wihch is a new document preparation system developed in tandem with Occam.
+It was a necessary intermediate step in working towards Occam's support for controlled natural languages but I hope that in the long run it will succeed in its own merits.
 Both this book and the Foundations book were written using Highmark and it may well turn out that more people use Occam for working with it than for reasoning.
 There is therefore a chapter dedicated to it immediately after the chapter on getting to grips with the IDE.
 And if you are using Occam to work exclusively with Highmark then please do not be daunted by the formal reasoning side of things, you can safely ignore it, and rest assured that support for Highmark will always be included.
 
-To conclude, I hope that in the coming years at least some people will come to see Occam as an indespensible tool for symbolic reasoning.
+To conclude, I hope that in the coming years at least some people will come to see Occam as an indispensible tool for symbolic reasoning.
 Amongst other things it will enable them to leverage artificial intelligence to aid their own intellectual enquiries.
 However artificial intelligence will not, at least not in the foreseeable future, supplant them.
 
 [^occam]: The word Occam is used somewhat nebulously here.
-It is most often associated with Occam's IDE but in fact it encompasses a range of software and services.
-This book explains these divers parts and there is a companion book, called The Foundations of Symbolic Reasoning, that covers the underlying theory.
+It is most often associated with Occam's IDE but in fact it encompasses divers software and services.
+This book explains these practical parts and there is a companion book, called The Foundations of Symbolic Reasoning, that covers the underlying theory.
 
 [^florence]: Occam was originally called Florence but the former seemed more apt.
 

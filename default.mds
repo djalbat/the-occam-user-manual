@@ -16,3 +16,8 @@ blockListing {
   line-height: 19pt;
   box-shadow: 3pt 3pt 0 #999;
 }
+
+unorderedItem {
+  margin-top: 0;
+  margin-bottom: 3pt;
+}

@@ -12,23 +12,23 @@ This is straightforward enough:
 sudo npm install --global highmark-cli\@latest
 ```
 
-You can test the installation with the follwoing command:
+You can check the installation with the follwoing command:
 
 ```
 highmark --version
+```
+
+Next, create a `Books` directory or some such.
+Then cd into this directory and run the following command:
+
+```
+highmark initialise
 ```
 
 The next thing to do is to clone this book's repository, which will serve as an example:
 
 ```
 git clone git@github.com:djalbat/the-occam-user-manual.git
-```
-
-It is recommanded that you create a `Books` directory or some such to clone into.
-Next, cd into this directory and run the following command:
-
-```
-highmark initialise
 ```
 
 Now run the following commmand:
@@ -41,14 +41,12 @@ This will start a small web server for viewing the book.
 The choice of 7777 for the port is chosen because you may be running Occam on port 8888, by the way.
 You can now view the entire book at the following URL:
 
-```
 http://localhost:7777
-```
 
-It is not unreasonable to ask why it is necessary to run a web server in order to view an HTML file.
-This is because web fonts are used and they cannot be viewed statically.
+It is not unreasonable to ask why it is necessary to run a web server in order to view a single HTML file.
+The reason is that web fonts are used and they cannot be viewed statically.
 There is no good reason for this.
-Web fonts hardly pose no more of a security threat than images, say, but historically they were singled out for this treatment and there appears to be no way around other then serving them dynamically.
+Web fonts pose no more of a security threat than images, say, but historically they were singled out for this treatment and there appears to be no way around it other then serving them in this way.
 The only recompense is that as a result of running a web server the browser can be refreshed when the book is published.
 This is the purpose of the `watch` option.
 
@@ -58,9 +56,15 @@ Leave it running for the time being, however, and open another terminal at the s
 In this terminal type the following command to publish the book:
 
 ```
-highmark --client the-occam-user-manual
+highmark --client --fonts the-occam-user-manual
 ```
 
 As already mentioned, once the book has been published the browser should refresh.
-The `client` option will cause a JavaScript client to be bundled with the output HTML file in order to improve the end user experience.
 
+The `client` option will cause a bundled JavaScript client to be provided alongside the output HTML file, which improves the end user experience.
+As well as supporting pagination it provides for variabble font sizes, toggling the browser's full screen mode and so on.
+ 
+The `fonts` option will cause twenty CMU fonts to be copied to the `font` directory alongisde to the output HMTL file.
+This subject will be touched upon later.
+
+@pageNumber

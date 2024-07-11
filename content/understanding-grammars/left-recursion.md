@@ -1,7 +1,8 @@
 ## Left recursion
 
 A detailed understanding of left recursion is not required but It helps to know what it is because the algorithm to eliminate it will occasionally throw up errors that will appear spurious without at least some context.
-We recall the following BNF, therefore:
+
+Recall the following BNF, therefore:
 
 ```
 expression ::= "(" expression ")"
@@ -20,7 +21,7 @@ expression ::= "(" expression ")"
 The second of the definitions of the `expression` rule is left recursive, as previously pointed out.
 
 Here is the adjusted BNF with the left recursion eliminated.
-It is certainly not necessary to understand how this can come about:
+It is certainly not necessary to understand how this came about:
 
 ```
 expression            ::= expression_ expression~* ;
@@ -40,7 +41,7 @@ expression~expression ::= operator expression ;
 expression~           ::= expression~expression ;
 ```
  
-However, we draw attention to one of the adjustments in order to justify the kinds of errors that result when certain forms of left recursion cannot be eliminated.
+However, some attention should be paid to one of the adjustments in order to justify the kinds of errors that result when certain forms of left recursion cannot be eliminated.
 Suppose then that the second definition is abridged:
 
 ```
@@ -51,7 +52,6 @@ expression ::= "(" expression ")"
              ...
 
              ;
-
 ...
 ```
 
@@ -71,7 +71,7 @@ This is typical but fortunately there are only a handful of such forms and the e
 Furthermore, a little practice is all that suffices before it becomes straightforward to work out where problems lie.
 
 Lastly, the other type of error that arises is when complex parts cannot be rewritten.
-Again we alter the second definition of the `expression` rule to demonstrate:
+Again the second definition of the `expression` rule is altered in order to demonstrate:
 
 ```
 expression ::= "(" expression ")"
@@ -81,12 +81,11 @@ expression ::= "(" expression ")"
              ...
 
              ;
- 
 ...
 ```
 
-The first part of the second definition is a complex part and these cannot be rewritten.
-To see what this is so, simply ask yourself what the names of the rewritten rules would be.
+The first part of the second definition is a complex part and parts of this type cannot be rewritten.
+To see why this is so, simply ask yourself what the names of the rewritten rules would be.
 Here is the error:
 
 ```
