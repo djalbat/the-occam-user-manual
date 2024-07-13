@@ -14,7 +14,7 @@ Simiarly it might pick out string literals or, again, it might not.
 
 As well as picking out verious types of tokens, lexers distinguish between two kinds of token, namely significant and non-significant ones.
 Significant tokens will be picked up by the parser further down the line whereas non-significant tokens are largely ignored.
-There are subtleties in this, however, which we will come to later on.
+There are subtleties in this, however, which will be covered later on.
 One worth mentioning now is that end of line tokens can be either significant or non-significant depending on the particular lexer's configuration.
 
 Unlike a lexer's in-built rules, its user defined rules are defined by so-called lexical entries in JSON form.
@@ -41,6 +41,6 @@ Thus it is reasonable to envisage the lexer as consuming the content from left t
 
 One other thing to note is that the last user-defined rule must match anything but whitespace.
 Given that a prior in-built rule will have already matched any whitespace this guarantees that the plain text lexer will cope with any content.
-We call this robustness and come back to this important property of both lexers and parsers in a later section.
+This is called robustness and come back to this important property of both lexers and parsers in a later section.
 
 [^occam-grammars]: https://github.com/djalbat/occam-grammars

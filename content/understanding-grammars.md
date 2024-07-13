@@ -7,17 +7,18 @@ It can be thought of as comprising three parts:
 These symbols or characters are usually conflated with the glyphs that represent them. 
 In our case a sequence of such characters is what comprises the content of a document or file. 
 2. A set of rules, usually based on regular expressions,[^regular-expressions] to collect these characters into larger elements, called tokens or lexemes. 
-We tend to envisage a sequence of characters as continuous rather than discrete and therefore think of these rules as chopping up the content rather than gathering it. 
-This process is called lexing or tokenising and we stick with the latter. 
+A sequence of characters tends to be envisaged as continuous rather than discrete and therefore it is more usual to think of these rules as chopping up the content rather than gathering it. 
+This process is called lexing or tokenising with the latter being preferred here.
 3. Another set of rules, written in BNF,[^bnf] that are responsible for organising tokens into larger elements. 
 In the case of a natural language these would be phrases, sentences, paragraphs and so on. 
-This process is called parsing the tokens or, by extension, the content The resulting structure is usually called an abstract syntax tree or AST for short. 
-We call it a parse tree, however.
+This process is called parsing the tokens or, by extension, the content 
+The resulting structure is usually called an abstract syntax tree or AST for short. 
+However, the phrase parse tree is used throughout this book and in the code itself.
 
 There are two main parts to Occam's grammars functionality.
 Firstly, there is Occam's default language, Florence, together with controlled natural languages.
 Secondly there are custom grammars.
-We touch briefly on the first of these in the first section of this chapter but a detailed treatement of the second deserves its own chapter is saved for the next.
+The first of these is touched upon in the first section of this chapter but a detailed treatement of the second deserves its own chapter and is saved for the next.
 
 @embed content/understanding-grammars/controlled-natural-languages.md
 @embed content/understanding-grammars/unicode.md

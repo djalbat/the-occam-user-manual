@@ -1,13 +1,13 @@
-## Project and published structure
+## Project versus published structure
 
 There are a few types of input file in the cloned repository:
 
 * Several Markdown `*.md` files including a `default.md` file.
-* Several Markdown style `*.mds` files including a `default.mds` file.
+* Several Markdown Style `*.mds` files including a `default.mds` file.
 * An `index.json` file for the indexer's options.
 
 These files are all visible in the Occam IDE's projects pane.
-Note that the paths of the Markdown and Markdown style files often correspond.
+Note that the paths of the Markdown and Markdown Style files often correspond.
 This will be fully explained later on.
 
 Additionally the following files will be present.
@@ -59,7 +59,7 @@ Thus in effect the `@include` directives define a tree structure of nested divis
 If you mouse over the `@incloude` directives in the `default.md` file then you will see that their paths are clickable.
 Click on the first of them now in order to open up the `front-matter/cover.md` file.
 
-As mentioned briefly in the earlier chapter on getting to grips with the IDE, an additional button will appear in the editor menu when Markdown or Markdown style documents are active.
+As mentioned briefly in the earlier chapter on getting to grips with the IDE, an additional button will appear in the editor menu when Markdown or Markdown Style documents are active.
 You can click on this button now in order to bring up the preview pane to show the cover.
 When you do so yet another button will appear in the editor menu to allow you to change the relative positions of the preview pane and the pretty printer.
 The icon on the other button will also change, signfifying that you can show just the preview pane, hiding the pretty printer altogether.

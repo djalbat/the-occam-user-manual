@@ -11,19 +11,19 @@ As an example of the need to distinguish style from content, consider the follow
 Here the `b` and `i` elements stand for bold and italic, respectively:
 
 ```
-<p>
-This is meant to be communicated <b>strongly</b> whereas this is meant to be <i>emphasised</i>.
-</p>
+&lt;p&gt;
+This is meant to be communicated &lt;b&gt;strongly&lt;/b&gt; whereas this is meant to be &lt;i&gt;emphasised&lt;/i&gt;.
+&lt;/p&gt;
 ```
 
 These days such elements, the ones that intimate style that is, have been deprecated in favour of elements that convey meaning.
 Here is the HTML that would be used today.
-Here `em` here stands for emphasis, by the way:
+The `em` element signifies emphasis, by the way:
 
 ```
-<p>
-This is meant to be communicated <strong>strongly</strong> whereas this is meant to be <em>emphasised</em>.
-</p>
+&lt;p&gt;
+This is meant to be communicated &lt;strong&gt;strongly&lt;/strong&gt; whereas this is meant to be &lt;em&gt;emphasised&lt;/em&gt;.
+&lt;/p&gt;
 ```
 
 And now the attendant visual CSS:
@@ -38,7 +38,7 @@ em {
 }
 ```
 
-Or the aural CSS:
+And the equivalent aural CSS:
 
 ```
 \@media aural {
@@ -52,13 +52,13 @@ Or the aural CSS:
 }
 ```
 
-In fact this latter approach, namely using the `aural` medai type, was never widely adopted, but nonetheless the point about separation of style and content holds.
+In fact the latter approach of using the `aural` medai type has never widely adopted, but nonetheless the point about separation of style and content holds.
 
 Markdown does not have an attendant style language in the way HTML has CSS, and therefore Highmark includes a new language imaginatively called Markdown Style.
 This is very much like CSS and indeed compiles down to CSS just as Markdown compiles down to HTML.
 
 @include content/writing-with-highmark/installation-and-publishing.md
-@include content/writing-with-highmark/project-and-published-structure.md
+@include content/writing-with-highmark/project-versus-published-structure.md
 @include content/writing-with-highmark/markdown-elements.md
 @include content/writing-with-highmark/markdown-style.md
 

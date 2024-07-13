@@ -41,4 +41,4 @@ By stopping the incremental parser at the higher level, however, it is forced to
 Thus if that part of the content can indeed be parsed as a statement then this will be the outcome.
 
 These modifiers are of singular use when dealing with the ambiguity purposely added to the Florence grammar and indeed others.
-We call rules modified with single and double period modifiers semi-opaque and opaque, respectively, hopefully for obviously reasons.
+Rules modified with single and double period modifiers are called semi-opaque and opaque, respectively, hopefully for obviously reasons.

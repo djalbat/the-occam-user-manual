@@ -40,12 +40,12 @@ expression ::= "(" expression ")"
 It is not going too far to claim that not only are the above rules clearer than their natural language counterparts but that they could have been given with no prior explanation at all.
 Such is BNF's utility, if employed with common sense.
 
-We end this section with a brief description of how Occam's parser works.
+This section concludes with a brief description of how Occam's parser works.
 There is no need for a deep understanding but having at least a passing familiarity with the process may avoid frustration later on.
 So, Occam's parser is what is known as a top-down parser.
 Its goal is to evaluate the start rule, which is usually the first rule, during the process of which all of the tokens should be consumed.
 It evaluates a rule by evaluating each of its definitions in turn.
-If one of a these definitions evaluates then rule evaluates and we are done.
+If one of a these definitions evaluates then the rule as a whole evaluates.
 In order to evaludate a definition all of its parts must evaluate.
 Parts are generally either non-terminal, that is they simply point to a rule; or terminal, in which case they match a token.
 There is a third category of parts called complex parts which are perhaps best described as in-line rules.
@@ -55,6 +55,6 @@ It should become clear why the second definition of the `expression` rule is goi
 When the parser encounters this definition it will try to evaluate the `expression` rule again and if the first definition cannot be evaluated then the parser will loop indefinitely.
 This problem can be alleviated by rewriting the BNF under the hood but it is reasonable to ask why another kind of parser cannot be adopted, one that is not susceptible to so-called left recursion.
 The answer is that all kinds of parsers are susceptible to one form of recursion or another and top down parsers are generally by far the simplest and fastest.
-We come back to this particular form of recursion later on.
+This particular form of recursion will be covered later on.
 
 [^occam-grammars]: https://github.com/djalbat/occam-grammars

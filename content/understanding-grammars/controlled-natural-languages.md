@@ -19,7 +19,7 @@ Here is the parse tree, which is what what the verifier would see, so to speak:
                                 "x"[name] [0]                  "ℕ"[type] [0]              
 ```
 
-It should be clear from this parse tree that we have a variable declaration to hand, with the aforementioned `n` variable and `ℕ` type.
+It should be clear from this parse tree that this is a variable declaration, with the aforementioned `n` variable and `ℕ` type.
 It is not too hard to imagine that the verifier can extract this information from the parse tree by traversing it somehow, and this is indeed the case.
 
 Now consider the same variable declaration but written in a controlled natural language:

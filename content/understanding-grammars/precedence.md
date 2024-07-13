@@ -7,7 +7,7 @@ Consider the following arithmetic expression:
 1+2/3-4
 ```
 
-We would like this to parse whilst respecting the precedence of the operators.
+Ideally this should parse whilst respecting the precedence of the operators.
 The following BNF will achieve this in the standard way:
 
 ```
@@ -33,7 +33,7 @@ multiplicativeOperator ::= "\*" | "/" ;
 ```
 
 To summarise this approach, precedence is enforced by way of splitting the operators into two separate rules.
-The exact details are not important, however we give the parse tree in passing:
+The exact details are not important, however the parse tree is given in passing:
 
 ```
                                                                                                                                 expression [0]                                       
@@ -65,7 +65,7 @@ There are two problems with this cumbersome approach:
 Arguably extraneous nodes such as the `multiplicativeTerm` and `additionalOperator` nodes are an inevitable consequence of the elaborate BNF, for example.
 2. The BNF itself is flawed. 
 Note that the `multiplicativeTerm` rule references the `number` rule, the reason being that there must be some rule at the foot of the hierarchy, so to speak. 
-If we try to replace this with a reference to the `term` rule then we get a form of left recursion that cannot be eliminated. 
+If this is replaced with a reference to the `term` rule then the result is a form of left recursion that cannot be eliminated. 
 Thus if someone else wants to add additional rules to the `term` rule then they would be unable to do so independently.
 
 In order to tackle these problems a new way of treating precedence was devised.

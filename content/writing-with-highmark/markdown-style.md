@@ -1,10 +1,10 @@
-## Markdown style
+## Markdown Style
 
-Highmark's main contribution to Markdown is the introduction of a dedicated style language, called Markdown style.
+Highmark's main contribution to Markdown is the introduction of a dedicated style language, called Markdown Style.
 This is akin to CSS, indeed it complies down to CSS.
-Before looking at the syntax in detail we cover Markdown style's relation to published divisions.
+Markdown Style's relation to published divisions is covered first, after that its syntax is covered in detail.
 
-1. There is a default Markdown style[^defajlt-markdown-style] that is applied to all divisions. 
+1. There is a default Markdown Style[^defajlt-markdown-style] that is applied to all divisions. 
 Although it cannot be removed, it can be completely overridden if need be.
 Its purpose is to provide a consistent style in the abscence of any other.
 The idea is similar to a browser's default CSS.
@@ -37,8 +37,8 @@ blockListing {
 ...
 ```
 
-3. Laslly individual Markdown style files are only applied to the divisions of their correspondoing Markdown files.
-For example there is a `cover.mds` Markdown style file in the `front-matter` directory.
+3. Laslly individual Markdown Style files are only applied to the divisions of their correspondoing Markdown files.
+For example there is a `cover.mds` Markdown Style file in the `front-matter` directory.
 
 Properties outside of any rule, such as the `padding: 5vh` property above, are applied to all the elements in a divisions.
 On the other hand properties inside of rules are applied to their correspondoing Markdown elements.
@@ -103,10 +103,10 @@ Here is a complete list of these elements:
 * error
 * pageNumber
 
-The names of these elements take the place of the names of HTML elements such as `div` or `tbody` in Markdown style documents.
+The names of these elements take the place of the names of HTML elements such as `div` or `tbody` in Markdown Style documents.
 Indeed any other element names than those above are ignored.
 
-Here are some other things to bear in mind about Markdown style and its relation to CSS:
+Here are some other things to bear in mind about Markdown Style and its relation to CSS:
 
 1. Rules can be nested but there isi no need for a SASS-liike ampersand.
 For example:
@@ -128,7 +128,7 @@ background-colour: red;
 
 3. Pseudo-elements are not supported.
 4. Combinators are not supported but pseudo-classes **are** supported.
-For example, from the default Markdow style file:
+For example, from the default Markdown Style file:
 
 ```
 table,
