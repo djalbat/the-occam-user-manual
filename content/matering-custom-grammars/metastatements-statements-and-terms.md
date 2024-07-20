@@ -133,7 +133,7 @@ Combinator Statement ⇔ Statement
 Combinator Statement iff Statement
 ```
 
-Now copy the first of these combinator declarations into the sandbox and also set the start rule name to `combinatorDeclaration`.
+Now copy the first of these combinator declarations into the grammars sandbox and also set the start rule name to `combinatorDeclaration`.
 The following parse tree should appear:
 
 ```
@@ -207,3 +207,69 @@ It would then match this type again the child node of the `type` node in the com
 
 ### Terms
 
+A good example of custom grammars for terms can be found in the `strings` package.
+Open this package now and export its custom grammars to the grammars sandbox.
+There is little in the way of changes to the regular expression patterns with only the `+` and `|` operators being defined:
+
+```
+\\+|\|
+```
+
+Note that the `+` operator is defined elsewhere, in the `arithmetic` package to be precise.
+This overloading does not create any problems in theory although care is sometimes needed in practice.
+
+The term BNF is more interesting:
+
+```
+term  ::=  argument<NO_WHITESPACE>( ( "[" "..." argument "]" ) 
+
+                                  | ( "[" argument "..." argument "]" ) 
+
+                                  | ( "[" argument "..." "]" ) 
+      
+                                  ) (20)
+
+        |  argument "+" argument
+
+        |  "|" argument "|"
+
+        |  [string-literal] 
+
+        ;
+```
+
+The first definition allows for terms such as `s[...n]`, the second allows for terms representing string concatenation and so on.
+
+Terms have their equivalent of combinators, called constructors.
+Here are the constructor definitions for the `strings` package:
+
+```
+Constructor |String|:ℕ
+
+Constructor String[ℕ...]:String
+Constructor String[ℕ...ℕ]:String
+Constructor String[...ℕ]:String
+  
+Constructor String + String:String
+```
+
+If you copy the first of these into the grammars sandbox then the following parse tree should result:
+
+```
+                                                           constructorDeclaration [0]                                                 
+                                                                        |                                                             
+                 ---------------------------------------------------------------------------------------------------------------      
+                 |                                            |                                   |              |             |      
+"Constructor"[primary-keyword] [0]                        term [0]                        ":"[special] [0]   type [0]    <END_OF_LINE>
+                                                              |                                                  |                    
+                                           --------------------------------------                          "ℕ"[type] [0]              
+                                           |                  |                 |                                                     
+                                   "|"[operator] [0]  argument [0] ( )  "|"[operator] [0]                                             
+                                                              |                                                                       
+                                                          type [0]                                                                    
+                                                              |                                                                       
+                                                     "String"[type] [0]                                                               
+```
+
+Verification is entirely analogous to the verification of statements. 
+In fact the behaviour of the verifier when `type` nodes are encountered in constructors is exactly the same as when they are encountered in combinators.
