@@ -8,7 +8,7 @@ Aside from Highmark, little if anything worthwhile can be done with Occam withou
 
 @include content/matering-custom-grammars/a-motivating-example.md
 @include content/matering-custom-grammars/constituents-and-hierarchy.md
-@include content/matering-custom-grammars/terms-statements-and-metastataements.md
+@include content/matering-custom-grammars/metastatements-statements-and-terms.md
 
 @footnotes
 
