@@ -24,22 +24,21 @@ Lastly there are some adjunct files:
 * Image files in an `image` directory.
 * A `README.md` file and a `README.mds` file.
 
-At the very least a project must have a `default.md` file in its root directory and an `index.html` file will be written to the root directory when publishing.
-The `font` directory is also written in stone if you want to use the web fonts that Highmark provides.
+At the very least a project must have a `default.md` file in its root directory and an `index.html` file will be written to this directory when publishing.
+The location of the `font` directory is also written in stone.
 Aside from these constraints, however, you are free to organise files and directories as you see fit.
 In particular a project's directory structure has no bearning on publishing at all.
 
 One concept that needs explanation before going any further is that of a division.
-Highmark can be used for creating not just books but also papers, presentations and so on.
+Highmark can be used for writing not just books but also papers, presentations and so on.
 Each of these formats comprises different elements such as chapters, sections, slides and the like.
 What therefore should Highmark use as its standard element?
 Any of the aforementioned elements would likely cause confusion out of context and therefore the standard element is called a division.
 This comes from `div` elements in HTML and although awkward at first it has the advantage of being generic.
-Each Markdown file in a Highmark project results in a division, with two exceptions.
-The first is embedding and the second is when the divisions are paginated.
-Both of these exceptions will be covered in what follows.
+So each Markdown file in a Highmark project results in a division, albeit with some exceptions.
 
-Although publishing is unaffected by the project's directory structure there are some Markdown elements, called directives, which do have an effect or are otherwise related:
+Although publishing is unaffected by the project's directory structure there are some Markdown elements, called directives, which do have an effect or are otherwise related.
+They are:
 
 * `@index`
 * `@ignore`
@@ -50,10 +49,9 @@ Although publishing is unaffected by the project's directory structure there are
 * `@pageNumber`
 
 With these directives and the concept of divisions in mind, open the `default.md` file.
-This has two kinds of directive, namely a single `@ignore` directive, which tells Highmark not to include the corresponding division when publishing; and several `@include` directives, which tell Highmark to process the specified files and create a separate divisions.
-
+This has two kinds of directive, namely a single `@ignore` directive, which tells Highmark not to include the corresponding division when publishing; and several `@include` directives.
 During publishing Highmark keeps an array of divisions corresponding to the Markdown files that it processes by way of `@include` directives.
-As it encounters each `@include` directive it immediately processes the corresponding Markdown file and adds the resulting division to this array, provided there is no `@ignore` directive.
+As it encounters each one it immediately processes the corresponding Markdown file and adds the resulting division to this array, provided there is no `@ignore` directive.
 Thus in effect the `@include` directives define a tree structure of nested divisions that is flattened out during publishing.
 
 If you mouse over the `@incloude` directives in the `default.md` file then you will see that their paths are clickable.
@@ -61,7 +59,7 @@ Click on the first of them now in order to open up the `front-matter/cover.md` f
 
 As mentioned briefly in the earlier chapter on getting to grips with the IDE, an additional button will appear in the editor menu when Markdown or Markdown Style documents are active.
 You can click on this button now in order to bring up the preview pane to show the cover.
-When you do so yet another button will appear in the editor menu to allow you to change the relative positions of the preview pane and the pretty printer.
+When you do so yet another button will appear in the editor menu to enable you to change the relative positions of the preview pane and the pretty printer.
 The icon on the other button will also change, signfifying that you can show just the preview pane, hiding the pretty printer altogether.
 There is also an invisible splitter between the preview pane and the pretty printer which can be dragged in order to alter the relative amount of space they take up.
 Lastly it is worth reminding you of the presentation mode and the extra space that it admits.
@@ -73,7 +71,7 @@ There is little else to say about the list of contents for now except that it ca
 
 Now use the clickable paths in the `@include` directives to navigate your way to the `content/introduction.md` file.
 This has two further directives at its foot, namely the `@footnotes` and `@pageNumber` directives.
-Both do as their names suggest and little further explanation is needed.
+Both do as their names suggest.
 The Markdown elements needed to create the footnotes themselves will be covered later.
 
 Next, navigate to the `content/getting-started.md` file.
@@ -104,5 +102,3 @@ Currently Highmark only publishes to HTML and there is no way to accurately gaug
 Therefore, unfortunately, pagination does not result in pages of equal height.
 Best practice seems to be to choose settings which feel comfortable and accept that the user will do some scrolling.
 Given that the Highmark client allows for the font size to be changed, this is almost inevitable.
-
-@pageNumber

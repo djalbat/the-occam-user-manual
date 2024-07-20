@@ -66,5 +66,3 @@ As well as supporting pagination it provides for variabble font sizes, toggling 
  
 The `fonts` option will cause twenty CMU fonts to be copied to the `font` directory alongisde to the output HMTL file.
 This subject will be touched upon later.
-
-@pageNumber

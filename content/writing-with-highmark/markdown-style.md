@@ -2,14 +2,14 @@
 
 Highmark's main contribution to Markdown is the introduction of a dedicated style language, called Markdown Style.
 This is akin to CSS, indeed it complies down to CSS.
-Markdown Style's relation to published divisions is covered first, after that its syntax is covered in detail.
+Markdown Style's relation to published divisions is covered first, after that its syntax is covered.
 
 1. There is a default Markdown Style[^defajlt-markdown-style] that is applied to all divisions. 
 Although it cannot be removed, it can be completely overridden if need be.
 Its purpose is to provide a consistent style in the abscence of any other.
 The idea is similar to a browser's default CSS.
 This may not be apparent but is always present.
-There is no such thing as an unstyled web page.
+There is no such thing as an unstyled web page shown in a browser.
 2. After this there is the `default.mds` file in the root of the project.
 This is applied not just to the `default.md` file's corresponding division but to all divisions.
 Here is part of this book's default style:
@@ -33,16 +33,14 @@ blockListing {
   line-height: 19pt;
   box-shadow: 3pt 3pt 0 \#999;
 }
-
-...
 ```
 
 3. Laslly individual Markdown Style files are only applied to the divisions of their correspondoing Markdown files.
-For example there is a `cover.mds` Markdown Style file in the `front-matter` directory.
+For example there is a `cover.mds` Markdown Style file in the `front-matter` directory corresponding to the `cover.md` file.
 
-Properties outside of any rule, such as the `padding: 5vh` property above, are applied to all the elements in a divisions.
+Properties outside of any rule, such as the `padding` property above, are applied to all the elements in a division.
 On the other hand properties inside of rules are applied to their correspondoing Markdown elements.
-Here is a complete list of these elements:
+Here is a complete list of the element names that can be used in Markdown Style files:
 
 #### Headings
 
@@ -103,13 +101,11 @@ Here is a complete list of these elements:
 * error
 * pageNumber
 
-The names of these elements take the place of the names of HTML elements such as `div` or `tbody` in Markdown Style documents.
-Indeed any other element names than those above are ignored.
+All element names aside from these those above are ignored.
 
-Here are some other things to bear in mind about Markdown Style and its relation to CSS:
+Here are some other things to bear in mind about Markdown Style and in particular its relation to CSS:
 
-1. Rules can be nested but there isi no need for a SASS-liike ampersand.
-For example:
+1. Rules can be nested but there is no need for a SASS-liike ampersand:
 
 ```
 paragraph {
@@ -126,8 +122,7 @@ Native English speakers can use `colour` rather than `color` and it will be tran
 background-colour: red;
 ```
 
-3. Pseudo-elements are not supported.
-4. Combinators are not supported but pseudo-classes **are** supported.
+3. Pseudo-elements  and ombinators are not supported but pseudo-classes are.
 For example, from the default Markdown Style file:
 
 ```
@@ -145,8 +140,7 @@ quaternaryHeading {
 }
 ```
 
-Lastly, there are five Computer Modern Unicode[^cmb-fonts] or CMU fonts available, each in the four variants of regular, bold, italic and bold italic.
-This makes twenty font faces in all:
+Lastly, there are five Computer Modern Unicode[^cmb-fonts] or CMU fonts available:
 
 * Computer Modern Serif
 * Computer Modern Sans
@@ -154,7 +148,8 @@ This makes twenty font faces in all:
 * Computer Modern Concrete
 * Computer Modern Typewriter
 
-As mentioned earlier in this chapter, these fonts are copied to the `font` directory during publishing.
+Each comes in the four variants of regular, bold, italic and bold italic, making twenty files in all.
+As mentioned earlier, these are copied to the `font` directory during publishing.
 The `@font-face` CSS at-rules are automatically added to the CSS embedded in the `index.html` file, making these fonts easily avaiable.
 Here is an example from the default style:
 
@@ -172,7 +167,3 @@ quaternaryHeading {
 [^cmb-fonts]: https://github.com/djalbat/highmark-fonts/tree/master
 
 [^defajlt-markdown-style]: https://github.com/djalbat/highmark-markdown/blob/master/src/defaultMarkdownStyle.js
-
-@footnotes
-
-@pageNumber

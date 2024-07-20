@@ -99,7 +99,7 @@ Firstly, the `verticalSpace` rule matches one or more end of line tokens.
 Recall that the Florence lexer is configured to treat such tokens as significant, hence they can be referenced here.
 Also, the `document` rule's definition has a complex part which stipulates one or more of a choice of three parts.
 These will be evaluated in sequence and therefore the `error` rule provides the required fallback functionality.
-Its single definition has only one wildcard part `.` that will match any significant token, as its name suggests.
+Its single definition has only one wildcard part that will match any significant token, as its name suggests.
 Thus Occam's parsers can be said to be robust, in a similar vein to its lexers, in the sense that they will cope with any content.
 
 Here is part of the Florence BNF about half way down:

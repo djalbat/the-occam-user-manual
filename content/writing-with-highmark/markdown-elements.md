@@ -123,5 +123,3 @@ Image syntax is similar to hyperlinks but with a prepended exclamation mark:
 ```
 
 Alternative text must always be provided and therefore there is no shorthand syntax for images.
-
-@pageNumber
