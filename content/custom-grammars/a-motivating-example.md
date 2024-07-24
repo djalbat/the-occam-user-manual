@@ -36,9 +36,9 @@ Note that it does indeed parse, but that it is being parsed as nonsense.
 This is the fallback if the unqualified metastatement cannot be parsed in a more meaningful way.
 
 If you want then you can copy just the premise itself into the pretty printer and set the start rule to `unqualifiedMetastatement`.
-If you do so then be sure to include a carriage after the `A ⇒ B` since the rule requires it.
+If you do so then be sure to include a carriage return after the `A ⇒ B` since the rule requires it.
 Here is the rule from the Florence grammar again, in fact.
-Note that the definition with a reference to the `metastatement` rule will be evaludated before the `nonsense` definition:
+Note that the definition with a reference to the `metastatement` rule will be evaluated before the `nonsense` definition:
 
 ```
 unqualifiedMetastatement..           ::=   metastatement... <END_OF_LINE> 
@@ -50,8 +50,8 @@ unqualifiedMetastatement..           ::=   metastatement... <END_OF_LINE>
 
 To continue, the first thing to do in order to make sense of this metastatement is to add a custom grammar.
 To do so, type 'modus-ponens' or some such into the input field in the custom grammars panel.
-Now click the 'Add' button and a new item representing the custrom grammar will appear.
-As well as a button for the name itself it has three addtional buttons, the utility of which should be obvious.
+Now click the 'Add' button and a new item representing the custom grammar will appear.
+As well as a button for the name itself it has three additional buttons, the utility of which should be obvious.
 Click on the name button now to activate the custom grammar.
 This will enable the input field and textarea for the patterns and BNF, respectively.
 

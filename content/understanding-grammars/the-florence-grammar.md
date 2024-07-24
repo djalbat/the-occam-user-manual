@@ -62,7 +62,7 @@ The regular expression pattern for the `primary-keyword` entry has been heavily 
 Note that the regular expression pattern for the last `unassigned` token type will match anything but whitespace.
 In fact again the point is made, as it was with the earlier plain text lexer, that since a prior in-built rule will have already matched any whitespace, this guarantees that the Florence lexer will cope with any content.
 
-Here is the abridged top-level part of the BNF for the parser:
+Here is the abridged top part of the BNF for the parser:
 
 ```
 document                             ::=   ( topLevelDeclaration | verticalSpace | error )+ ;

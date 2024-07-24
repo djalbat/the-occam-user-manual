@@ -16,7 +16,7 @@ The resulting structure is usually called an abstract syntax tree or AST for sho
 However, the phrase parse tree is used throughout this book and in the code itself.
 
 Each of these points has its own dedicated section in what follows.
-After that there is a brief section on controlled natural languages follwed by a section on Florence, Occam's default language.
+After that there is a brief section on controlled natural languages followed by a section on Florence, Occam's default language.
 The important subject of custom grammars has its own chapter, which comes next.
 
 @embed content/understanding-grammars/unicode.md

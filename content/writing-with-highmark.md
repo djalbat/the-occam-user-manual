@@ -3,7 +3,7 @@
 Highmark is a document preparation system inspired by Markdown[^markdown] and TeX[^tex].
 It is supported by Occam, as will been seen.     
 As a matter of fact both this book and the Foundations book are written in Highmark.
-What motivated Highmark's development was the need to make clear the distinctxion between style and content.
+What motivated Highmark's development was the need to make clear the distinction between style and content.
 This is essential for controlled natural languages, indeed Highmark could be seen as an intermediate step towards Occam's CNL support.
 
 As an example of the need to distinguish style from content, consider the following HTML.
@@ -51,7 +51,7 @@ And the equivalent aural CSS:
 }
 ```
 
-In fact the latter approach of using the `aural` medai type has never widely adopted, but nonetheless the point about separation of style and content holds.
+In fact the latter approach of using the `aural` media type has never widely adopted, but nonetheless the point about separation of style and content holds.
 Markdown does not have an attendant style language in the way HTML has CSS, and therefore Highmark includes a new language imaginatively called Markdown Style.
 This is very much like CSS and indeed compiles down to CSS just as Markdown compiles down to HTML.
 

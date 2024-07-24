@@ -35,9 +35,9 @@ You will see the custom grammars for these five packages imported.
 Note that if you have any custom grammars already defined, such as the one needed for the motivating example, then importing will overwrite them.
 Be mindful of this as there is no way of recovering them.
 
-The order in which these custom grammars are imported is the topological ordering determinted by their dependency relations.
-Specifically, dependancies will always appear below their dependents.
-For example, the `minimal-propositional-logic` package is a dependancy of the `intuitionistic-propositional-logic` package and therefore appaars below it.
+The order in which these custom grammars are imported is the topological ordering determined by their dependency relations.
+Specifically, dependencies will always appear below their dependents.
+For example, the `minimal-propositional-logic` package is a dependency of the `intuitionistic-propositional-logic` package and therefore appears below it.
 By the way, if you had clicked the button to export the custom grammars with a package selected in the projects pane then only the custom grammar for that particular package together with its dependencies would have been exported.
 
 To continue, all of these packages define meta-level concepts and so the type and symbol input fields will be empty for each of them.

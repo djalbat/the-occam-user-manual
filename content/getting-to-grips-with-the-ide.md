@@ -5,7 +5,7 @@ Actually Occam's CLI tools are not integrated with it as of yet and therefore it
 It has some useful points, however:
 
 * It supports Florence, Occam's own language. 
-* it has sone indispensible indexing and navigation features.
+* it has some indispensible indexing and navigation features.
 * It unpacks Occam's packages in its projects pane so that you can browse them as projects. 
 
 Some considerable effort has gone in to making it as usable as possible and most of its functionality should therefore be discoverable.
