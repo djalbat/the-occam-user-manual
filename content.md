@@ -5,4 +5,4 @@
 @include content/getting-to-grips-with-the-ide.md
 @include content/writing-with-highmark.md
 @include content/understanding-grammars.md
-@include content/mastering-custom-grammars.md
+@include content/custom-grammars.md
