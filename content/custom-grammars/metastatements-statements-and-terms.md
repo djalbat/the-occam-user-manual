@@ -349,15 +349,15 @@ statement                            ::=   "(" metaArgument ")"
 
                                        |   typeAssertion 
                                                   
-                                       |   undefinedAssertion
+                                       |   term... defining
 
+                                       |   term... containment metaArgument 
+                                                  
                                        ;
-                                       
-equality                             ::=   argument "=" argument ;
 
 typeAssertion                        ::=   term... ":" type ;
-
-undefinedAssertion                   ::=   variable "is" "undefined" ;
+                                       
+equality                             ::=   argument "=" argument ;
 ```
 
 Note that statements can also be parenthesised.
@@ -379,10 +379,12 @@ metastatement                        ::=   "(" metastatement ")"
            
                                        |   proofAssertion
        
-                                       |   metavariable ( inclusion | substitution )?
+                                       |   term... defining
+
+                                       |   term... containment metastatement
 
                                        |   metavariable substitution?
-
+       
                                        ;
 
 ruleSubproofAssertion                ::=   "[" metastatement ( "," metastatement )\* "]" "..." metastatement ;
@@ -390,12 +392,14 @@ ruleSubproofAssertion                ::=   "[" metastatement ( "," metastatement
 contextDefinition                    ::=   context "=" ( judgement | context ) ( "," ( judgement | context ) )\* ;
 
 proofAssertion                       ::=   context "⊧" judgement ;
- 
+
+substitution                         ::=   <NO_WHITESPACE>"[" term... "for" variable "]" ;
+
+containment                          ::=   "is" ( ( "contained" "in" ) | ( "omitted" "from" ) ) ;
+
+defining                             ::=   "is" ( "defined" | "undefined" ) ;
+
 judgement                            ::=   reference "::" metastatement ;
-
-inclusion                            ::=   ( "omits" | "includes" ) variable ;
-
-substitution                         ::=   "[" term... "for" variable "]" ;
 ```
 
 Again note that parentheses are essentially internalised by the verifier at a meta level.
